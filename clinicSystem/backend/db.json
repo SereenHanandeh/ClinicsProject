@@ -1,0 +1,38 @@
+{
+  "users": [
+    { "id": 1, "email": "admin@cms.com", "password": "admin123", "userType": "admin" },
+    { "id": 2, "email": "dr.sara@cms.com", "password": "doc123", "userType": "doctor" },
+    { "id": 3, "email": "patient.ali@cms.com", "password": "pat123", "userType": "patient" }
+  ],
+  "patients": [
+    { "id": 1, "name": "Ali Ahmad", "email": "patient.ali@cms.com", "phone": "0777777777", "gender": "male", "dateOfBirth": "1990-05-10" }
+  ],
+  "doctors": [
+    { "id": 1, "name": "Dr. Sara", "email": "dr.sara@cms.com", "phone": "0799999999", "specification": "Cardiology", "clinicId": 1 }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "date": "2025-05-20T10:00:00",
+      "doctorId": 1,
+      "patientId": 1,
+      "approvalStatus": "pending",
+      "details": {
+        "drugs": [1],
+        "diagnosis": 1,
+        "payment": 50
+      }
+    }
+  ],
+  "clinics": [
+    { "id": 1, "name": "Al Amal Clinic" }
+  ],
+  "drugs": [
+    { "id": 1, "name": "Panadol" },
+    { "id": 2, "name": "Amoxicillin" }
+  ],
+  "diagnoses": [
+    { "id": 1, "name": "Flu" },
+    { "id": 2, "name": "Cold" }
+  ]
+}
