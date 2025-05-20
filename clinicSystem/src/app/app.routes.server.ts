@@ -1,9 +1,8 @@
-import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/auth/login/login.component';
-import { SignupComponent } from './pages/auth/signup/signup.component';
+import { RenderMode, ServerRoute } from '@angular/ssr';
 
-export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+export const serverRoutes: ServerRoute[] = [
+  {
+    path: '**',
+    renderMode: RenderMode.Prerender
+  }
 ];
