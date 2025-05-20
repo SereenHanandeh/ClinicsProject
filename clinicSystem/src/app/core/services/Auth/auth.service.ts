@@ -62,4 +62,14 @@ export class AuthService {
   isPatient(): boolean {
     return this.hasRole('patient');
   }
+
+  register(user: Partial<User>): Observable<User> {
+    if (user.userType && user.userType !== 'patient') {
+      throw new Error('Only patients can register');
+    }
+    return this.http.post<User>(`${this.baseUrl}/users`, {
+      ...user,
+      userType: 'patient',
+    });
+  }
 }

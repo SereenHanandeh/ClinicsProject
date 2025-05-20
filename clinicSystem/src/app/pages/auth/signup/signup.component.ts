@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../core/services/Auth/auth.service';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signup',
-  imports: [],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss'
+  imports:[FormsModule],
+  standalone:true
 })
 export class SignupComponent {
+  user = { username: '', password: '' };
 
+  constructor(private authService: AuthService) {}
+
+  onSubmit() {
+    this.authService.register(this.user);
+    alert('User registered successfully!');
+    this.user = { username: '', password: '' };
+  }
 }
