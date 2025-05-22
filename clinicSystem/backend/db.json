@@ -1,28 +1,92 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "admin@cms.com",
       "password": "admin123",
       "userType": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "dr.sara@cms.com",
       "password": "doc123",
       "userType": "doctor"
     },
     {
-      "id": 3,
+      "id": "3",
       "email": "patient.ali@cms.com",
       "password": "pat123",
       "userType": "patient"
+    },
+    {
+      "id": "747a",
+      "name": "sereen hanandeh",
+      "email": "s@gmail.com",
+      "phone": "053 945 7475",
+      "gender": "female",
+      "dateOfBirth": "2013-06-06",
+      "password": "Ahmad123",
+      "confirmPassword": "Ahmad123",
+      "userType": "patient"
+    },
+    {
+      "id": "7907",
+      "name": "sereen hanandeh",
+      "email": "s@gmail.com",
+      "phone": "053 945 7475",
+      "gender": "female",
+      "dateOfBirth": "2021-05-11",
+      "password": "Ahmad@123",
+      "confirmPassword": "Ahmad@123",
+      "userType": "patient"
+    },
+    {
+      "id": "75ef",
+      "name": "raneem",
+      "email": "r@gmail.com",
+      "phone": "079 344 4444",
+      "gender": "female",
+      "dateOfBirth": "2025-05-04",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "userType": "patient"
+    },
+    {
+      "id": "0",
+      "name": "sereen hanandeh",
+      "email": "ss@gmail.com",
+      "password": "Ahmad@123",
+      "userType": "patient"
+    },
+    {
+      "id": 0,
+      "name": "sereen hanandeh",
+      "email": "sse@gmail.com",
+      "password": "Ahmad@123",
+      "userType": "patient"
     }
   ],
-  "patients": [{}],
+  "patients": [
+    {
+      "id": "0",
+      "name": "sereen hanandeh",
+      "email": "ss@gmail.com",
+      "phone": "053 945 7475",
+      "gender": "female",
+      "dateOfBirth": "2000-10-12"
+    },
+    {
+      "id": 0,
+      "name": "sereen hanandeh",
+      "email": "sse@gmail.com",
+      "phone": "053 945 7777",
+      "gender": "female",
+      "dateOfBirth": "2013-05-09"
+    }
+  ],
   "doctors": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Dr. Sara",
       "email": "dr.sara@cms.com",
       "phone": "0799999999",
@@ -30,14 +94,35 @@
       "clinicId": 1
     }
   ],
-  "appointments": [{}],
-  "clinics": [{ "id": 1, "name": "Al Amal Clinic" }],
+  "appointments": [
+    {
+      "id": "03aa"
+    }
+  ],
+  "clinics": [
+    {
+      "id": "1",
+      "name": "Al Amal Clinic"
+    }
+  ],
   "drugs": [
-    { "id": 1, "name": "Panadol" },
-    { "id": 2, "name": "Amoxicillin" }
+    {
+      "id": "1",
+      "name": "Panadol"
+    },
+    {
+      "id": "2",
+      "name": "Amoxicillin"
+    }
   ],
   "diagnoses": [
-    { "id": 1, "name": "Flu" },
-    { "id": 2, "name": "Cold" }
+    {
+      "id": "1",
+      "name": "Flu"
+    },
+    {
+      "id": "2",
+      "name": "Cold"
+    }
   ]
 }

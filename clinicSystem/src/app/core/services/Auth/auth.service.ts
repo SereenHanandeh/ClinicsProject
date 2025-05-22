@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, switchMap, throwError } from 'rxjs';
 import { User } from '../../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { Patient } from '../../models/patient.model';
 
 @Injectable({
   providedIn: 'root',
@@ -63,13 +64,61 @@ export class AuthService {
     return this.hasRole('patient');
   }
 
-  register(user: Partial<User>): Observable<User> {
-    if (user.userType && user.userType !== 'patient') {
-      throw new Error('Only patients can register');
+  register(
+    user: Partial<User> & {
+      phone?: string;
+      gender?: 'male' | 'female';
+      dateOfBirth?: string;
     }
-    return this.http.post<User>(`${this.baseUrl}/users`, {
-      ...user,
-      userType: 'patient',
-    });
+  ): Observable<string> {
+    if (user.userType && user.userType !== 'patient') {
+      return throwError(() => new Error('Only patients can register.'));
+    }
+
+    const strongPasswordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!user.password || !strongPasswordRegex.test(user.password)) {
+      return throwError(
+        () =>
+          new Error(
+            'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.'
+          )
+      );
+    }
+
+    return this.http
+      .get<User[]>(`${this.baseUrl}/users?email=${user.email}`)
+      .pipe(
+        switchMap((existingUsers: User[]) => {
+          if (existingUsers.length > 0) {
+            return throwError(() => new Error('Email is already registered.'));
+          }
+
+          const newUser: User = {
+            id: 0,
+            name: user.name ?? '',
+            email: user.email ?? '',
+            password: user.password!,
+            userType: 'patient',
+          };
+          
+          return this.http.post<User>(`${this.baseUrl}/users`, newUser).pipe(
+            switchMap((createdUser: User) => {
+              const newPatient: Patient = {
+                id: createdUser.id,
+                name: createdUser.name,
+                email: createdUser.email,
+                phone: user.phone ?? '',
+                gender: user.gender ?? 'male',
+                dateOfBirth: user.dateOfBirth ?? '',
+              };
+
+              return this.http
+                .post(`${this.baseUrl}/patients`, newPatient)
+                .pipe(map(() => 'Registration successful.'));
+            })
+          );
+        })
+      );
   }
 }

@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
- registerForm: FormGroup;
+  registerForm: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
 
@@ -33,10 +33,7 @@ export class RegisterComponent {
         email: ['', [Validators.required, Validators.email]],
         phone: [
           '',
-          [
-            Validators.required,
-            Validators.pattern(/^\d{3} ?\d{3} ?\d{4}$/),
-          ],
+          [Validators.required, Validators.pattern(/^\d{3} ?\d{3} ?\d{4}$/)],
         ],
         gender: ['male', [Validators.required]],
         dateOfBirth: ['', [Validators.required]],
