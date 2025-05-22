@@ -11,6 +11,11 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
+   getDoctorAppointments(): Observable<Appointment[]> {
+    const doctorId = 1;
+    return this.http.get<Appointment[]>(`${this.baseUrl}/appointments?doctorId=${doctorId}&status=pending`);
+  }
+
   getAppointmentsByDoctor(doctorId: number): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(
       `${this.baseUrl}/appointments?doctorId=${doctorId}`

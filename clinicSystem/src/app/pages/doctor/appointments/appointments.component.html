@@ -1,1 +1,45 @@
-<p>appointments works!</p>
+<div class="appointments-container">
+  <h2>Upcoming Appointments</h2>
+
+  <ul>
+    <li
+      *ngFor="let appointment of appointments"
+      (click)="selectAppointment(appointment)"
+      [class.selected]="appointment === selectedAppointment"
+    >
+      Date: {{ appointment.date | date : "medium" }} - Status:
+      {{ appointment.status }}
+    </li>
+  </ul>
+
+  <div *ngIf="selectedAppointment" class="appointment-details">
+    <h3>Appointment Details</h3>
+    <p>
+      <strong>Date:</strong> {{ selectedAppointment.date | date : "fullDate" }}
+    </p>
+    <p>
+      <strong>Diagnosis:</strong> {{ selectedAppointment.details.diagnosis }}
+    </p>
+    <p>
+      <strong>Drugs:</strong> {{ selectedAppointment.details.drugs.join(", ") }}
+    </p>
+    <p><strong>Payment:</strong> ${{ selectedAppointment.details.payment }}</p>
+    <p><strong>Status:</strong> {{ selectedAppointment.status }}</p>
+
+    <button
+      *ngIf="selectedAppointment.status === 'pending'"
+      (click)="respond('approved')"
+    >
+      Approve
+    </button>
+    <button
+      *ngIf="selectedAppointment.status === 'pending'"
+      (click)="respond('rejected')"
+    >
+      Reject
+    </button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+</div>
