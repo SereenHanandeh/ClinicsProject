@@ -9,6 +9,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { AppointmentsComponent } from './pages/doctor/appointments/appointments.component';
 import { roleGuard } from './core/guards/Role/role.guard';
+import { AppointmentService } from './core/services/Appointment/appointment.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
