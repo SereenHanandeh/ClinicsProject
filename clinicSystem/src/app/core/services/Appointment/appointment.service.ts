@@ -31,4 +31,13 @@ export class AppointmentService {
       { status }
     );
   }
+
+  getPatients(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/patients`);
+  }
+
+  getAppointments(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/appointments`);
+  }
+
 }

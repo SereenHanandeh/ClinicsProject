@@ -1,3 +1,30 @@
+<div class="p-4">
+  <form [formGroup]="filterForm" class="mb-3">
+    <label>Search by Name:</label>
+    <input type="text" class="form-control" formControlName="name" placeholder="Enter patient name">
+  </form>
+
+  <div *ngFor="let patient of filteredPatients" class="card mb-3">
+    <div class="card-body">
+      <h5>{{ patient.name }}</h5>
+      <p>Email: {{ patient.email }}</p>
+      <p>Phone: {{ patient.phone }}</p>
+      <p>Birthdate: {{ patient.dateOfBirth }}</p>
+
+      <div *ngIf="getAppointmentsForPatient(patient.id).length > 0">
+        <strong>Appointments:</strong>
+        <ul>
+          <li *ngFor="let app of getAppointmentsForPatient(patient.id)">
+            Appointment ID: {{ app.id }}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="getAppointmentsForPatient(patient.id).length === 0">
+        <em>No appointments.</em>
+      </div>
+    </div>
+  </div>
+
 <div class="appointments-container">
   <h2>Upcoming Appointments</h2>
 
@@ -42,4 +69,5 @@
 
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
 </div>
