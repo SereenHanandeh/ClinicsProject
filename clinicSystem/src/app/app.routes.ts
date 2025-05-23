@@ -32,7 +32,7 @@ export const routes: Routes = [
   {
     path: 'doctor',
     canActivateChild: [roleGuard],
-    data: { roles: ['doctor'] }, // roles هنا تستخدم بواسطة roleGuard
+    data: { roles: ['doctor'] }, 
     children: [{ path: 'dashboard', component: DoctorLayoutComponent }],
   },
   {
