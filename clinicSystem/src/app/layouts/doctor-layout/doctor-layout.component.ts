@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { AppointmentsComponent } from "../../pages/doctor/appointments/appointments.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-layout',
-  imports: [],
+  imports: [AppointmentsComponent,RouterModule],
   templateUrl: './doctor-layout.component.html',
   styleUrl: './doctor-layout.component.scss'
 })

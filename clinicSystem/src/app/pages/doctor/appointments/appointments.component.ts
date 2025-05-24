@@ -29,6 +29,7 @@ export class AppointmentsComponent {
     this.loadAppointments();
   }
 
+  
   loadAppointments(): void {
     this.appointmentService.getDoctorAppointments().subscribe({
       next: (appointments) => {
