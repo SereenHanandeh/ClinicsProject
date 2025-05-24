@@ -1,19 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import {
   Appointment,
   ApprovalStatus,
 } from '../../../core/models/appointment.model';
 import { AppointmentService } from '../../../core/services/Appointment/appointment.service';
+import { PatientHistoryComponent } from '../patient-history/patient-history.component';
 
 @Component({
   selector: 'app-appointments',
-  imports: [CommonModule, ReactiveFormsModule],
-
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, PatientHistoryComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
 })
@@ -33,9 +36,6 @@ export class AppointmentsComponent {
     this.loadAppointments();
   }
 
-
-
-  
   loadAppointments(): void {
     this.appointmentService.getDoctorAppointments().subscribe({
       next: (appointments) => {
@@ -63,7 +63,7 @@ export class AppointmentsComponent {
       .updateAppointmentStatus(this.selectedAppointment.id, status)
       .subscribe({
         next: () => {
-          this.successMessage =`Appointment ${status}`;
+          this.successMessage = `Appointment ${status}`;
 
           this.successMessage = `Appointment ${status}`;
           // تحديث حالة الموعد في القائمة المحلية

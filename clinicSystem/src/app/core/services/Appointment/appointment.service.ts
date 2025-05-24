@@ -23,10 +23,6 @@ export class AppointmentService {
     );
   }
 
-   getPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.baseUrl}/patients`);
-  }
-
   updateAppointmentDetails(id: number, details: Appointment['details']): Observable<Appointment> {
     return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, { details });
   }
