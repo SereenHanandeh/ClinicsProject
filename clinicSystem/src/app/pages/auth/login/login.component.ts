@@ -51,7 +51,7 @@ export class LoginComponent {
         if (user.userType === 'admin') {
           this.router.navigate(['/admin']);
         } else if (user.userType === 'doctor') {
-          this.router.navigate(['/doctor']);
+          this.router.navigate(['/doctor/dashboard']);
         } else {
           this.router.navigate(['/patient']);
         }

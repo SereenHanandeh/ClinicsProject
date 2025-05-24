@@ -2,24 +2,39 @@ import { Component } from '@angular/core';
 import { Appointment, ApprovalStatus } from '../../../core/models/appointment.model';
 import { AppointmentService } from '../../../core/services/Appointment/appointment.service';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { PatientHistoryComponent } from "../patient-history/patient-history.component";
 
 @Component({
   selector: 'app-appointments',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, PatientHistoryComponent],
   templateUrl: './appointments.component.html',
   styleUrl: './appointments.component.scss'
 })
 export class AppointmentsComponent {
- appointments: Appointment[] = [];
+   appointments: Appointment[] = [];
   selectedAppointment?: Appointment;
   errorMessage: string = '';
   successMessage: string = '';
+  detailForm!: FormGroup;
 
-  constructor(private appointmentService: AppointmentService) {}
+  constructor(
+    private appointmentService: AppointmentService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.loadAppointments();
+    this.initForm();
+  }
+
+  initForm(): void {
+    this.detailForm = this.fb.group({
+      diagnosis: [''],
+      drugs: [''], 
+      payment: [0]
+    });
   }
 
   loadAppointments(): void {
@@ -27,7 +42,7 @@ export class AppointmentsComponent {
       next: (appointments) => {
         this.appointments = appointments;
       },
-      error: (error) => {
+      error: () => {
         this.errorMessage = 'Failed to load appointments.';
       }
     });
@@ -37,6 +52,16 @@ export class AppointmentsComponent {
     this.selectedAppointment = appointment;
     this.errorMessage = '';
     this.successMessage = '';
+
+    if (appointment.details) {
+      this.detailForm.setValue({
+        diagnosis: appointment.details.diagnosis,
+        drugs: appointment.details.drugs.join(', '),
+        payment: appointment.details.payment
+      });
+    } else {
+      this.detailForm.reset({ diagnosis: '', drugs: '', payment: 0 });
+    }
   }
 
   respond(status: ApprovalStatus): void {
@@ -48,9 +73,8 @@ export class AppointmentsComponent {
     this.appointmentService.updateAppointmentStatus(this.selectedAppointment.id, status).subscribe({
       next: () => {
         this.successMessage = `Appointment ${status}`;
-        // تحديث حالة الموعد في القائمة المحلية
         this.selectedAppointment!.status = status;
-        // يمكن تحديث المصفوفة أيضاً حسب الحاجة
+
         const index = this.appointments.findIndex(a => a.id === this.selectedAppointment!.id);
         if (index !== -1) {
           this.appointments[index].status = status;
@@ -58,6 +82,30 @@ export class AppointmentsComponent {
       },
       error: () => {
         this.errorMessage = 'Failed to update appointment status.';
+      }
+    });
+  }
+
+  saveDetails(): void {
+    if (!this.selectedAppointment) {
+      this.errorMessage = 'No appointment selected.';
+      return;
+    }
+
+    const formData = this.detailForm.value;
+    const updatedDetails = {
+      diagnosis: formData.diagnosis,
+      drugs: formData.drugs.split(',').map((d: string) => d.trim()),
+      payment: formData.payment
+    };
+
+    this.appointmentService.updateAppointmentDetails(this.selectedAppointment.id, updatedDetails).subscribe({
+      next: () => {
+        this.successMessage = 'Appointment details saved.';
+        this.selectedAppointment!.details = updatedDetails;
+      },
+      error: () => {
+        this.errorMessage = 'Failed to save appointment details.';
       }
     });
   }

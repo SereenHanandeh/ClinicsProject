@@ -9,6 +9,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { AppointmentsComponent } from './pages/doctor/appointments/appointments.component';
 import { roleGuard } from './core/guards/Role/role.guard';
+import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -22,7 +23,7 @@ export const routes: Routes = [
   // },
   {
     path: 'admin',
-    canActivateChild: [adminGuard], // يفترض أن adminGuard يتحقق من دور admin
+    canActivateChild: [adminGuard], 
     children: [
       { path: 'admin-dashboard', component: AdminLayoutComponent },
       // { path: 'users', component: UserListComponent }
@@ -38,7 +39,7 @@ export const routes: Routes = [
     path: 'patient',
     canActivateChild: [roleGuard],
     data: { roles: ['patient'] },
-    children: [{ path: 'appointments', component: AppointmentsComponent }],
+    children: [{ path: 'dashboard', component: PatientLayoutComponent }],
   },
   { path: '**', component: NotFoundComponent }, // صفحة الخطأ 404
 ];
