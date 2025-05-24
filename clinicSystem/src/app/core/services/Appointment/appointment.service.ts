@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Appointment, ApprovalStatus } from '../../models/appointment.model';
 import { Observable } from 'rxjs';
+import { Patient } from '../../models/patient.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,14 @@ export class AppointmentService {
     );
   }
 
+   getPatients(): Observable<Patient[]> {
+    return this.http.get<Patient[]>(`${this.baseUrl}/patients`);
+  }
+
+  updateAppointmentDetails(id: number, details: Appointment['details']): Observable<Appointment> {
+    return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, { details });
+  }
+
   updateAppointmentStatus(
     appointmentId: number,
     status: ApprovalStatus
@@ -31,6 +40,14 @@ export class AppointmentService {
       { status }
     );
   }
+
+//   updateAppointmentStatusAndDetails(id: number, status: ApprovalStatus, details: any): Observable<Appointment> {
+//   return this.http.patch<Appointment>(`${this.baseUrl}/${id}`, {
+//     status,
+//     details
+//   });
+// }
+
 
   getPatients(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/patients`);
