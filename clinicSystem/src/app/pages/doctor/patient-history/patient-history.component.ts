@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Appointment } from '../../../core/models/appointment.model';
 import { CommonModule } from '@angular/common';
+
+
+@Component({
+  selector: 'app-patient-history',
+  imports: [CommonModule],
+
 import { FormsModule } from '@angular/forms';
 
 @Component({

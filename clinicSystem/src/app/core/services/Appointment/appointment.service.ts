@@ -41,6 +41,14 @@ export class AppointmentService {
     );
   }
 
+//   updateAppointmentStatusAndDetails(id: number, status: ApprovalStatus, details: any): Observable<Appointment> {
+//   return this.http.patch<Appointment>(`${this.baseUrl}/${id}`, {
+//     status,
+//     details
+//   });
+// }
+
+
   getPatients(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/patients`);
   }

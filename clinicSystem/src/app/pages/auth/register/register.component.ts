@@ -8,12 +8,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../../core/services/Auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
