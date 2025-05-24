@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   Appointment,
@@ -9,6 +11,8 @@ import { AppointmentService } from '../../../core/services/Appointment/appointme
 
 @Component({
   selector: 'app-appointments',
+  imports: [CommonModule, ReactiveFormsModule],
+
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
@@ -28,6 +32,8 @@ export class AppointmentsComponent {
   ngOnInit(): void {
     this.loadAppointments();
   }
+
+
 
   
   loadAppointments(): void {
@@ -57,6 +63,8 @@ export class AppointmentsComponent {
       .updateAppointmentStatus(this.selectedAppointment.id, status)
       .subscribe({
         next: () => {
+          this.successMessage =`Appointment ${status}`;
+
           this.successMessage = `Appointment ${status}`;
           // تحديث حالة الموعد في القائمة المحلية
           this.selectedAppointment!.status = status;

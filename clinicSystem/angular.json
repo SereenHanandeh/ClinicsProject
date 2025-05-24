@@ -26,6 +26,7 @@
             "assets": ["src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": [],
+
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -77,9 +78,8 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/assets"
-            ],
+            "assets": ["src/assets"]
+
             "styles": ["src/styles.scss"],
             "scripts": []
           }
