@@ -10,6 +10,7 @@ import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.com
 import { AppointmentsComponent } from './pages/doctor/appointments/appointments.component';
 import { roleGuard } from './core/guards/Role/role.guard';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
+import { AppointmentService } from './core/services/Appointment/appointment.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
