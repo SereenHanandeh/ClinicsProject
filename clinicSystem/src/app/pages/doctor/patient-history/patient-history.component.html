@@ -13,14 +13,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let appointment of history">
-
         <td>{{ appointment.date }}</td>
         <td>{{ appointment.details.diagnosis }}</td>
         <td>{{ appointment.details.drugs.join(", ") }}</td>
 
-        <td>{{ appointment.date  }}</td>
+        <td>{{ appointment.date }}</td>
         <td>{{ appointment.details.diagnosis }}</td>
-        <td>{{ appointment.details.drugs.join(', ') }}</td>
+        <td>{{ appointment.details.drugs.join(", ") }}</td>
 
         <td>${{ appointment.details.payment }}</td>
         <td>{{ appointment.status }}</td>

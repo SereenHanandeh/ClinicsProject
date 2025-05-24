@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-layout',
-  imports: [AppointmentsComponent,RouterModule],
+  imports: [RouterModule],
   templateUrl: './doctor-layout.component.html',
   styleUrl: './doctor-layout.component.scss'
 })

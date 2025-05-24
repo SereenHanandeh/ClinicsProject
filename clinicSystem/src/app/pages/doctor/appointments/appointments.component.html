@@ -1,9 +1,12 @@
 <div class="p-4">
+
+  <!-- Search Filter -->
   <form [formGroup]="filterForm" class="mb-3">
     <label>Search by Name:</label>
-    <input type="text" class="form-control" formControlName="name" placeholder="Enter patient name">
+    <input type="text" class="form-control" formControlName="name" placeholder="Enter patient name" />
   </form>
 
+  <!-- Patient List -->
   <div *ngFor="let patient of filteredPatients" class="card mb-3">
     <div class="card-body">
       <h5>{{ patient.name }}</h5>
@@ -15,7 +18,7 @@
         <strong>Appointments:</strong>
         <ul>
           <li *ngFor="let app of getAppointmentsForPatient(patient.id)">
-            Appointment ID: {{ app.id }}
+            ID: {{ app.id }} | Date: {{ app.date | date:'mediumDate' }}
           </li>
         </ul>
       </div>
@@ -25,50 +28,47 @@
     </div>
   </div>
 
-<div class="appointments-container">
+  <!-- Appointments List -->
   <h2>Upcoming Appointments</h2>
-
-  <ul>
+  <ul class="list-group mb-4">
     <li
+      class="list-group-item"
       *ngFor="let appointment of appointments"
+      [class.active]="appointment === selectedAppointment"
       (click)="selectAppointment(appointment)"
-      [class.selected]="appointment === selectedAppointment"
     >
-      Date: {{ appointment.date | date : "medium" }} - Status:
-      {{ appointment.status }}
+      {{ appointment.date | date: 'medium' }} - Status: {{ appointment.status }}
     </li>
   </ul>
 
-  <div *ngIf="selectedAppointment" class="appointment-details">
+  <!-- Appointment Details -->
+  <div *ngIf="selectedAppointment" class="card p-3">
     <h3>Appointment Details</h3>
-    <p>
-      <strong>Date:</strong> {{ selectedAppointment.date | date : "fullDate" }}
-    </p>
-    <p>
-      <strong>Diagnosis:</strong> {{ selectedAppointment.details.diagnosis }}
-    </p>
-    <p>
-      <strong>Drugs:</strong> {{ selectedAppointment.details.drugs.join(", ") }}
-    </p>
-    <p><strong>Payment:</strong> ${{ selectedAppointment.details.payment }}</p>
-    <p><strong>Status:</strong> {{ selectedAppointment.status }}</p>
+    <p><strong>Date:</strong> {{ selectedAppointment.date | date:'fullDate' }}</p>
+    <form [formGroup]="detailsForm">
+      <div class="mb-2">
+        <label>Diagnosis:</label>
+        <textarea formControlName="diagnosis" class="form-control"></textarea>
+      </div>
+      <div class="mb-2">
+        <label>Drugs (comma separated):</label>
+        <input formControlName="drugs" class="form-control" />
+      </div>
+      <div class="mb-2">
+        <label>Payment:</label>
+        <input formControlName="payment" type="number" class="form-control" />
+      </div>
+    </form>
 
-    <button
-      *ngIf="selectedAppointment.status === 'pending'"
-      (click)="respond('approved')"
-    >
-      Approve
-    </button>
-    <button
-      *ngIf="selectedAppointment.status === 'pending'"
-      (click)="respond('rejected')"
-    >
-      Reject
-    </button>
+    <div class="mt-3">
+      <button class="btn btn-success me-2" *ngIf="selectedAppointment.status === 'pending'" (click)="respond('approved')">Approve</button>
+      <button class="btn btn-danger" *ngIf="selectedAppointment.status === 'pending'" (click)="respond('rejected')">Reject</button>
+    </div>
   </div>
 
-  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
-
+  <div *ngIf="errorMessage" class="alert alert-danger mt-2">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success mt-2">{{ successMessage }}</div>
 </div>
+
+<!-- Optional: Reuse history component -->
 <app-patient-history [history]="appointments"></app-patient-history>
