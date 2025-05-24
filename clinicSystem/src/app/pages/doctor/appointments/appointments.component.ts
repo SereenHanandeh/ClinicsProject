@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   Appointment,
   ApprovalStatus,
@@ -9,7 +9,7 @@ import { AppointmentService } from '../../../core/services/Appointment/appointme
 
 @Component({
   selector: 'app-appointments',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
 })
@@ -29,6 +29,7 @@ export class AppointmentsComponent {
     this.loadAppointments();
   }
 
+  
   loadAppointments(): void {
     this.appointmentService.getDoctorAppointments().subscribe({
       next: (appointments) => {

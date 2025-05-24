@@ -13,23 +13,6 @@
       "userType": "doctor"
     },
     {
-      "id": "3",
-      "email": "patient.ali@cms.com",
-      "password": "pat123",
-      "userType": "patient"
-    },
-    {
-      "id": "747a",
-      "name": "sereen hanandeh",
-      "email": "s@gmail.com",
-      "phone": "053 945 7475",
-      "gender": "female",
-      "dateOfBirth": "2013-06-06",
-      "password": "Ahmad123",
-      "confirmPassword": "Ahmad123",
-      "userType": "patient"
-    },
-    {
       "id": "7907",
       "name": "sereen hanandeh",
       "email": "s@gmail.com",

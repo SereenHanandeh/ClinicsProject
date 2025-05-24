@@ -17,6 +17,7 @@ import { AuthService } from '../../../core/services/Auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+   logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   errorMessage: string = '';
 
@@ -49,11 +50,11 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe({
       next: (user) => {
         if (user.userType === 'admin') {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin/dashboard']);
         } else if (user.userType === 'doctor') {
-          this.router.navigate(['/doctor']);
+          this.router.navigate(['/doctor/dashboard']);
         } else {
-          this.router.navigate(['/patient']);
+          this.router.navigate(['/patient/dashboard']);
         }
       },
       error: () => {
