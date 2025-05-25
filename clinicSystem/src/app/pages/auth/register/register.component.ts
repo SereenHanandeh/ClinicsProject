@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule,RouterModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,RouterModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -21,6 +21,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
+  logoPath = 'assets/logo.png';
 
   constructor(
     private fb: FormBuilder,

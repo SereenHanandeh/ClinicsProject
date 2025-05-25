@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppointmentsComponent } from '../../pages/doctor/appointments/appointments.component';
+import { AppointmentsComponent } from "../../pages/doctor/appointments/appointments.component";
 import { RouterModule } from '@angular/router';
 
 @Component({

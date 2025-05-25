@@ -1,3 +1,4 @@
+
 /**
 * Template Name: Medilab
 * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
@@ -1517,9 +1518,7 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Testimonials Section
---------------------------------------------------------------*/
+
 .testimonials .info h3 {
   font-weight: 700;
   font-size: 32px;
@@ -1631,9 +1630,6 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
 .gallery .gallery-item {
   overflow: hidden;
   border-right: 3px solid var(--background-color);
@@ -1648,9 +1644,7 @@ section,
   transform: scale(1.1);
 }
 
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
+
 .contact .info-item+.info-item {
   margin-top: 40px;
 }
@@ -1723,12 +1717,6 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-
-
-/* خلفية عامة */
 body,
 html {
   margin: 0;

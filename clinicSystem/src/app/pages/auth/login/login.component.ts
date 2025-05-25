@@ -17,7 +17,7 @@ import { AuthService } from '../../../core/services/Auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-   logoPath = 'assets/logo.png';
+  logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   errorMessage: string = '';
 
@@ -28,7 +28,7 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -59,7 +59,7 @@ export class LoginComponent {
       },
       error: () => {
         this.errorMessage = 'Invalid email or password';
-      }
+      },
     });
   }
 }

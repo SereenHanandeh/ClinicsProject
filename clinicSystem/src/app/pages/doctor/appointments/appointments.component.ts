@@ -7,16 +7,25 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 
+import { Component } from '@angular/core';
+
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import {
   Appointment,
   ApprovalStatus,
 } from '../../../core/models/appointment.model';
 import { AppointmentService } from '../../../core/services/Appointment/appointment.service';
+import { PatientHistoryComponent } from '../patient-history/patient-history.component';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, PatientHistoryComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
 })
@@ -53,6 +62,7 @@ export class AppointmentsComponent implements OnInit {
       },
     });
   }
+
 
   loadAppointments(): void {
     this.appointmentService.getDoctorAppointments().subscribe({
@@ -114,6 +124,11 @@ export class AppointmentsComponent implements OnInit {
       .updateAppointmentStatus(this.selectedAppointment.id, status)
       .subscribe({
         next: () => {
+
+
+          this.successMessage = `Appointment ${status}`;
+
+
           this.successMessage = `Appointment ${status}`;
           this.selectedAppointment!.status = status;
           this.selectedAppointment!.details = updatedDetails;
