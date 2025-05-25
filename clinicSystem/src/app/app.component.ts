@@ -4,7 +4,7 @@ import { AppointmentsComponent } from "./pages/doctor/appointments/appointments.
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppointmentsComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
