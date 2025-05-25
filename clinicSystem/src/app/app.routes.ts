@@ -14,6 +14,9 @@ import { AppointmentsComponent } from './pages/doctor/appointments/appointments.
 import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
 import { ProfileComponent } from './pages/patient/profile/profile.component';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
+import { DoctorListComponent } from './pages/patient/doctor-list/doctor-list.component';
+import { BookAppointmentComponent } from './pages/patient/book-appointment/book-appointment.component';
+import { MyAppointmentsComponent } from './pages/patient/my-appointments/my-appointments.component';
 
 
 
@@ -51,10 +54,15 @@ export const routes: Routes = [
   {
     path: 'patient',
     component: PatientLayoutComponent,
-    canActivateChild: [roleGuard],
+    // canActivateChild: [roleGuard],
     data: { roles: ['patient'] },
     children: [
       { path: 'dashboard', component: PatientDashboardComponent },
+      { path: 'doctors', component: DoctorListComponent },           // تصفح قائمة الأطباء مع فلاتر
+      { path: 'book-appointment/:doctorId', component: BookAppointmentComponent }, // حجز موعد مع طبيب (باستخدام معرّف الطبيب)
+      { path: 'appointments', component: MyAppointmentsComponent },  // عرض قائمة المواعيد الخاصة بالمريض
+      { path: 'profile', component: ProfileComponent },              // عرض وتعديل الملف الشخصي
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 

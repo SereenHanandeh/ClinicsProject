@@ -1,1 +1,7 @@
-<p>my-appointments works!</p>
+<h2>My Appointments</h2>
+
+<ul>
+  <li *ngFor="let appointment of appointments">
+    Appointment with doctor #{{ appointment.doctorId }} on {{ appointment.date }} at {{ appointment.time }}
+  </li>
+</ul>
