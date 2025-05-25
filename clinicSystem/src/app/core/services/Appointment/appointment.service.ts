@@ -23,6 +23,10 @@ export class AppointmentService {
     );
   }
 
+
+
+//   updateAppointmentDetails(id: number, details: { diagnosis: string; drugs: string[]; payment: number }): Observable<any>  {
+
   updateAppointmentDetails(id: number, details: Appointment['details']): Observable<Appointment> {
     return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, { details });
   }
@@ -37,12 +41,7 @@ export class AppointmentService {
     );
   }
 
-//   updateAppointmentStatusAndDetails(id: number, status: ApprovalStatus, details: any): Observable<Appointment> {
-//   return this.http.patch<Appointment>(`${this.baseUrl}/${id}`, {
-//     status,
-//     details
-//   });
-// }
+
 
 
   getPatients(): Observable<any[]> {

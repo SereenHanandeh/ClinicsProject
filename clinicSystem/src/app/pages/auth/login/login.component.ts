@@ -52,7 +52,7 @@ export class LoginComponent {
         if (user.userType === 'admin') {
           this.router.navigate(['/admin/dashboard']);
         } else if (user.userType === 'doctor') {
-          this.router.navigate(['/doctor/dashboard']);
+          this.router.navigate(['/doctor']);
         } else {
           this.router.navigate(['/patient/dashboard']);
         }

@@ -108,9 +108,11 @@ export class AuthService {
                 id: createdUser.id,
                 name: createdUser.name,
                 email: createdUser.email,
-                phone: user.phone ?? '',
+                // phone: user.phone ,
                 gender: user.gender ?? 'male',
                 dateOfBirth: user.dateOfBirth ?? '',
+                password: '',
+                userType: 'patient'
               };
 
               return this.http

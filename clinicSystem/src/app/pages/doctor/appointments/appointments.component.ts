@@ -1,4 +1,12 @@
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+
 import { Component } from '@angular/core';
 
 import {
@@ -16,11 +24,12 @@ import { PatientHistoryComponent } from '../patient-history/patient-history.comp
 
 @Component({
   selector: 'app-appointments',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, PatientHistoryComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
 })
-export class AppointmentsComponent {
+export class AppointmentsComponent implements OnInit {
   appointments: Appointment[] = [];
   selectedAppointment?: Appointment;
   errorMessage: string = '';
@@ -30,27 +39,65 @@ export class AppointmentsComponent {
   });
   patients: any[] = [];
 
+  detailsForm = new FormGroup({
+    diagnosis: new FormControl(''),
+    drugs: new FormControl(''),
+    payment: new FormControl(''),
+  });
+
   constructor(private appointmentService: AppointmentService) {}
 
   ngOnInit(): void {
     this.loadAppointments();
+    this.loadPatients();
   }
+
+  loadPatients(): void {
+    this.appointmentService.getPatients().subscribe({
+      next: (patients) => {
+        this.patients = patients;
+      },
+      error: () => {
+        this.errorMessage = 'Failed to load patients.';
+      },
+    });
+  }
+
 
   loadAppointments(): void {
     this.appointmentService.getDoctorAppointments().subscribe({
       next: (appointments) => {
         this.appointments = appointments;
+        this.patients = this.extractPatients(appointments);
       },
-      error: (error) => {
+      error: () => {
         this.errorMessage = 'Failed to load appointments.';
       },
     });
   }
 
+  extractPatients(appointments: Appointment[]): any[] {
+    const map = new Map<number, any>();
+    appointments.forEach((app) => {
+      if (app.patientId && !map.has(app.patientId)) {
+        map.set(app.patientId, app.patientId);
+      }
+    });
+    return Array.from(map.values());
+  }
+
   selectAppointment(appointment: Appointment): void {
     this.selectedAppointment = appointment;
-    this.errorMessage = '';
     this.successMessage = '';
+    this.errorMessage = '';
+
+    if (appointment.details) {
+      this.detailsForm.patchValue({
+        diagnosis: appointment.details.diagnosis,
+        drugs: appointment.details.drugs.join(', '),
+        payment: appointment.details.payment.toString(),
+      });
+    }
   }
 
   respond(status: ApprovalStatus): void {
@@ -59,30 +106,41 @@ export class AppointmentsComponent {
       return;
     }
 
+    const updatedDetails = {
+      diagnosis: this.detailsForm.value.diagnosis || '',
+      drugs: (this.detailsForm.value.drugs || '')
+        .split(',')
+        .map((d) => d.trim()),
+      payment: Number(this.detailsForm.value.payment) || 0,
+    };
+
+    const updatedAppointment: Appointment = {
+      ...this.selectedAppointment,
+      status: status,
+      details: updatedDetails,
+    };
+
     this.appointmentService
       .updateAppointmentStatus(this.selectedAppointment.id, status)
       .subscribe({
         next: () => {
-          this.successMessage = `Appointment ${status}`;
+
 
           this.successMessage = `Appointment ${status}`;
-          // تحديث حالة الموعد في القائمة المحلية
+
+
+          this.successMessage = `Appointment ${status}`;
           this.selectedAppointment!.status = status;
-          // يمكن تحديث المصفوفة أيضاً حسب الحاجة
-          const index = this.appointments.findIndex(
-            (a) => a.id === this.selectedAppointment!.id
-          );
-          if (index !== -1) {
-            this.appointments[index].status = status;
-          }
+          this.selectedAppointment!.details = updatedDetails;
         },
         error: () => {
           this.errorMessage = 'Failed to update appointment status.';
         },
       });
   }
-  getAppointmentsForPatient(patientId: string | number): any[] {
-    return this.appointments.filter((app) => app.patientId === patientId);
+
+  getAppointmentsForPatient(patientId: number): Appointment[] {
+    return this.appointments.filter((a) => a.patientId === patientId);
   }
 
   get filteredPatients(): any[] {
