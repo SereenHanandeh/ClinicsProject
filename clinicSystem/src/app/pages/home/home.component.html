@@ -5,7 +5,9 @@
     >
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"
-          ><a href="mailto:contact@example.com">NADAD.ofiicialgmail.com</a></i
+          ><a href="mailto:contact@example.com"
+            >NABDA.ofiicial&#64; gmail.com</a
+          ></i
         >
         <i class="bi bi-phone d-flex align-items-center ms-4"
           ><span>+962 7 9036 4468</span></i
@@ -16,13 +18,14 @@
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
         <a
-          href="https://www.linkedin.com/company/icure-medical-ai/"
+          href="https://www.linkedin.com/company/NABDA-medical-ai/"
           class="linkedin"
           ><i class="bi bi-linkedin"></i
         ></a>
       </div>
     </div>
   </div>
+  <!-- End Top Bar -->
 
   <div class="branding d-flex align-items-center">
     <div
@@ -31,7 +34,7 @@
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">NADAD</h1>
+        <h1 class="sitename">NABDA</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -48,12 +51,10 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <a class="cta-btn d-none d-sm-block" href="#appointment">Login</a>
+      <a class="cta-btn d-none d-sm-block" [routerLink]="['/login']">Login</a>
     </div>
   </div>
 </header>
-
 
 <main class="main">
   <!-- Hero Section -->
@@ -64,15 +65,15 @@
         data-aos="fade-down"
         data-aos-delay="100"
       >
-        <h2>WELCOME TO NADAD</h2>
-        <p>   Accurate and Trusted Healthcare — Trusted by 95% of Patients</p>
+        <h2>WELCOME TO NABDA</h2>
+        <p>Accurate and Trusted Healthcare — Trusted by 95% of Patients</p>
       </div>
       <!-- End Welcome -->
 
       <div class="content row gy-4">
         <div class="col-lg-4 d-flex align-items-stretch">
           <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
-            <h3>Why Choose NADAD?</h3>
+            <h3>Why Choose NABDA?</h3>
             <p>
               At NABDA, your health is in expert hands. Our clinic hosts a team
               of certified doctors, experienced specialists, and dedicated
@@ -145,47 +146,47 @@
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <img src="assets/img/ICURE (2).PNG" width="550px" />
+          <img src="assets/img/NABDA (2).PNG" width="550px" />
         </div>
 
         <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-          By digitizing health records and reducing unnecessary hospital visits,
-          ICURE makes healthcare more efficient, accessible, and eco-friendly.
           <h3>About Us</h3>
           <p>
-            ICURE is an AI-powered healthcare platform designed to provide
-            faster, smarter, and more accessible medical diagnostics.
+            Nabda is a modern clinic management system designed to streamline
+            healthcare services by connecting patients and doctors in one smart
+            platform.
           </p>
+
           <ul>
             <li>
-              <i class="fa-solid fa-vial-circle-check"></i>
+              <i class="fa-solid fa-user-doctor"></i>
               <div>
-                <h5>AI-Driven Healthcare:</h5>
+                <h5>Doctor–Patient Connection:</h5>
                 <p>
-                  ICURE uses artificial intelligence to predict diseases,
-                  analyze medical images, and provide fast, accurate health
-                  insights.
+                  Patients can register, track their health status, and receive
+                  direct medical care from specialized doctors.
                 </p>
               </div>
             </li>
+
             <li>
-              <i class="fa-solid fa-pump-medical"></i>
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
               <div>
-                <h5>Patient-Centered Care:reprehenderi</h5>
+                <h5>Medical Records & Prescriptions:</h5>
                 <p>
-                  We empower users with personalized treatment suggestions and
-                  direct access to specialized doctors—all in one platform.
+                  Doctors can securely access patient histories, write
+                  prescriptions, and add diagnoses in one organized system.
                 </p>
               </div>
             </li>
+
             <li>
-              <i class="fa-solid fa-heart-circle-xmark"></i>
+              <i class="fa-solid fa-calendar-check"></i>
               <div>
-                <h5>Smart & Sustainable:</h5>
+                <h5>Appointments Made Easy:</h5>
                 <p>
-                  ICURE uses artificial intelligence to predict diseases,
-                  analyze medical images, and provide fast, accurate health
-                  insights.
+                  Book, manage, and follow up on medical appointments
+                  effortlessly through an intuitive interface.
                 </p>
               </div>
             </li>
@@ -200,99 +201,98 @@
   <section id="services" class="services section">
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Services</h2>
+      <h2>Our Services</h2>
+      <p>
+        All-in-one clinic system to connect patients with doctors efficiently
+      </p>
     </div>
     <!-- End Section Title -->
 
     <div class="container">
       <div class="row gy-4">
+        <!-- خدمة تسجيل ومتابعة المرضى -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="service-item position-relative">
             <div class="icon">
-              <i class="fas fa-heartbeat"></i>
+              <i class="fas fa-user-plus"></i>
             </div>
             <a href="#" class="stretched-link">
-              <h3>AI Symptom Checker & Diagnosis</h3>
+              <h3>Patient Registration & Profile</h3>
             </a>
             <p>
-              Describe your symptoms and get fast predictions powered by medical
-              AI.
+              Create and manage your personal medical profile with full history,
+              visits, and treatments.
             </p>
           </div>
         </div>
-        <!-- End Service Item -->
 
+        <!-- خدمة إدارة المواعيد -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="service-item position-relative">
             <div class="icon">
-              <i class="fas fa-pills"></i>
+              <i class="fas fa-calendar-check"></i>
             </div>
             <a href="#" class="stretched-link">
-              <h3>Medical Image Analysis</h3>
+              <h3>Appointment Scheduling</h3>
             </a>
             <p>
-              Upload X-ray, CT, or MRI scans and get instant AI-supported
-              interpretation.
+              Book, track, and manage your doctor appointments directly from the
+              platform.
             </p>
           </div>
         </div>
-        <!-- End Service Item -->
 
+        <!-- خدمة التشخيص والوصف -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="service-item position-relative">
             <div class="icon">
-              <i class="fas fa-hospital-user"></i>
+              <i class="fas fa-notes-medical"></i>
             </div>
-
             <a href="#" class="stretched-link">
-              <h3>Doctor Consultations</h3>
+              <h3>Diagnosis & Prescriptions</h3>
             </a>
             <p>
-              Connect with specialized doctors to verify AI results and receive
-              expert care.
+              Doctors can provide accurate diagnoses and write prescriptions
+              viewable by patients anytime.
             </p>
           </div>
         </div>
-        <!-- End Service Item -->
 
+        <!-- خدمة السجل الطبي الرقمي -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="service-item position-relative">
             <div class="icon">
-              <i class="fas fa-dna"></i>
+              <i class="fas fa-file-medical"></i>
             </div>
             <a href="#" class="stretched-link">
-              <h3>Digital Health Recordst</h3>
+              <h3>Digital Medical Records</h3>
             </a>
             <p>
-              Keep all your medical history securely stored andaccessible
-              anytime.
+              Access and manage your complete health records securely, all in
+              one place.
             </p>
-            <a href="#" class="stretched-link"></a>
           </div>
         </div>
-        <!-- End Service Item -->
 
+        <!-- خدمة المتابعة والرعاية -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
           <div class="service-item position-relative">
             <div class="icon">
-              <i class="fas fa-wheelchair"></i>
+              <i class="fas fa-user-md"></i>
             </div>
             <a href="#" class="stretched-link">
-              <h3>Sustainable Healthcare</h3>
+              <h3>Follow-ups & Care</h3>
             </a>
             <p>
-              Helping the environment by reducing unnecessary hospital visits
-              and paper usage.
+              Receive timely follow-up care and stay updated on your health
+              journey with your doctor.
             </p>
-            <a href="#" class="stretched-link"></a>
           </div>
         </div>
-        <!-- End Service Item -->
-
-        <!-- End Service Item -->
       </div>
     </div>
   </section>
+
   <!-- /Services Section -->
 
   <!-- Departments Section -->
@@ -346,7 +346,7 @@
                   <h3>Cardiology</h3>
                   <p class="fst-italic">
                     Our AI supports early detection of cardiovascular conditions
-                    by analyzing symptoms and medical imaging. ICURE helps users
+                    by analyzing symptoms and medical imaging. NABDA helps users
                     identify signs of heart-related issues and connect with
                     cardiologists for expert evaluation and treatment plans.
                   </p>
@@ -365,7 +365,7 @@
                 <div class="col-lg-8 details order-2 order-lg-1">
                   <h3>Neurology</h3>
                   <p class="fst-italic">
-                    ICURE uses AI models to assist in detecting neurological
+                    NABDA uses AI models to assist in detecting neurological
                     disorders such as migraines, strokes, or seizures. By
                     evaluating CT/MRI scans and reported symptoms, we provide
                     fast insights and connect users with neurology specialists.
@@ -386,7 +386,7 @@
                 <div class="col-lg-8 details order-2 order-lg-1">
                   <h3>Hepatology</h3>
                   <p class="fst-italic">
-                    Monitor and manage liver health with ICURE’s intelligent
+                    Monitor and manage liver health with NABDA intelligent
                     tools. The platform detects signs of liver dysfunction,
                     supports early-stage diagnosis, and helps patients
                     understand when to consult a hepatologist.
@@ -407,7 +407,7 @@
                 <div class="col-lg-8 details order-2 order-lg-1">
                   <h3>Pediatrics</h3>
                   <p class="fst-italic">
-                    Parents can use ICURE to analyze children’s symptoms and
+                    Parents can use NABDA to analyze children’s symptoms and
                     receive safe, AI-generated health assessments. The platform
                     supports common pediatric concerns and offers direct
                     consultation options with pediatric doctors.
@@ -427,7 +427,7 @@
                 <div class="col-lg-8 details order-2 order-lg-1">
                   <h3>Eye Care</h3>
                   <p class="fst-italic">
-                    ICURE supports early detection of eye-related conditions
+                    NABDA supports early detection of eye-related conditions
                     such as glaucoma or retinal issues through symptom analysis
                     and imaging support. Easily consult with eye
                     specialists for next steps.
@@ -458,11 +458,11 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <div class="team-member d-flex align-items-start">
             <div class="pic">
-              <img src="assets/img/wasan.jpg" class="img-fluid" alt="" />
+              <img src="assets/img/sereen.jpg" class="img-fluid" alt="" />
             </div>
             <div class="member-info">
-              <h4>wasan yacoub</h4>
-              <span> business information technology</span>
+              <h4>sereen yacoub</h4>
+              <span> computer science </span>
 
               <div class="social">
                 <a
@@ -483,7 +483,8 @@
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
           <div class="team-member d-flex align-items-start">
             <div class="pic">
-              <img src="assets/img/raneem.jpg" class="img-fluid" alt="" />
+             <img src="assets/img/raneem.jpg" width="400" height="300" alt="Raneem">
+
             </div>
             <div class="member-info">
               <h4>Raneem ALbader</h4>
@@ -502,170 +503,10 @@
           </div>
         </div>
         <!-- End Team Member -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic">
-              <img src="assets/img/Mohannad.jpg" class="img-fluid" alt="" />
-            </div>
-            <div class="member-info">
-              <h4>Mohannad Obeidat</h4>
-              <span>medical student</span>
-
-              <div class="social">
-                <a href="https://www.instagram.com/mhnd_obeidat/"
-                  ><i class="bi bi-instagram"></i
-                ></a>
-                <a href="https://www.linkedin.com/in/mohannadobeidat/">
-                  <i class="bi bi-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Team Member -->
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic">
-              <img src="assets/img/ziad.jpg" class="img-fluid" alt="" />
-            </div>
-            <div class="member-info">
-              <h4>zaid abu rumman</h4>
-              <span>data science and ai </span>
-
-              <div class="social">
-                <a href="https://www.instagram.com/z9fyh/"
-                  ><i class="bi bi-instagram"></i
-                ></a>
-                <a
-                  href="https://www.linkedin.com/in/zaid-abu-rumman-254b28298/"
-                >
-                  <i class="bi bi-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Team Member -->
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="team-member d-flex align-items-start">
-            <div class="pic">
-              <img src="assets/img/omar.jpg" class="img-fluid" alt="" />
-            </div>
-            <div class="member-info">
-              <h4>omar Mohammed</h4>
-              <span>computer science </span>
-
-              <div class="social">
-                <a
-                  href="https://www.instagram.com/omarr.hammadd?igsh=OGQ5ZDc2ODk2ZA=="
-                  ><i class="bi bi-instagram"></i
-                ></a>
-                <a href="https://www.linkedin.com/in/omar-mohammed-45a5862b4/">
-                  <i class="bi bi-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
   <!-- /Doctors Section -->
-
-  <!-- Faq Section -->
-  <section id="faq" class="faq section light-background">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Frequently Asked Questions</h2>
-    </div>
-    <!-- End Section Title -->
-
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-          <div class="faq-container">
-            <div class="faq-item faq-active">
-              <h3>What is ICURE and how does it work?</h3>
-              <div class="faq-content">
-                <p>
-                  ICURE is an AI-powered healthcare platform that analyzes
-                  symptoms and medical images to predict possible diseases and
-                  provide treatment recommendations.
-                </p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div>
-            <!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3>Is ICURE a replacement for a doctor?</h3>
-              <div class="faq-content">
-                <p>
-                  No, ICURE is a supportive tool. It provides early insights and
-                  connects users with specialized doctors for expert review.
-                </p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div>
-            <!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3>Can I upload my medical scans like X-rays or MRIs?</h3>
-              <div class="faq-content">
-                <p>
-                  Yes, ICURE allows you to upload X-ray, CT, and MRI images for
-                  AI-powered interpretation.
-                </p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div>
-            <!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3>Does ICURE support Arabic and other languages?</h3>
-              <div class="faq-content">
-                <p>
-                  Yes, ICURE is designed for both Arabic and English users, with
-                  plans to support more languages.
-                </p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div>
-            <!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3>How accurate is the AI diagnosis?</h3>
-              <div class="faq-content">
-                <p>
-                  ICURE's AI is trained on medical datasets and reviewed by
-                  medical experts, offering over 90% accuracy in supported
-                  conditions.
-                </p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div>
-            <!-- End Faq item-->
-
-            <div class="faq-item">
-              <h3>Do I need a doctor to use the platform?</h3>
-              <div class="faq-content">
-                <p>
-                  No. You can start with AI analysis yourself and optionally
-                  consult with a doctor through the platform.
-                </p>
-              </div>
-              <i class="faq-toggle bi bi-chevron-right"></i>
-            </div>
-            <!-- End Faq item-->
-          </div>
-        </div>
-        <!-- End Faq Column-->
-      </div>
-    </div>
-  </section>
-  <!-- /Faq Section -->
 
   <!-- Contact Section -->
   <section id="contact" class="contact section">
@@ -674,19 +515,7 @@
       <h2>Contact</h2>
     </div>
     <!-- End Section Title -->
-    <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-      <iframe
-        src="https://www.google.com/maps?q=مؤسسة نهر الاردن&output=embed"
-        width="100%"
-        height="270"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
 
-    <!-- End Google Maps -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row gy-4">
@@ -711,7 +540,7 @@
             <i class="bi bi-envelope flex-shrink-0"></i>
             <div>
               <h3>Email Us</h3>
-              <p>icure.ofiicialgmail.com</p>
+              <p>NABDA.ofiicial&#64; gmail.com</p>
             </div>
           </div>
           <!-- End Info Item -->
@@ -788,54 +617,61 @@
 <footer id="footer" class="footer light-background">
   <div class="container footer-top">
     <div class="row gy-4">
+      <!-- About Section -->
       <div class="col-lg-4 col-md-6 footer-about">
         <a href="index.html" class="logo d-flex align-items-center">
-          <span class="sitename">Icure</span>
+          <span class="sitename">NABDA</span>
         </a>
         <div class="footer-contact pt-3">
           <p class="mt-3">
             <strong>Phone:</strong> <span>+962 7 9036 4468</span>
           </p>
-          <p><strong>Email:</strong> <span>icure.ofiicialgmail.com</span></p>
+          <p><strong>Email:</strong> <span>nabda.officialgmail.com</span></p>
         </div>
         <div class="social-links d-flex mt-4">
-          <a href="https://www.linkedin.com/company/icure-medical-ai/"
-            ><i class="bi bi-linkedin"></i
-          ></a>
+          <a
+            href="https://www.linkedin.com/company/NABDA-medical-ai/"
+            target="_blank"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
         </div>
       </div>
 
+      <!-- Company Info -->
       <div class="col-lg-2 col-md-3 footer-links">
-        <h4>Company Info</h4>
+        <h4>About NABDA</h4>
         <p>
-          ICURE is an AI-powered healthcare platform that predicts diseases,
-          analyzes medical images, and connects you with the right
-          specialists—faster, smarter, and sustainabl Sustainable Digital Health
+          NABDA is a digital clinic platform where licensed doctors manage
+          patient records, prescriptions, and appointments — all in one place.
+          Secure, simple, and patient-focused.
         </p>
       </div>
 
+      <!-- Services -->
       <div class="col-lg-2 col-md-3 footer-links">
-        <h4>Healthcare Services</h4>
+        <h4>Clinic Services</h4>
         <ul>
-          <li><a href="#"> AI Symptom Checker</a></li>
-          <li><a href="#">Medical Image Analysis </a></li>
-          <li><a href="#"> Doctor Consultations</a></li>
-          <li><a href="#">Electronic Health Records (EHR)</a></li>
+          <li><a href="#">Medical Records</a></li>
+          <li><a href="#">Doctor Appointments</a></li>
+          <li><a href="#">Digital Prescriptions</a></li>
+          <li><a href="#">Patient Follow-ups</a></li>
         </ul>
       </div>
     </div>
   </div>
 
+  <!-- Copyright -->
   <div class="container copyright text-center mt-4">
     <p>
-      © <span id="year"></span>
-      <strong class="px-1 sitename">Icure</strong>
+      © <span id="year"></span> <strong class="px-1 sitename">NABDA</strong> |
+      All rights reserved.
     </p>
   </div>
 
+  <!-- Dynamic Year Script -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </footer>
 
