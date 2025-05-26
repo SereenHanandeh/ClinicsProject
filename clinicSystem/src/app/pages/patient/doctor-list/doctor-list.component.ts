@@ -1,11 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PatientService } from '../../../core/services/Patient/patient.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ClinicService } from '../../../core/services/Clinic/clinic.service';
 
 @Component({
   selector: 'app-doctor-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './doctor-list.component.html',
-  styleUrl: './doctor-list.component.scss'
+  styleUrls: ['./doctor-list.component.scss'],
 })
-export class DoctorListComponent {
+export class DoctorListComponent implements OnInit {
+  clinics: any[] = [];
+  doctors: any[] = [];
+  filteredDoctors: any[] = [];
 
+  constructor(private patientService: PatientService,private clinicService: ClinicService) {}
+
+  ngOnInit(): void {
+    this.clinicService.getClinics().subscribe((clinicsData) => {
+      this.clinics = clinicsData;
+    });
+
+    this.patientService.getDoctors().subscribe((doctorsData) => {
+      this.doctors = doctorsData;
+    });
+  }
+
+  filterDoctorsByClinic(clinicId: string): void {
+    this.filteredDoctors = this.doctors.filter(
+      (doctor) => doctor.clinicId.toString() === clinicId
+    );
+  }
 }

@@ -1,1 +1,27 @@
-<p>patient-layout works!</p>
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Patient Dashboard</h2>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/patient/dashboard" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a routerLink="/patient/appointments" routerLinkActive="active"
+            >My Appointments</a
+          >
+        </li>
+        <li>
+          <a routerLink="/patient/doctors" routerLinkActive="active">Doctors</a>
+        </li>
+        <li>
+          <a routerLink="/patient/profile" routerLinkActive="active">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

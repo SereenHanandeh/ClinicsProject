@@ -42,11 +42,107 @@
       "userType": "patient"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "sereen hanandeh",
       "email": "sse@gmail.com",
       "password": "Ahmad@123",
       "userType": "patient"
+    },
+    {
+      "id": "2",
+      "email": "dr.sara@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "17",
+      "email": "dr.ahmad@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "18",
+      "email": "dr.laila@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "19",
+      "email": "dr.majd@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "20",
+      "email": "dr.rawan@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "21",
+      "email": "dr.yazan@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "22",
+      "email": "dr.dana@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "23",
+      "email": "dr.ayman@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "24",
+      "email": "dr.hadeel@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "25",
+      "email": "dr.basel@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "26",
+      "email": "dr.nour@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "27",
+      "email": "dr.eyad@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "28",
+      "email": "dr.lina@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "29",
+      "email": "dr.fares@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "30",
+      "email": "dr.rami@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
+    },
+    {
+      "id": "31",
+      "email": "dr.samar@cms.com",
+      "password": "doc123",
+      "userType": "doctor"
     }
   ],
   "patients": [
@@ -59,7 +155,7 @@
       "dateOfBirth": "2000-10-12"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "sereen hanandeh",
       "email": "sse@gmail.com",
       "phone": "053 945 7777",
@@ -75,17 +171,156 @@
       "phone": "0799999999",
       "specification": "Cardiology",
       "clinicId": 1
+    },
+    {
+      "id": "2",
+      "name": "Dr. Ahmad",
+      "email": "dr.ahmad@cms.com",
+      "phone": "0791111111",
+      "specification": "Dentistry",
+      "clinicId": 1
+    },
+    {
+      "id": "3",
+      "name": "Dr. Laila",
+      "email": "dr.laila@cms.com",
+      "phone": "0792222222",
+      "specification": "Dentistry",
+      "clinicId": 1
+    },
+    {
+      "id": "4",
+      "name": "Dr. Majd",
+      "email": "dr.majd@cms.com",
+      "phone": "0793333333",
+      "specification": "Dentistry",
+      "clinicId": 1
+    },
+    {
+      "id": "5",
+      "name": "Dr. Rawan",
+      "email": "dr.rawan@cms.com",
+      "phone": "0794444444",
+      "specification": "Pediatrics",
+      "clinicId": 2
+    },
+    {
+      "id": "6",
+      "name": "Dr. Yazan",
+      "email": "dr.yazan@cms.com",
+      "phone": "0795555555",
+      "specification": "Pediatrics",
+      "clinicId": 2
+    },
+    {
+      "id": "7",
+      "name": "Dr. Dana",
+      "email": "dr.dana@cms.com",
+      "phone": "0796666666",
+      "specification": "Pediatrics",
+      "clinicId": 2
+    },
+    {
+      "id": "8",
+      "name": "Dr. Ayman",
+      "email": "dr.ayman@cms.com",
+      "phone": "0797777777",
+      "specification": "Pediatrics",
+      "clinicId": 2
+    },
+    {
+      "id": "9",
+      "name": "Dr. Hadeel",
+      "email": "dr.hadeel@cms.com",
+      "phone": "0798888888",
+      "specification": "Internal Medicine",
+      "clinicId": 3
+    },
+    {
+      "id": "10",
+      "name": "Dr. Basel",
+      "email": "dr.basel@cms.com",
+      "phone": "0799990000",
+      "specification": "Internal Medicine",
+      "clinicId": 3
+    },
+    {
+      "id": "11",
+      "name": "Dr. Nour",
+      "email": "dr.nour@cms.com",
+      "phone": "0781111111",
+      "specification": "Internal Medicine",
+      "clinicId": 3
+    },
+    {
+      "id": "12",
+      "name": "Dr. Eyad",
+      "email": "dr.eyad@cms.com",
+      "phone": "0782222222",
+      "specification": "Internal Medicine",
+      "clinicId": 3
+    },
+    {
+      "id": "13",
+      "name": "Dr. Lina",
+      "email": "dr.lina@cms.com",
+      "phone": "0783333333",
+      "specification": "Dermatology",
+      "clinicId": 4
+    },
+    {
+      "id": "14",
+      "name": "Dr. Fares",
+      "email": "dr.fares@cms.com",
+      "phone": "0784444444",
+      "specification": "Dermatology",
+      "clinicId": 4
+    },
+    {
+      "id": "15",
+      "name": "Dr. Rami",
+      "email": "dr.rami@cms.com",
+      "phone": "0785555555",
+      "specification": "Dermatology",
+      "clinicId": 4
+    },
+    {
+      "id": "16",
+      "name": "Dr. Samar",
+      "email": "dr.samar@cms.com",
+      "phone": "0786666666",
+      "specification": "Dermatology",
+      "clinicId": 4
     }
   ],
   "appointments": [
     {
-      "id": "03aa"
+      "id": "1728",
+      "doctorId": "5",
+      "date": "2025-05-23",
+      "time": "22:51"
     }
   ],
   "clinics": [
     {
       "id": "1",
-      "name": "Al Amal Clinic"
+      "name": "Dentistry",
+      "image": "assets/images/dental.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Pediatrics",
+      "image": "assets/images/pediatrics.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Internal Medicine",
+      "image": "assets/images/internal.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Dermatology",
+      "image": "assets/images/dermatology.jpg"
     }
   ],
   "drugs": [

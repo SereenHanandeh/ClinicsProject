@@ -15,10 +15,13 @@ export const roleGuard: CanActivateChildFn = (
   const router = inject(Router);
 
   const currentUser = authService.currentUser;
-
   const allowedRoles: string[] = childRoute.data['roles'];
 
-  if (currentUser && allowedRoles.includes(currentUser.userType)) {
+  if (
+    currentUser &&
+    Array.isArray(allowedRoles) &&
+    allowedRoles.includes(currentUser.userType)
+  ) {
     return true;
   } else {
     router.navigate(['/unauthorized']);

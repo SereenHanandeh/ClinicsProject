@@ -17,7 +17,7 @@ import { AuthService } from '../../../core/services/Auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-   logoPath = 'assets/logo.png';
+  logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   errorMessage: string = '';
 
@@ -28,7 +28,7 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -52,14 +52,14 @@ export class LoginComponent {
         if (user.userType === 'admin') {
           this.router.navigate(['/admin/dashboard']);
         } else if (user.userType === 'doctor') {
-          this.router.navigate(['/doctor/dashboard']);
+          this.router.navigate(['/doctor']);
         } else {
           this.router.navigate(['/patient/dashboard']);
         }
       },
       error: () => {
         this.errorMessage = 'Invalid email or password';
-      }
+      },
     });
   }
 }
