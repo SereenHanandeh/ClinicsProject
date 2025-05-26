@@ -21,6 +21,7 @@ export class BookAppointmentComponent {
   ) {}
 
   ngOnInit(): void {
+    this.doctorId = this.route.snapshot.paramMap.get('doctorId') || '';
     this.doctorId = this.route.snapshot.paramMap.get('id') || '';
   }
 

@@ -1,3 +1,5 @@
+
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -21,6 +23,8 @@ import {
 } from '../../../core/models/appointment.model';
 import { AppointmentService } from '../../../core/services/Appointment/appointment.service';
 import { PatientHistoryComponent } from '../patient-history/patient-history.component';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-appointments',

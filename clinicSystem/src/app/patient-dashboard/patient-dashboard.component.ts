@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-patient-dashboard',
+  imports: [RouterModule],
+
+  
 
 @Component({
   selector: 'app-patient-dashboard',

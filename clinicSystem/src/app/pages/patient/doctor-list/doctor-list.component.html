@@ -1,3 +1,31 @@
+<h2 class="text-xl font-semibold mb-4">Clinic Departments</h2>
+
+<div class="flex flex-wrap gap-2 mb-6">
+  <button
+    *ngFor="let clinic of clinics"
+    (click)="filterDoctorsByClinic(clinic.id)"
+    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+  >
+    {{ clinic.name }}
+  </button>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div
+    *ngFor="let doctor of filteredDoctors"
+    class="border p-4 rounded shadow hover:shadow-md transition"
+  >
+    <h3 class="text-lg font-bold mb-2">{{ doctor.name }}</h3>
+    <p class="text-gray-700 mb-2">Specialty: {{ doctor.specification }}</p>
+    <p class="text-gray-500 mb-4">Clinic ID: {{ doctor.clinicId }}</p>
+    <a
+      [routerLink]="['/patient/book-appointment', doctor.id]"
+      class="text-blue-500 underline"
+    >
+      Book Appointment
+    </a>
+  </div>
+</div>
 <h2>Doctors List</h2>
 
 <label>Specialty:</label>

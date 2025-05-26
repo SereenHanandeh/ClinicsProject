@@ -53,4 +53,5 @@ export class PatientService {
   updatePatientProfile(id: number, data: Partial<Patient>): Observable<any> {
     return this.http.put(`${this.baseUrl}/patients/${id}`, data);
   }
+
 }
