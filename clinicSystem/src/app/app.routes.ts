@@ -3,11 +3,16 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+
 import { adminGuard } from './core/guards/Admin/admin.guard';
+import { roleGuard } from './core/guards/Role/role.guard';
+
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 import { AppointmentsComponent } from './pages/doctor/appointments/appointments.component';
+
+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
 import { ProfileComponent } from './pages/patient/profile/profile.component';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
 import { DoctorListComponent } from './pages/patient/doctor-list/doctor-list.component';
@@ -40,6 +45,7 @@ export const routes: Routes = [
     path: 'doctor',
     component: DoctorLayoutComponent,
     canActivateChild: [authGuard],
+    // canActivateChild: [roleGuard],
     data: { roles: ['doctor'] },
     children: [
       { path: 'dashboard', component: DoctorDashboardComponent },
@@ -65,5 +71,19 @@ export const routes: Routes = [
     ],
   },
 
+
+    // canActivateChild: [roleGuard],
+    data: { roles: ['patient'] },
+    children: [
+      { path: 'dashboard', component: PatientDashboardComponent },
+      { path: 'doctors', component: DoctorListComponent },           // تصفح قائمة الأطباء مع فلاتر
+      { path: 'book-appointment/:doctorId', component: BookAppointmentComponent }, // حجز موعد مع طبيب (باستخدام معرّف الطبيب)
+      { path: 'appointments', component: MyAppointmentsComponent },  // عرض قائمة المواعيد الخاصة بالمريض
+      { path: 'profile', component: ProfileComponent },              // عرض وتعديل الملف الشخصي
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
+  },
+
+  // 404
   { path: '**', component: NotFoundComponent },
 ];

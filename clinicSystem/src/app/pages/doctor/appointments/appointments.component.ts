@@ -1,5 +1,22 @@
 
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+
+import { Component } from '@angular/core';
+
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import {
   Appointment,
   ApprovalStatus,
@@ -12,7 +29,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, PatientHistoryComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
 })

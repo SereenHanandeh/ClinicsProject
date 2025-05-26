@@ -11,3 +11,12 @@
 </div>
 
 <button (click)="bookAppointment()" class="btn">Book Now</button>
+<h2>Book an Appointment</h2>
+
+<label>Date:</label>
+<input type="date" [(ngModel)]="selectedDate" />
+
+<label>Time:</label>
+<input type="time" [(ngModel)]="selectedTime" />
+
+<button (click)="bookAppointment()">Book Now</button>

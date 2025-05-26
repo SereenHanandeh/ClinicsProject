@@ -54,5 +54,4 @@ export class PatientService {
     return this.http.put(`${this.baseUrl}/patients/${id}`, data);
   }
 
- 
 }
