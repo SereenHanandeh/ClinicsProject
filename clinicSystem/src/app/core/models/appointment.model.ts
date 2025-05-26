@@ -6,7 +6,7 @@ export interface Appointment {
   doctorId: number;
   patientId: number;
   status: ApprovalStatus;
-   patientName: string;
+  patientName: string;
   details: {
     drugs: string[];
     diagnosis: string;

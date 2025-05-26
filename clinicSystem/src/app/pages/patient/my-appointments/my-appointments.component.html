@@ -1,7 +1,24 @@
 <h2>My Appointments</h2>
 
-<ul>
-  <li *ngFor="let appointment of appointments">
-    Appointment with doctor #{{ appointment.doctorId }} on {{ appointment.date }} at {{ appointment.time }}
+<ul
+  *ngIf="appointments.length > 0; else noAppointments"
+  class="appointments-list"
+>
+  <li *ngFor="let appointment of appointments" class="appointment-item">
+    <div class="appointment-info">
+      <span class="doctor-name">{{ getDoctorName(appointment.doctorId) }}</span>
+      <span class="clinic-name"
+        >- {{ getClinicName(appointment.doctorId) }}</span
+      >
+    </div>
+    <div class="appointment-datetime">
+      On {{ appointment.date | date : "mediumDate" }} at
+      {{ appointment.date | date : "shortTime" }}
+    </div>
+    <!-- <button (click)="cancelAppointment(appointment.id)" class="cancel-btn">Cancel</button> -->
   </li>
 </ul>
+
+<ng-template #noAppointments>
+  <p class="no-appointments-msg">You have no appointments.</p>
+</ng-template>

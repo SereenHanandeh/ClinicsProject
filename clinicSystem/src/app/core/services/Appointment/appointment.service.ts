@@ -12,9 +12,11 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
-   getDoctorAppointments(): Observable<Appointment[]> {
+  getDoctorAppointments(): Observable<Appointment[]> {
     const doctorId = 1;
-    return this.http.get<Appointment[]>(`${this.baseUrl}/appointments?doctorId=${doctorId}&status=pending`);
+    return this.http.get<Appointment[]>(
+      `${this.baseUrl}/appointments?doctorId=${doctorId}&status=pending`
+    );
   }
 
   getAppointmentsByDoctor(doctorId: number): Observable<Appointment[]> {
@@ -23,12 +25,13 @@ export class AppointmentService {
     );
   }
 
-
-
-//   updateAppointmentDetails(id: number, details: { diagnosis: string; drugs: string[]; payment: number }): Observable<any>  {
-
-  updateAppointmentDetails(id: number, details: Appointment['details']): Observable<Appointment> {
-    return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, { details });
+  updateAppointmentDetails(
+    id: number,
+    details: Appointment['details']
+  ): Observable<Appointment> {
+    return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, {
+      details,
+    });
   }
 
   updateAppointmentStatus(
@@ -41,9 +44,6 @@ export class AppointmentService {
     );
   }
 
-
-
-
   getPatients(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/patients`);
   }
@@ -52,4 +52,5 @@ export class AppointmentService {
     return this.http.get<any[]>(`${this.baseUrl}/appointments`);
   }
 
+  
 }

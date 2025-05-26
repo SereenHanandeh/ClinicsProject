@@ -1,0 +1,75 @@
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.appointment-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.appointment-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.appointment-info {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.doctor-name {
+  color: #2980b9;
+}
+
+.clinic-name {
+  color: #27ae60;
+  margin-left: 8px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.appointment-datetime {
+  margin-top: 6px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.no-appointments-msg {
+  text-align: center;
+  font-style: italic;
+  color: #95a5a6;
+  font-size: 1rem;
+  margin-top: 40px;
+}
+
+.cancel-btn {
+  background-color: #e74c3c; /* لون أحمر ناري */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b; /* لون أغمق عند المرور */
+}
+

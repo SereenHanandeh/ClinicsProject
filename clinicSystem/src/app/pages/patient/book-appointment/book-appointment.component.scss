@@ -1,31 +1,136 @@
-/* book-appointment.component.scss */
+/* Container & Title */
 .form-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3b82f6; /* أزرق هادئ */
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(59, 130, 246, 0.5);
 }
 
+/* Form Group */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-input[type='date'],
-input[type='time'] {
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  color: #374151; /* رمادي داكن */
+  font-weight: 600;
+}
+
+/* Date Input */
+input[type="date"] {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #3b82f6;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.15);
 }
 
-.btn {
-  padding: 10px 16px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 6px;
+input[type="date"]:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+}
+
+/* Time Slots Container */
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Each Time Slot */
+.time-slot {
   cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e3a8a;
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Available time slot */
+.time-slot.available:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.6);
+  transform: translateY(-4px);
+}
+
+/* Booked time slot */
+.time-slot.booked {
+  background: #dc2626; 
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.8;
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.7);
+  border: 2px solid #b91c1c;
+}
+
+
+/* Selected time slot */
+.time-slot.selected {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.8);
+  border: 2px solid #1e40af;
+  transform: translateY(-4px);
+}
+
+/* Book Now Button */
+.btn {
+  display: block;
+  margin: 2rem auto 0 auto;
+  padding: 0.9rem 3rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.5);
+  transition: all 0.3s ease;
+  user-select: none;
+  text-align: center;
+  width: 220px;
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  box-shadow: 0 15px 30px rgba(30, 64, 175, 0.7);
+  transform: translateY(-3px);
+}
+
+/* Responsive for small devices */
+@media (max-width: 480px) {
+  .time-slots {
+    gap: 0.7rem;
+  }
+
+  .time-slot {
+    min-width: 70px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
 }
