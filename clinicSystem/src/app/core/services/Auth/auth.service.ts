@@ -18,6 +18,17 @@ export class AuthService {
       this.currentUserSubject.next(JSON.parse(storedUser));
     }
   }
+  getCurrentUserId(): number | null {
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        return JSON.parse(user).id;
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  }
 
   login(email: string, password: string): Observable<User> {
     return this.http
@@ -94,25 +105,24 @@ export class AuthService {
             return throwError(() => new Error('Email is already registered.'));
           }
 
-          const newUser: User = {
-            id: 0,
+          const newUser = {
             name: user.name ?? '',
             email: user.email ?? '',
             password: user.password!,
             userType: 'patient',
           };
-          
+
           return this.http.post<User>(`${this.baseUrl}/users`, newUser).pipe(
             switchMap((createdUser: User) => {
               const newPatient: Patient = {
                 id: createdUser.id,
                 name: createdUser.name,
                 email: createdUser.email,
-                // phone: user.phone ,
                 gender: user.gender ?? 'male',
                 dateOfBirth: user.dateOfBirth ?? '',
                 password: '',
-                userType: 'patient'
+                userType: 'patient',
+                phone: undefined,
               };
 
               return this.http
@@ -123,4 +133,6 @@ export class AuthService {
         })
       );
   }
+
+  
 }

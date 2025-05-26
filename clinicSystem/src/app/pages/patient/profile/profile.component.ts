@@ -1,36 +1,72 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { PatientService } from '../../../core/services/Patient/patient.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/services/Auth/auth.service';
 
 @Component({
   selector: 'app-profile',
-  imports: [FormsModule,CommonModule,ReactiveFormsModule ,RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent {
- profileForm!: FormGroup;
-  patientId: string = '7907'; 
+export class ProfileComponent implements OnInit {
+  profileForm!: FormGroup;
+  patientId!: number | null;
 
-  constructor(private fb: FormBuilder, private patientService: PatientService) {}
+  constructor(
+    private fb: FormBuilder,
+    private patientService: PatientService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.patientService.getPatientById(this.patientId).subscribe(data => {
-      this.profileForm = this.fb.group({
-        name: [data.name],
-        email: [data.email],
-        phone: [data.phone],
-        gender: [data.gender],
-        dateOfBirth: [data.dateOfBirth]
+    this.patientId = this.authService.getCurrentUserId();
+
+    if (!this.patientId) {
+      alert('User not logged in.');
+      return;
+    }
+
+    this.patientService
+      .getPatientById(this.patientId.toString())
+      .subscribe((data) => {
+        this.profileForm = this.fb.group({
+          name: [data.name, Validators.required],
+          email: [data.email, [Validators.required, Validators.email]],
+          phone: [data.phone, Validators.required],
+          gender: [data.gender, Validators.required],
+          dateOfBirth: [data.dateOfBirth, Validators.required],
+        });
       });
-    });
   }
 
   updateProfile() {
-    this.patientService.updatePatient(this.patientId, this.profileForm.value).subscribe(() => {
-      alert('تم تحديث الملف الشخصي بنجاح!');
-    });
+    if (!this.patientId) return;
+
+    if (this.profileForm.invalid) {
+      alert('Please fill out the form correctly.');
+      return;
+    }
+
+    this.patientService
+      .updatePatient(this.patientId.toString(), this.profileForm.value)
+      .subscribe(
+        () => {
+          alert('Profile updated successfully!');
+        },
+        (error) => {
+          alert(
+            'An error occurred while updating the profile. Please try again.'
+          );
+          console.error(error);
+        }
+      );
   }
 }

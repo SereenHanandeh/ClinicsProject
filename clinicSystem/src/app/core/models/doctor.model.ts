@@ -5,4 +5,5 @@ export interface Doctor {
   phone: string;
   specification: string;
   clinicId: number;
+  image:string;
 }
