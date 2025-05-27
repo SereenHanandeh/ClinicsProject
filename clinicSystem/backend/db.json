@@ -359,12 +359,12 @@
       }
     },
     {
-      "id": 1748369271603,
+      "id": "1748369271603",
       "doctorId": 5,
       "patientId": "3557",
       "patientName": "sereen hanandeh",
       "date": "2025-06-06T09:00",
-      "status": "pending",
+      "status": "approved",
       "details": {
         "drugs": [],
         "diagnosis": "",
