@@ -13,9 +13,14 @@ export class AppointmentService {
   constructor(private http: HttpClient) {}
 
   getDoctorAppointments(): Observable<Appointment[]> {
-    const doctorId = 1;
+    const user = localStorage.getItem('currentUser');
+    if (!user) {
+      throw new Error('Doctor ID not found in localStorage.');
+    }
+
+    const doctorId = JSON.parse(user).id;
     return this.http.get<Appointment[]>(
-      `${this.baseUrl}/appointments?doctorId=${doctorId}&status=pending`
+      `${this.baseUrl}/appointments?doctorId=${doctorId}`
     );
   }
 
@@ -34,14 +39,8 @@ export class AppointmentService {
     });
   }
 
-  updateAppointmentStatus(
-    appointmentId: number,
-    status: ApprovalStatus
-  ): Observable<Appointment> {
-    return this.http.patch<Appointment>(
-      `${this.baseUrl}/appointments/${appointmentId}`,
-      { status }
-    );
+  updateAppointmentStatus(id: number | string, data: Partial<Appointment>) {
+    return this.http.patch(`${this.baseUrl}/appointments/${id}`, data);
   }
 
   getPatients(): Observable<any[]> {
@@ -51,6 +50,4 @@ export class AppointmentService {
   getAppointments(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/appointments`);
   }
-
-  
 }
