@@ -1,73 +1,110 @@
 <div class="p-4">
-
   <!-- Search Filter -->
   <form [formGroup]="filterForm" class="mb-3">
-    <label>Search by Name:</label>
-    <input type="text" class="form-control" formControlName="name" placeholder="Enter patient name" />
+    <label>Search by Patient Name:</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      placeholder="Enter patient name"
+    />
   </form>
 
-  <!-- Patient List -->
-  <div *ngFor="let patient of filteredPatients" class="card mb-3">
+  <!-- Appointments List -->
+  <div *ngFor="let app of filteredAppointments" class="card mb-3">
     <div class="card-body">
-      <h5>{{ patient.name }}</h5>
-      <p>Email: {{ patient.email }}</p>
-      <p>Phone: {{ patient.phone }}</p>
-      <p>Birthdate: {{ patient.dateOfBirth }}</p>
+      <h5>Patient: {{ app.patientName }}</h5>
+      <p>Appointment Date: {{ app.date | date : "medium" }}</p>
+      <p>
+        Status:
+        <span
+          [ngClass]="{
+            'status-pending': app.status === 'pending',
+            'status-approved': app.status === 'approved',
+            'status-rejected': app.status === 'rejected'
+          }"
+        >
+          {{ app.status | titlecase }}
+        </span>
+      </p>
 
-      <div *ngIf="getAppointmentsForPatient(patient.id).length > 0">
-        <strong>Appointments:</strong>
-        <ul>
-          <li *ngFor="let app of getAppointmentsForPatient(patient.id)">
-            ID: {{ app.id }} | Date: {{ app.date | date:'mediumDate' }}
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="getAppointmentsForPatient(patient.id).length === 0">
-        <em>No appointments.</em>
-      </div>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        (click)="selectAppointment(app); toggleDetails(true)"
+      >
+        Details
+      </button>
     </div>
   </div>
 
-  <!-- Appointments List -->
-  <h2>Upcoming Appointments</h2>
-  <ul class="list-group mb-4">
-    <li
-      class="list-group-item"
-      *ngFor="let appointment of appointments"
-      [class.active]="appointment === selectedAppointment"
-      (click)="selectAppointment(appointment)"
+  <!-- Appointment Details with X close button -->
+  <div
+    *ngIf="selectedAppointment && detailsVisible"
+    class="appointment-details-card"
+  >
+    <button
+      class="close-btn"
+      aria-label="Close details"
+      (click)="toggleDetails(false)"
     >
-      {{ appointment.date | date: 'medium' }} - Status: {{ appointment.status }}
-    </li>
-  </ul>
+      ×
+    </button>
 
-  <!-- Appointment Details -->
-  <div *ngIf="selectedAppointment" class="card p-3">
     <h3>Appointment Details</h3>
-    <p><strong>Date:</strong> {{ selectedAppointment.date | date:'fullDate' }}</p>
-    <form [formGroup]="detailsForm">
-      <div class="mb-2">
+    <p>
+      <strong>Date:</strong> {{ selectedAppointment.date | date : "fullDate" }}
+    </p>
+    <p><strong>Patient:</strong> {{ selectedAppointment.patientName }}</p>
+
+    <!-- Details Form -->
+    <form [formGroup]="detailsForm" (ngSubmit)="updateDetails()">
+      <div class="mb-3">
         <label>Diagnosis:</label>
-        <textarea formControlName="diagnosis" class="form-control"></textarea>
+        <textarea
+          formControlName="diagnosis"
+          class="form-control"
+          rows="3"
+        ></textarea>
       </div>
-      <div class="mb-2">
+      <div class="mb-3">
         <label>Drugs (comma separated):</label>
         <input formControlName="drugs" class="form-control" />
       </div>
-      <div class="mb-2">
+      <div class="mb-3">
         <label>Payment:</label>
-        <input formControlName="payment" type="number" class="form-control" />
+        <input
+          formControlName="payment"
+          type="number"
+          min="0"
+          class="form-control"
+        />
       </div>
+      <button type="submit" class="btn btn-primary">Update Details</button>
     </form>
 
+    <!-- Status Buttons -->
     <div class="mt-3">
-      <button class="btn btn-success me-2" *ngIf="selectedAppointment.status === 'pending'" (click)="respond('approved')">Approve</button>
-      <button class="btn btn-danger" *ngIf="selectedAppointment.status === 'pending'" (click)="respond('rejected')">Reject</button>
+      <button
+        class="btn btn-success me-2"
+        *ngIf="selectedAppointment.status === 'pending'"
+        (click)="respond('approved')"
+      >
+        Approve
+      </button>
+      <button
+        class="btn btn-danger"
+        *ngIf="selectedAppointment.status === 'pending'"
+        (click)="respond('rejected')"
+      >
+        Reject
+      </button>
     </div>
   </div>
 
-  <div *ngIf="errorMessage" class="alert alert-danger mt-2">{{ errorMessage }}</div>
-  <div *ngIf="successMessage" class="alert alert-success mt-2">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success mt-2">
+    {{ successMessage }}
+  </div>
 </div>
-
-

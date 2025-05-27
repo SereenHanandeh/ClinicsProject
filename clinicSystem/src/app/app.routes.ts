@@ -10,9 +10,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 import { AppointmentsComponent } from './pages/doctor/appointments/appointments.component';
-
-// import { ProfileComponent } from './pages/patient/profile/profile.component';
-import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
 import { DoctorListComponent } from './pages/patient/doctor-list/doctor-list.component';
 import { BookAppointmentComponent } from './pages/patient/book-appointment/book-appointment.component';
 import { MyAppointmentsComponent } from './pages/patient/my-appointments/my-appointments.component';
@@ -36,6 +33,7 @@ export const routes: Routes = [
       // { path: 'dashboard', component: AdminDashboardComponent },
     ],
   },
+
 
   // Doctor routes
   {
@@ -67,7 +65,7 @@ export const routes: Routes = [
       },
       { path: 'appointments', component: MyAppointmentsComponent },
       { path: 'profile', component: ProfileComponent },
-      // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 

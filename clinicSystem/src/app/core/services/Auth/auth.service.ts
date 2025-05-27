@@ -19,15 +19,8 @@ export class AuthService {
     }
   }
   getCurrentUserId(): number | null {
-    const user = localStorage.getItem('user');
-    if (user) {
-      try {
-        return JSON.parse(user).id;
-      } catch {
-        return null;
-      }
-    }
-    return null;
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    return user ? user.id : null;
   }
 
   login(email: string, password: string): Observable<User> {
@@ -133,6 +126,4 @@ export class AuthService {
         })
       );
   }
-
-  
 }

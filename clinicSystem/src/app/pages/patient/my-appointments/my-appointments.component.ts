@@ -70,20 +70,21 @@ export class MyAppointmentsComponent implements OnInit {
   }
 
   cancelAppointment(appointmentId: number): void {
-  if (!confirm('Are you sure you want to cancel this appointment?')) {
-    return;
-  }
-  
-  this.patientService.deleteAppointment(appointmentId).subscribe({
-    next: () => {
-      this.appointments = this.appointments.filter(app => app.id !== appointmentId);
-      alert('Appointment canceled successfully.');
-    },
-    error: (err) => {
-      console.error('Error canceling appointment:', err);
-      alert('Failed to cancel the appointment. Please try again.');
+    if (!confirm('Are you sure you want to cancel this appointment?')) {
+      return;
     }
-  });
-}
 
+    this.patientService.deleteAppointment(appointmentId).subscribe({
+      next: () => {
+        this.appointments = this.appointments.filter(
+          (app) => app.id !== appointmentId
+        );
+        alert('Appointment canceled successfully.');
+      },
+      error: (err) => {
+        console.error('Error canceling appointment:', err);
+        alert('Failed to cancel the appointment. Please try again.');
+      },
+    });
+  }
 }
