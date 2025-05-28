@@ -342,25 +342,29 @@
   ],
   "appointments": [
     {
-      "id": 1748297980328,
+      "id": "1748297980328",
       "doctorId": 9,
       "patientId": "3557",
       "patientName": "sereen hanandeh",
       "date": "2025-05-31T12:00",
-      "status": "pending",
+      "status": "approved",
       "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
+        "diagnosis": "dcegtrgre",
+        "drugs": [
+          "fergtr",
+          "fvtrhyu",
+          "gbhtyht"
+        ],
+        "payment": 20
       }
     },
     {
-      "id": 1748298230978,
-      "doctorId": 6,
+      "id": "1748369271603",
+      "doctorId": 5,
       "patientId": "3557",
       "patientName": "sereen hanandeh",
-      "date": "2025-05-31T09:00",
-      "status": "pending",
+      "date": "2025-06-06T09:00",
+      "status": "approved",
       "details": {
         "drugs": [],
         "diagnosis": "",
@@ -397,12 +401,12 @@
   ],
   "drugs": [
     {
-      "id": "1",
-      "name": "Panadol"
-    },
-    {
       "id": "2",
       "name": "Amoxicillin"
+    },
+    {
+      "id": 0,
+      "name": "Panadol"
     }
   ],
   "diagnoses": [
@@ -411,8 +415,8 @@
       "name": "Flu"
     },
     {
-      "id": "2",
-      "name": "Cold"
+      "id": 0,
+      "name": "ddfg"
     }
   ]
 }

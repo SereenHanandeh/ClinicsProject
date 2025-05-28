@@ -10,9 +10,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 import { AppointmentsComponent } from './pages/doctor/appointments/appointments.component';
-
-// import { ProfileComponent } from './pages/patient/profile/profile.component';
-import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
 import { DoctorListComponent } from './pages/patient/doctor-list/doctor-list.component';
 import { BookAppointmentComponent } from './pages/patient/book-appointment/book-appointment.component';
 import { MyAppointmentsComponent } from './pages/patient/my-appointments/my-appointments.component';
@@ -20,6 +17,11 @@ import { DoctorDashboardComponent } from './pages/doctor/dashboard/dashboard.com
 import { authGuard } from './core/guards/Auth/auth.guard';
 import { ProfileComponent } from './pages/patient/profile/profile.component';
 import { DashboardComponent } from './pages/patient/dashboard/dashboard.component';
+import { DocProfileComponent } from './pages/doctor/doc-profile/doc-profile.component';
+import { ManageDoctorsComponent } from './pages/admin/manage-doctors/manage-doctors.component';
+import { ManageClinicsComponent } from './pages/admin/manage-clinics/manage-clinics.component';
+import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.component';
+import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -35,7 +37,12 @@ export const routes: Routes = [
     component: AdminLayoutComponent,
     canActivateChild: [adminGuard],
     children: [
-      // { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'manageDoctor', component: ManageDoctorsComponent },
+      { path: 'manageClinic', component: ManageClinicsComponent },
+      { path: 'manageDrugs', component: ManageDrugsComponent },
+      { path: 'manageDiagnoses', component: ManageDiagnosesComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 
@@ -49,7 +56,7 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DoctorDashboardComponent },
       { path: 'appointments', component: AppointmentsComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: DocProfileComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
@@ -69,7 +76,7 @@ export const routes: Routes = [
       },
       { path: 'appointments', component: MyAppointmentsComponent },
       { path: 'profile', component: ProfileComponent },
-      // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 

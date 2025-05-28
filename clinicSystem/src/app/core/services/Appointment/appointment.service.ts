@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Appointment, ApprovalStatus } from '../../models/appointment.model';
 import { Observable } from 'rxjs';
-import { Patient } from '../../models/patient.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +11,16 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
-  getDoctorAppointments(): Observable<Appointment[]> {
-    const doctorId = 1;
-    return this.http.get<Appointment[]>(
-      `${this.baseUrl}/appointments?doctorId=${doctorId}&status=pending`
-    );
+ getDoctorAppointments(): Observable<Appointment[]> {
+  const user = localStorage.getItem('currentUser');
+  if (!user) {
+    throw new Error('Doctor ID not found in localStorage.');
   }
+
+  const doctorId = JSON.parse(user).id;
+  return this.http.get<Appointment[]>(`${this.baseUrl}/appointments?doctorId=${doctorId}`);
+}
+
 
   getAppointmentsByDoctor(doctorId: number): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(
@@ -34,15 +37,10 @@ export class AppointmentService {
     });
   }
 
-  updateAppointmentStatus(
-    appointmentId: number,
-    status: ApprovalStatus
-  ): Observable<Appointment> {
-    return this.http.patch<Appointment>(
-      `${this.baseUrl}/appointments/${appointmentId}`,
-      { status }
-    );
-  }
+  updateAppointmentStatus(id: number, data: Partial<Appointment>): Observable<Appointment> {
+  return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, data);
+}
+
 
   getPatients(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/patients`);
@@ -51,6 +49,4 @@ export class AppointmentService {
   getAppointments(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/appointments`);
   }
-
-  
 }

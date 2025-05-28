@@ -1,1 +1,31 @@
-<p>admin-layout works!</p>
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/admin/dashboard" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a routerLink="/admin/manageDoctor" routerLinkActive="active"
+            >Doctors</a
+          >
+        </li>
+        <li>
+          <a routerLink="/admin/manageClinic" routerLinkActive="active">Clinics</a>
+        </li>
+        <li>
+          <a routerLink="/admin/manageDiagnoses" routerLinkActive="active">Diagnoses</a>
+        </li>
+        <li>
+          <a routerLink="/admin/manageDrugs" routerLinkActive="active">Drugs</a>
+        </li>
+        <li><a routerLink="/">Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

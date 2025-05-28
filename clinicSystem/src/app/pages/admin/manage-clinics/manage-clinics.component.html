@@ -1,1 +1,29 @@
-<p>manage-clinics works!</p>
+<div class="container">
+  <h2>Manage Clinics</h2>
+
+  <form (ngSubmit)="addClinic()" class="form">
+    <input
+      type="text"
+      [(ngModel)]="newClinic.name"
+      name="name"
+      placeholder="Clinic Name"
+      required
+    />
+    <input
+      type="text"
+      [(ngModel)]="newClinic.image"
+      name="image"
+      placeholder="Image URL"
+      required
+    />
+    <button type="submit">Add Clinic</button>
+  </form>
+
+  <div class="clinic-grid">
+    <div class="clinic-card" *ngFor="let clinic of clinics">
+      <img [src]="clinic.image" alt="Clinic Image" />
+      <h3>{{ clinic.name }}</h3>
+      <button (click)="deleteClinic(clinic.id)">Delete</button>
+    </div>
+  </div>
+</div>

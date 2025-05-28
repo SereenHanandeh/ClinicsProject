@@ -1,15 +1,11 @@
-import { CanActivateChildFn, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivateChildFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { AuthService } from '../../services/Auth/auth.service';
 
-export const authGuard: CanActivateChildFn = (
-  route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot
-) => {
-  const authService = inject(AuthService);
+export const authGuard: CanActivateChildFn = () => {
   const router = inject(Router);
+  const token = localStorage.getItem('token');
 
-  if (authService.isLoggedIn()) {
+  if (token) {
     return true;
   } else {
     router.navigate(['/login']);
