@@ -401,12 +401,12 @@
   ],
   "drugs": [
     {
-      "id": "1",
-      "name": "Panadol"
-    },
-    {
       "id": "2",
       "name": "Amoxicillin"
+    },
+    {
+      "id": 0,
+      "name": "Panadol"
     }
   ],
   "diagnoses": [
@@ -415,8 +415,8 @@
       "name": "Flu"
     },
     {
-      "id": "2",
-      "name": "Cold"
+      "id": 0,
+      "name": "ddfg"
     }
   ]
 }

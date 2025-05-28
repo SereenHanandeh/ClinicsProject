@@ -1,1 +1,51 @@
-<p>manage-doctors works!</p>
+<div *ngIf="loading">جاري التحميل...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()" *ngIf="!loading">
+  <label>
+    الاسم:
+    <input formControlName="name" />
+  </label>
+  <div *ngIf="doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched">
+    الاسم مطلوب.
+  </div>
+
+  <label>
+    البريد الإلكتروني:
+    <input formControlName="email" type="email" />
+  </label>
+  <div *ngIf="doctorForm.get('email')?.invalid && doctorForm.get('email')?.touched">
+    بريد إلكتروني صالح مطلوب.
+  </div>
+
+  <label>
+    رقم الهاتف:
+    <input formControlName="phone" />
+  </label>
+  <div *ngIf="doctorForm.get('phone')?.invalid && doctorForm.get('phone')?.touched">
+    رقم الهاتف مطلوب.
+  </div>
+
+  <label>
+    التخصص:
+    <input formControlName="specification" />
+  </label>
+  <div *ngIf="doctorForm.get('specification')?.invalid && doctorForm.get('specification')?.touched">
+    التخصص مطلوب.
+  </div>
+
+  <label>
+    رقم العيادة:
+    <input formControlName="clinicId" type="number" />
+  </label>
+  <div *ngIf="doctorForm.get('clinicId')?.invalid && doctorForm.get('clinicId')?.touched">
+    رقم العيادة مطلوب.
+  </div>
+
+  <label>
+    صورة الدكتور (رابط):
+    <input formControlName="image" />
+  </label>
+
+  <button type="submit" [disabled]="doctorForm.invalid">تحديث الدكتور</button>
+</form>
