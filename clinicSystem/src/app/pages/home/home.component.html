@@ -38,17 +38,27 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
-          <li>
-            <a href="#hero" class="active">Home<br /></a>
-          </li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#departments">Departments</a></li>
-          <li><a href="#doctors">Our Team</a></li>
+      <ul>
+  <li>
+    <a [routerLink]="['/home']" fragment="hero" class="active">Home</a>
+  </li>
+  <li>
+    <a [routerLink]="['/home']" fragment="about">About</a>
+  </li>
+  <li>
+    <a [routerLink]="['/home']" fragment="services">Services</a>
+  </li>
+  <li>
+    <a [routerLink]="['/home']" fragment="departments">Departments</a>
+  </li>
+  <li>
+    <a [routerLink]="['/home']" fragment="doctors">Our Team</a>
+  </li>
+  <li>
+    <a [routerLink]="['/home']" fragment="contact">Contact</a>
+  </li>
+</ul>
 
-          <li><a href="#contact">Contact</a></li>
-        </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
       <a class="cta-btn d-none d-sm-block" [routerLink]="['/login']">Login</a>

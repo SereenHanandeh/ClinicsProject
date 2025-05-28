@@ -26,6 +26,8 @@ export const routes: Routes = [
   { path: 'welcome', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+    { path: 'home', component: HomeComponent },
+
 
   // Admin routes
   {
