@@ -63,7 +63,7 @@ export const routes: Routes = [
   {
     path: 'patient',
     component: PatientLayoutComponent,
-    canActivateChild: [authGuard],
+    // canActivateChild: [authGuard],
     data: { roles: ['patient'] },
     children: [
       { path: 'dashboard', component: DashboardComponent },

@@ -379,11 +379,6 @@
       "image": "https://www.concilio.com/wp-content/uploads/cardiologie-concilio-votre-conciergerie-medicale_718x452.jpg?x44843"
     },
     {
-      "id": "2",
-      "name": "Pediatrics",
-      "image": "https://gsmedicalcollege.in/images/department/pediatrics.webp"
-    },
-    {
       "id": "3",
       "name": " Neurology",
       "image": "https://www.venkateshwarhospitals.com/images/neurology-banner-mobile.jpg"
@@ -405,7 +400,7 @@
       "name": "Amoxicillin"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "Panadol"
     }
   ],
@@ -415,7 +410,7 @@
       "name": "Flu"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "ddfg"
     }
   ]
