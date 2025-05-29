@@ -49,10 +49,8 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: (user) => {
-        // ✅ حفظ بيانات المستخدم في localStorage
         localStorage.setItem('user', JSON.stringify(user));
 
-        // ✅ التوجيه حسب نوع المستخدم
         if (user.userType === 'admin') {
           this.router.navigate(['/admin/dashboard']);
         } else if (user.userType === 'doctor') {

@@ -199,7 +199,7 @@
     {
       "name": "sereen hanandeh",
       "email": "s@g.com",
-      "phone": "0539457479",
+      "phone": "0539457480",
       "gender": "female",
       "dateOfBirth": "1997-10-10",
       "id": "3557"
@@ -340,16 +340,7 @@
       "clinicId": 4
     },
     {
-      "id": 17,
-      "name": "Dr. Essam Hanandeh",
-      "email": "essam@gmail.com",
-      "phone": "0799744540",
-      "specification": "Eye",
-      "clinicId": "5",
-      "image": ""
-    },
-    {
-      "id": 17,
+      "id": "17",
       "name": "Dr.Rand",
       "email": "essam@gmail.com",
       "phone": "0798098967",
@@ -383,6 +374,21 @@
       "patientName": "sereen hanandeh",
       "date": "2025-06-06T09:00",
       "status": "approved",
+      "details": {
+        "diagnosis": "",
+        "drugs": [
+          ""
+        ],
+        "payment": 0
+      }
+    },
+    {
+      "id": "1748522144106",
+      "doctorId": 5,
+      "patientId": "3557",
+      "patientName": "sereen hanandeh",
+      "date": "2025-06-01T09:30",
+      "status": "rejected",
       "details": {
         "drugs": [],
         "diagnosis": "",
@@ -419,29 +425,29 @@
   ],
   "drugs": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Panadol "
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Panda"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Adol"
     }
   ],
   "diagnoses": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Flu"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cold"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "High Temp"
     }
   ]

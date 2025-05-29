@@ -3,9 +3,6 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
-import { adminGuard } from './core/guards/Admin/admin.guard';
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
@@ -35,7 +32,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    canActivateChild: [adminGuard],
+    // canActivateChild: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageDoctor', component: ManageDoctorsComponent },
@@ -52,8 +49,7 @@ export const routes: Routes = [
   {
     path: 'doctor',
     component: DoctorLayoutComponent,
-    canActivateChild: [authGuard],
-    // canActivateChild: [roleGuard],
+    // canActivateChild: [authGuard],
     data: { roles: ['doctor'] },
     children: [
       { path: 'dashboard', component: DoctorDashboardComponent },
