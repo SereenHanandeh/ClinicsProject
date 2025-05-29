@@ -36,6 +36,40 @@
     }
   }
 
+  
+.sidebar {
+  width: 220px;
+  background-color: #2cb48f;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  font-weight: bold;
+  color: #ffffff;
+}
+
   .content {
     flex: 1;
     padding: 2rem;
