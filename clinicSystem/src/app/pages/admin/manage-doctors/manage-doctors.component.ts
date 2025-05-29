@@ -46,7 +46,7 @@ export class ManageDoctorsComponent {
   }
 
   editDoctor(id: number) {
-    this.router.navigate(['/admin/manageDoctor', id]);
+    this.router.navigate(['/admin/editDoctor', id]);
   }
 
   deleteDoctor(id: number) {
@@ -62,7 +62,7 @@ export class ManageDoctorsComponent {
       });
     }
   }
-  
+
   goToAddDoctor() {
   this.router.navigate(['/admin/addDoctor']);
 }
