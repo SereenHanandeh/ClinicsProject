@@ -1,0 +1,30 @@
+<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+  <label>الاسم:</label>
+  <input formControlName="name" type="text" />
+
+  <label>البريد الإلكتروني:</label>
+  <input formControlName="email" type="email" />
+
+  <label>الهاتف:</label>
+  <input formControlName="phone" type="text" />
+
+  <label>التخصص:</label>
+  <input formControlName="specification" type="text" />
+
+  <label>العيادة:</label>
+  <select formControlName="clinicId">
+    <option value="">اختر العيادة</option>
+    <option *ngFor="let clinic of clinics" [value]="clinic.id">
+      {{ clinic.name }}
+    </option>
+  </select>
+
+  <div *ngIf="f['clinicId'].touched && f['clinicId'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['clinicId'].errors?.['required']">العيادة مطلوبة.</div>
+  </div>
+
+  <button type="submit" [disabled]="loading">إضافة</button>
+
+  <div *ngIf="errorMessage" class="error text-red-600 mt-2">{{ errorMessage }}</div>
+</form>
+
