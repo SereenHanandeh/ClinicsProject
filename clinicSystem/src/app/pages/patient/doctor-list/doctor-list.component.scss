@@ -1,36 +1,36 @@
 .section-title {
   text-align: center;
-
   color: #2cb48f;
-
-  font-size: 2.5rem; /* أكبر */
+  font-size: 2.5rem;
   margin-bottom: 2.5rem;
   font-weight: 700;
 }
 
+/* Clinic Buttons */
 .clinic-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 2rem;
+  margin-top: 1rem;
   margin-bottom: 4rem;
 }
 
 .clinic-button {
-  background-color: #9b9b9b02;
-  border: 2px solid #2cb48f;
-  border-radius: 10px;
-  padding: 2rem 2.5rem; /* أكبر */
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
   width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.2rem;
+  border: 2px solid #2cb48f;
+  border-radius: 10px;
+  background-color: #9b9b9b02;
+  text-align: center;
   font-weight: 600;
   font-size: 1.3rem;
   color: #34495e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .clinic-button:hover {
@@ -41,10 +41,9 @@
 }
 
 .clinic-image {
-  width: 130px;
+  width: 100px;
   height: 100px;
-  object-fit: contain;
-  margin-bottom: 1rem;
+
 }
 
 /* Doctor Card Style */
@@ -105,7 +104,21 @@
   background: linear-gradient(to right, #2cb48f, #717d85);
 }
 
+/* Doctors Grid */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
 /* Responsive Layout */
+@media (max-width: 992px) {
+  .doctors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .clinic-button {
     width: 180px;
@@ -120,5 +133,11 @@
   .doctor-image {
     width: 100px;
     height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .doctors-grid {
+    grid-template-columns: 1fr;
   }
 }

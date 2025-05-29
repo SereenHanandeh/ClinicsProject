@@ -13,7 +13,9 @@
   display: flex;
   flex-direction: column;
 }
-
+ul.background-shapes {
+    display: none;
+}
 .sidebar h2 {
   font-size: 1.6rem;
   margin-bottom: 2rem;
