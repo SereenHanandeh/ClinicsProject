@@ -252,12 +252,12 @@
       "image": "data:image/jpeg;base64,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"
     },
     {
-      "id": "6",
       "name": "Dr. Yazan",
       "email": "dr.yazan@cms.com",
-      "phone": "0795555555",
+      "phone": "0795555550",
       "specification": "Pediatrics",
-      "clinicId": 2
+      "clinicId": 2,
+      "id": "6"
     },
     {
       "id": "7",
@@ -338,6 +338,24 @@
       "phone": "0786666666",
       "specification": "Dermatology",
       "clinicId": 4
+    },
+    {
+      "id": 17,
+      "name": "Dr. Essam Hanandeh",
+      "email": "essam@gmail.com",
+      "phone": "0799744540",
+      "specification": "Eye",
+      "clinicId": "5",
+      "image": ""
+    },
+    {
+      "id": 17,
+      "name": "Dr.Rand",
+      "email": "essam@gmail.com",
+      "phone": "0798098967",
+      "specification": "Eye",
+      "clinicId": "5",
+      "image": ""
     }
   ],
   "appointments": [
@@ -379,6 +397,11 @@
       "image": "https://www.concilio.com/wp-content/uploads/cardiologie-concilio-votre-conciergerie-medicale_718x452.jpg?x44843"
     },
     {
+      "id": "2",
+      "name": "Pediatrics",
+      "image": "https://gsmedicalcollege.in/images/department/pediatrics.webp"
+    },
+    {
       "id": "3",
       "name": " Neurology",
       "image": "https://www.venkateshwarhospitals.com/images/neurology-banner-mobile.jpg"
@@ -396,22 +419,30 @@
   ],
   "drugs": [
     {
-      "id": "2",
-      "name": "Amoxicillin"
+      "id": 1,
+      "name": "Panadol "
     },
     {
-      "id": "0",
-      "name": "Panadol"
+      "id": 2,
+      "name": "Panda"
+    },
+    {
+      "id": 3,
+      "name": "Adol"
     }
   ],
   "diagnoses": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Flu"
     },
     {
-      "id": "0",
-      "name": "ddfg"
+      "id": 2,
+      "name": "Cold"
+    },
+    {
+      "id": 3,
+      "name": "High Temp"
     }
   ]
 }

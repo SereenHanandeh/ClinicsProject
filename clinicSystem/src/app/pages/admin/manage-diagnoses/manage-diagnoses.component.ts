@@ -29,13 +29,22 @@ diagnoses: Diagnosis[] = [];
     });
   }
 
-  addDiagnosis(): void {
-    if (!this.newDiagnosis.name.trim()) return;
-    this.diagnosisService.add(this.newDiagnosis).subscribe(d => {
-      this.diagnoses.push(d);
-      this.newDiagnosis = { id: 0, name: '' };
-    });
-  }
+addDiagnosis(): void {
+  if (!this.newDiagnosis.name.trim()) return;
+
+  // توليد id يدويًا بناءً على أعلى id موجود حاليًا
+  const maxId = this.diagnoses.length > 0 ? Math.max(...this.diagnoses.map(d => d.id)) : 0;
+  const diagnosisToAdd: Diagnosis = {
+    id: maxId + 1,
+    name: this.newDiagnosis.name.trim()
+  };
+
+  this.diagnosisService.add(diagnosisToAdd).subscribe(d => {
+    this.diagnoses.push(d);
+    this.newDiagnosis = { id: 0, name: '' };
+  });
+}
+
 
   deleteDiagnosis(id: number): void {
     this.diagnosisService.delete(id).subscribe(() => {

@@ -16,6 +16,7 @@ export class DrugService {
   }
 
   add(drug: Drug): Observable<Drug> {
+    const { id, ...payload } = drug;
     return this.http.post<Drug>(this.baseUrl, drug);
   }
 
