@@ -24,6 +24,8 @@ export class DoctorService {
   }
 
   addDoctor(doctor: any) {
+    const { id, ...payload } = doctor;
+
     return this.http.post(`${this.baseUrl}`, doctor);
   }
 

@@ -23,6 +23,7 @@ export class AddDoctorComponent {
   clinics: any[] = [];
   loading = false;
   errorMessage = '';
+  doctors: any[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -44,10 +45,9 @@ export class AddDoctorComponent {
     this.loadClinics();
   }
 
-get f(): { [key: string]: AbstractControl } {
-  return this.doctorForm.controls;
-}
-
+  get f(): { [key: string]: AbstractControl } {
+    return this.doctorForm.controls;
+  }
 
   loadClinics() {
     this.clinicService.getClinics().subscribe({
@@ -62,13 +62,31 @@ get f(): { [key: string]: AbstractControl } {
       return;
     }
 
+    // تحقق من تكرار الايميل
+    const email = this.doctorForm.value.email;
+    const emailExists = this.doctors.some((doc) => doc.email === email);
+
+    if (emailExists) {
+      this.errorMessage = 'البريد الإلكتروني مستخدم مسبقًا';
+      this.loading = false;
+      return;
+    }
+
     this.loading = true;
 
-    this.doctorService.addDoctor(this.doctorForm.value).subscribe({
+    const maxId =
+      this.doctors.length > 0 ? Math.max(...this.doctors.map((d) => d.id)) : 16;
+
+    const newDoctor = {
+      id: maxId + 1,
+      ...this.doctorForm.value,
+    };
+
+    this.doctorService.addDoctor(newDoctor).subscribe({
       next: () => {
         this.loading = false;
         alert('تم إضافة الطبيب بنجاح');
-        this.router.navigate(['/admin/manageDoctors/:id']);
+        this.router.navigate(['/admin/manageDoctor']);
       },
       error: () => {
         this.loading = false;
