@@ -22,6 +22,7 @@ import { ManageDoctorsComponent } from './pages/admin/manage-doctors/manage-doct
 import { ManageClinicsComponent } from './pages/admin/manage-clinics/manage-clinics.component';
 import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.component';
 import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
+import { AddDoctorComponent } from './pages/admin/add-doctor/add-doctor.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -36,7 +37,8 @@ export const routes: Routes = [
     canActivateChild: [adminGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'manageDoctor', component: ManageDoctorsComponent },
+      { path: 'manageDoctor/:id', component: ManageDoctorsComponent },
+      { path: 'addDoctor', component: AddDoctorComponent },
       { path: 'manageClinic', component: ManageClinicsComponent },
       { path: 'manageDrugs', component: ManageDrugsComponent },
       { path: 'manageDiagnoses', component: ManageDiagnosesComponent },
@@ -63,7 +65,7 @@ export const routes: Routes = [
   {
     path: 'patient',
     component: PatientLayoutComponent,
-    canActivateChild: [authGuard],
+    // canActivateChild: [authGuard],
     data: { roles: ['patient'] },
     children: [
       { path: 'dashboard', component: DashboardComponent },

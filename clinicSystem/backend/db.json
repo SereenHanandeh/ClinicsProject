@@ -338,6 +338,24 @@
       "phone": "0786666666",
       "specification": "Dermatology",
       "clinicId": 4
+    },
+    {
+      "id": "5e98",
+      "name": "Dr. Ahmad Awad",
+      "email": "ahm@gmail.com",
+      "phone": "0798964342",
+      "specification": "Eye",
+      "clinicId": "5",
+      "image": ""
+    },
+    {
+      "id": "5a56",
+      "name": "Dr. Salam",
+      "email": "salam@gmail.com",
+      "phone": "0796789000",
+      "specification": "Eye",
+      "clinicId": "5",
+      "image": ""
     }
   ],
   "appointments": [
@@ -405,7 +423,7 @@
       "name": "Amoxicillin"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "Panadol"
     }
   ],
@@ -415,7 +433,7 @@
       "name": "Flu"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "ddfg"
     }
   ]

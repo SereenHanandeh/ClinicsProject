@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Doctor } from '../../../core/models/doctor.model';
 import { DoctorService } from '../../../core/services/Doctor/doctor.service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import {  Router, RouterModule } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -18,72 +18,53 @@ import { CommonModule } from '@angular/common';
   styleUrl: './manage-doctors.component.scss',
 })
 export class ManageDoctorsComponent {
-  doctorForm!: FormGroup;
-  doctorId!: number;
+   doctors: Doctor[] = [];
   loading = false;
   errorMessage = '';
 
   constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
     private doctorService: DoctorService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    // الحصول على id من رابط الصفحة
-    this.doctorId = Number(this.route.snapshot.paramMap.get('id'));
-
-    // إنشاء الفورم مع Validators
-    this.doctorForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
-      specification: ['', Validators.required],
-      clinicId: ['', Validators.required],
-      image: [''],
-    });
-
-    // جلب بيانات الدكتور للعرض في الفورم
-    this.loadDoctor();
+    this.loadAllDoctors();
   }
 
-  loadDoctor() {
+  loadAllDoctors() {
     this.loading = true;
-    this.doctorService.getDoctorById(this.doctorId).subscribe({
-      next: (doctor) => {
-        this.doctorForm.patchValue(doctor);
+    this.doctorService.getDoctors().subscribe({
+      next: (data) => {
+        this.doctors = data;
         this.loading = false;
       },
-      error: (error) => {
-        this.errorMessage = 'حدث خطأ أثناء تحميل بيانات الدكتور';
+      error: (err) => {
+        this.errorMessage = 'فشل في جلب بيانات الأطباء';
         this.loading = false;
       },
     });
   }
 
-  onSubmit() {
-    if (this.doctorForm.invalid) {
-      return;
+  editDoctor(id: number) {
+    this.router.navigate(['/admin/manageDoctor', id]);
+  }
+
+  deleteDoctor(id: number) {
+    if (confirm('هل أنت متأكد أنك تريد حذف هذا الطبيب؟')) {
+      this.doctorService.deleteDoctor(id).subscribe({
+        next: () => {
+          alert('تم حذف الطبيب بنجاح');
+          this.loadAllDoctors(); // إعادة تحميل القائمة بعد الحذف
+        },
+        error: () => {
+          alert('حدث خطأ أثناء حذف الطبيب');
+        },
+      });
     }
-
-    const updatedDoctor: Doctor = {
-      id: this.doctorId,
-      ...this.doctorForm.value,
-      clinicId: Number(this.doctorForm.value.clinicId),
-    };
-
-    this.loading = true;
-    this.doctorService.updateDoctor(this.doctorId, updatedDoctor).subscribe({
-      next: () => {
-        this.loading = false;
-        alert('تم تحديث بيانات الدكتور بنجاح');
-        this.router.navigate(['/manage-doctors']);
-      },
-      error: () => {
-        this.errorMessage = 'فشل تحديث بيانات الدكتور';
-        this.loading = false;
-      },
-    });
   }
+  
+  goToAddDoctor() {
+  this.router.navigate(['/admin/addDoctor']);
+}
+
 }
