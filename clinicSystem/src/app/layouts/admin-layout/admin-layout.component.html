@@ -1,26 +1,43 @@
+
 <div class="layout">
+  <aside class="sidebar">  <h2>Admin Dashboard</h2>
+    <hr>
+
   <aside class="sidebar">
-    <h2>Admin Dashboard</h2>
+    <h2>{{ "ADMIN_DASHBOARD.TITLE" | translate }}</h2>
+
     <nav>
-      <ul>
+        <ul>
         <li>
-          <a routerLink="/admin/dashboard" routerLinkActive="active">Home</a>
+          <a routerLink="/admin/dashboard" routerLinkActive="active">
+            {{ "ADMIN_DASHBOARD.HOME" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/admin/manageDoctor" routerLinkActive="active"
-            >Doctors</a
-          >
+          <a routerLink="/admin/manageDoctor" routerLinkActive="active">
+            {{ "ADMIN_DASHBOARD.DOCTORS" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/admin/manageClinic" routerLinkActive="active">Clinics</a>
+          <a routerLink="/admin/manageClinic" routerLinkActive="active">
+            {{ "ADMIN_DASHBOARD.CLINICS" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/admin/manageDiagnoses" routerLinkActive="active">Diagnoses</a>
+          <a routerLink="/admin/manageDiagnoses" routerLinkActive="active">
+            {{ "ADMIN_DASHBOARD.DIAGNOSES" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/admin/manageDrugs" routerLinkActive="active">Drugs</a>
+          <a routerLink="/admin/manageDrugs" routerLinkActive="active">
+            {{ "ADMIN_DASHBOARD.DRUGS" | translate }}
+          </a>
         </li>
-        <li><a routerLink="/">Logout</a></li>
+        <li>
+          <a routerLink="/">
+            {{ "ADMIN_DASHBOARD.LOGOUT" | translate }}
+          </a>
+        </li>
       </ul>
     </nav>
   </aside>

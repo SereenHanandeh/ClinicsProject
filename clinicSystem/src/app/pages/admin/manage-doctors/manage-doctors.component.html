@@ -1,51 +1,62 @@
-<div *ngIf="loading">جاري التحميل...</div>
-<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="container m-2">
 
-<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()" *ngIf="!loading">
-  <label>
-    الاسم:
-    <input formControlName="name" />
-  </label>
-  <div *ngIf="doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched">
-    الاسم مطلوب.
+  <div class="table-wrapper">
+
+    <!-- حالة التحميل -->
+    <div *ngIf="loading">جارٍ التحميل...</div>
+
+    <!-- رسالة الخطأ -->
+    <div *ngIf="!loading && errorMessage" class="text-red-500">
+      {{ errorMessage }}
+    </div>
+
+    <!-- زر إضافة طبيب جديد -->
+    <div *ngIf="!loading" class="add-doctor my-4">
+      <button
+        (click)="goToAddDoctor()"
+        class="bg-green-500 text-white px-3 py-1 rounded"
+      >
+        إضافة طبيب جديد
+      </button>
+    </div>
+
+    <!-- جدول الأطباء -->
+    <table
+      *ngIf="!loading && doctors.length > 0"
+      class="table-auto w-full mt-4 border"
+    >
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="px-4 py-2">الاسم</th>
+          <th class="px-4 py-2">البريد</th>
+          <th class="px-4 py-2">الهاتف</th>
+          <th class="px-4 py-2">التخصص</th>
+          <th class="px-4 py-2">الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors" class="border-t">
+          <td class="px-4 py-2">{{ doctor.name }}</td>
+          <td class="px-4 py-2">{{ doctor.email }}</td>
+          <td class="px-4 py-2">{{ doctor.phone }}</td>
+          <td class="px-4 py-2">{{ doctor.specification }}</td>
+          <td class="px-4 py-2">
+            <button
+              (click)="editDoctor(doctor.id)"
+              class="bg-blue-500 text-white px-2 py-1 rounded mr-2"
+            >
+              تعديل
+            </button>
+            <button
+              (click)="deleteDoctor(doctor.id)"
+              class="bg-red-500 text-white px-2 py-1 rounded"
+            >
+              حذف
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
-
-  <label>
-    البريد الإلكتروني:
-    <input formControlName="email" type="email" />
-  </label>
-  <div *ngIf="doctorForm.get('email')?.invalid && doctorForm.get('email')?.touched">
-    بريد إلكتروني صالح مطلوب.
-  </div>
-
-  <label>
-    رقم الهاتف:
-    <input formControlName="phone" />
-  </label>
-  <div *ngIf="doctorForm.get('phone')?.invalid && doctorForm.get('phone')?.touched">
-    رقم الهاتف مطلوب.
-  </div>
-
-  <label>
-    التخصص:
-    <input formControlName="specification" />
-  </label>
-  <div *ngIf="doctorForm.get('specification')?.invalid && doctorForm.get('specification')?.touched">
-    التخصص مطلوب.
-  </div>
-
-  <label>
-    رقم العيادة:
-    <input formControlName="clinicId" type="number" />
-  </label>
-  <div *ngIf="doctorForm.get('clinicId')?.invalid && doctorForm.get('clinicId')?.touched">
-    رقم العيادة مطلوب.
-  </div>
-
-  <label>
-    صورة الدكتور (رابط):
-    <input formControlName="image" />
-  </label>
-
-  <button type="submit" [disabled]="doctorForm.invalid">تحديث الدكتور</button>
-</form>
+</div>

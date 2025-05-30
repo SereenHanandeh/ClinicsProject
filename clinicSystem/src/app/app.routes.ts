@@ -3,9 +3,6 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
-import { adminGuard } from './core/guards/Admin/admin.guard';
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
@@ -22,6 +19,8 @@ import { ManageDoctorsComponent } from './pages/admin/manage-doctors/manage-doct
 import { ManageClinicsComponent } from './pages/admin/manage-clinics/manage-clinics.component';
 import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.component';
 import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
+import { AddDoctorComponent } from './pages/admin/add-doctor/add-doctor.component';
+import { EditDoctorComponent } from './pages/admin/edit-doctor/edit-doctor.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -35,10 +34,12 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    canActivateChild: [adminGuard],
+    // canActivateChild: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageDoctor', component: ManageDoctorsComponent },
+      { path: 'editDoctor/:id', component: EditDoctorComponent },
+      { path: 'addDoctor', component: AddDoctorComponent },
       { path: 'manageClinic', component: ManageClinicsComponent },
       { path: 'manageDrugs', component: ManageDrugsComponent },
       { path: 'manageDiagnoses', component: ManageDiagnosesComponent },
@@ -50,8 +51,7 @@ export const routes: Routes = [
   {
     path: 'doctor',
     component: DoctorLayoutComponent,
-    canActivateChild: [authGuard],
-    // canActivateChild: [roleGuard],
+    // canActivateChild: [authGuard],
     data: { roles: ['doctor'] },
     children: [
       { path: 'dashboard', component: DoctorDashboardComponent },
@@ -65,7 +65,7 @@ export const routes: Routes = [
   {
     path: 'patient',
     component: PatientLayoutComponent,
-    canActivateChild: [authGuard],
+    // canActivateChild: [authGuard],
     data: { roles: ['patient'] },
     children: [
       { path: 'dashboard', component: DashboardComponent },

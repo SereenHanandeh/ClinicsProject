@@ -38,16 +38,18 @@ export class AppointmentsComponent implements OnInit {
   }
 
   loadAppointments(): void {
-    this.appointmentService.getDoctorAppointments().subscribe({
-      next: (appointments) => {
-        this.appointments = appointments;
-      },
-      error: (err) => {
-        console.error(err);
-        this.errorMessage = 'Failed to load appointments.';
-      },
-    });
-  }
+  this.appointmentService.getDoctorAppointments().subscribe({
+    next: (appointments) => {
+      console.log('Loaded appointments:', appointments);
+      this.appointments = appointments;
+    },
+    error: (err) => {
+      console.error(err);
+      this.errorMessage = 'Failed to load appointments.';
+    },
+  });
+}
+
 
   get filteredAppointments(): Appointment[] {
     const filterValue = this.filterForm.value.name?.toLowerCase() || '';
@@ -97,7 +99,7 @@ export class AppointmentsComponent implements OnInit {
       details: updatedDetails,
     };
 
-   const appointmentId = this.selectedAppointment.id; 
+   const appointmentId = this.selectedAppointment.id;
 
     this.appointmentService
       .updateAppointmentStatus(appointmentId, updatedData)
@@ -122,7 +124,7 @@ export class AppointmentsComponent implements OnInit {
       status,
     };
 
-    const appointmentId = Number(this.selectedAppointment.id);
+const appointmentId = this.selectedAppointment.id;
 
     this.appointmentService
       .updateAppointmentStatus(appointmentId, updatedData)

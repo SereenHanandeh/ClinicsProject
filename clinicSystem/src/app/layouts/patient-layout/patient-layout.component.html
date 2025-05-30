@@ -1,23 +1,34 @@
 <div class="layout">
   <aside class="sidebar">
-    <h2>Patient Dashboard</h2>
+    <h2>{{ "PATIENT_DASHBOARD.TITLE" | translate }}</h2>
+    <hr />
     <nav>
       <ul>
         <li>
-          <a routerLink="/patient/dashboard" routerLinkActive="active">Home</a>
+          <a routerLink="/patient/dashboard" routerLinkActive="active">
+            {{ "PATIENT_DASHBOARD.HOME" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/patient/appointments" routerLinkActive="active"
-            >My Appointments</a
-          >
+          <a routerLink="/patient/appointments" routerLinkActive="active">
+            {{ "PATIENT_DASHBOARD.APPOINTMENTS" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/patient/doctors" routerLinkActive="active">Doctors</a>
+          <a routerLink="/patient/doctors" routerLinkActive="active">
+            {{ "PATIENT_DASHBOARD.DOCTORS" | translate }}
+          </a>
         </li>
         <li>
-          <a routerLink="/patient/profile" routerLinkActive="active">Profile</a>
+          <a routerLink="/patient/profile" routerLinkActive="active">
+            {{ "PATIENT_DASHBOARD.PROFILE" | translate }}
+          </a>
         </li>
-        <li><a routerLink="/">Logout</a></li>
+        <li>
+          <a routerLink="/">
+            {{ "PATIENT_DASHBOARD.LOGOUT" | translate }}
+          </a>
+        </li>
       </ul>
     </nav>
   </aside>

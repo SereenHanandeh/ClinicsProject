@@ -11,6 +11,10 @@ export class DoctorService {
 
   constructor(private http: HttpClient) {}
 
+  getDoctors(): Observable<Doctor[]> {
+    return this.http.get<Doctor[]>(this.baseUrl);
+  }
+
   getDoctorById(id: number): Observable<Doctor> {
     return this.http.get<Doctor>(`${this.baseUrl}/${id}`);
   }
@@ -18,12 +22,10 @@ export class DoctorService {
   updateDoctor(id: number, doctor: Doctor): Observable<Doctor> {
     return this.http.put<Doctor>(`${this.baseUrl}/${id}`, doctor);
   }
-  
-  getDoctors() {
-    return this.http.get<any[]>(`${this.baseUrl}`);
-  }
 
   addDoctor(doctor: any) {
+    const { id, ...payload } = doctor;
+
     return this.http.post(`${this.baseUrl}`, doctor);
   }
 

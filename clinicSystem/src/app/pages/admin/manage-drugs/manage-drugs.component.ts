@@ -41,45 +41,53 @@ drugs: Drug[] = [];
   }
 
   onSubmit() {
-    if (this.drugForm.invalid) return;
+  if (this.drugForm.invalid) return;
 
-    const drugData: Drug = {
-      id: this.editDrugId ?? 0,  // id سيكون 0 عند الإضافة الجديدة
+  this.loading = true;
+
+  if (this.isEditing && this.editDrugId !== null) {
+    // تحديث دواء
+    const updatedDrug: Drug = {
+      id: this.editDrugId,
       name: this.drugForm.value.name
     };
 
-    this.loading = true;
+    this.drugService.update(this.editDrugId, updatedDrug).subscribe({
+      next: () => {
+        this.loading = false;
+        this.isEditing = false;
+        this.editDrugId = null;
+        this.drugForm.reset();
+        this.loadDrugs();
+      },
+      error: () => {
+        this.loading = false;
+        this.errorMessage = 'فشل تحديث الدواء';
+      }
+    });
 
-    if (this.isEditing && this.editDrugId !== null) {
-      // تحديث دواء
-      this.drugService.update(this.editDrugId, drugData).subscribe({
-        next: () => {
-          this.loading = false;
-          this.isEditing = false;
-          this.editDrugId = null;
-          this.drugForm.reset();
-          this.loadDrugs();
-        },
-        error: () => {
-          this.loading = false;
-          this.errorMessage = 'فشل تحديث الدواء';
-        }
-      });
-    } else {
-      // إضافة دواء جديد
-      this.drugService.add(drugData).subscribe({
-        next: () => {
-          this.loading = false;
-          this.drugForm.reset();
-          this.loadDrugs();
-        },
-        error: () => {
-          this.loading = false;
-          this.errorMessage = 'فشل إضافة الدواء';
-        }
-      });
-    }
+  } else {
+    // توليد ID جديد بناءً على أعلى ID موجود
+    const maxId = this.drugs.length > 0 ? Math.max(...this.drugs.map(d => d.id)) : 0;
+    const newDrug: Drug = {
+      id: maxId + 1,
+      name: this.drugForm.value.name
+    };
+
+    this.drugService.add(newDrug).subscribe({
+      next: () => {
+        this.loading = false;
+        this.drugForm.reset();
+        this.loadDrugs();
+      },
+      error: () => {
+        this.loading = false;
+        this.errorMessage = 'فشل إضافة الدواء';
+      }
+    });
   }
+}
+
 
   editDrug(drug: Drug) {
     this.isEditing = true;

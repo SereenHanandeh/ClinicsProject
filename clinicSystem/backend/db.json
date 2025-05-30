@@ -199,7 +199,7 @@
     {
       "name": "sereen hanandeh",
       "email": "s@g.com",
-      "phone": "0539457479",
+      "phone": "0539457480",
       "gender": "female",
       "dateOfBirth": "1997-10-10",
       "id": "3557"
@@ -338,6 +338,15 @@
       "phone": "0786666666",
       "specification": "Dermatology",
       "clinicId": 4
+    },
+    {
+      "id": "17",
+      "name": "Dr.Rand",
+      "email": "essam@gmail.com",
+      "phone": "0798098967",
+      "specification": "Eye",
+      "clinicId": "5",
+      "image": ""
     }
   ],
   "appointments": [
@@ -366,6 +375,34 @@
       "date": "2025-06-06T09:00",
       "status": "approved",
       "details": {
+        "diagnosis": "",
+        "drugs": [
+          ""
+        ],
+        "payment": 0
+      }
+    },
+    {
+      "id": "1748522144106",
+      "doctorId": 5,
+      "patientId": "3557",
+      "patientName": "sereen hanandeh",
+      "date": "2025-06-01T09:30",
+      "status": "rejected",
+      "details": {
+        "drugs": [],
+        "diagnosis": "",
+        "payment": 0
+      }
+    },
+    {
+      "id": 1748609619931,
+      "doctorId": 1,
+      "patientId": "3557",
+      "patientName": "sereen hanandeh",
+      "date": "2025-06-03T09:30",
+      "status": "pending",
+      "details": {
         "drugs": [],
         "diagnosis": "",
         "payment": 0
@@ -377,11 +414,6 @@
       "id": "1",
       "name": "Cardiology",
       "image": "https://www.concilio.com/wp-content/uploads/cardiologie-concilio-votre-conciergerie-medicale_718x452.jpg?x44843"
-    },
-    {
-      "id": "2",
-      "name": "Pediatrics",
-      "image": "https://gsmedicalcollege.in/images/department/pediatrics.webp"
     },
     {
       "id": "3",
@@ -401,12 +433,16 @@
   ],
   "drugs": [
     {
-      "id": "2",
-      "name": "Amoxicillin"
+      "id": "1",
+      "name": "Panadol "
     },
     {
-      "id": 0,
-      "name": "Panadol"
+      "id": "2",
+      "name": "Panda"
+    },
+    {
+      "id": "3",
+      "name": "Adol"
     }
   ],
   "diagnoses": [
@@ -415,8 +451,12 @@
       "name": "Flu"
     },
     {
-      "id": 0,
-      "name": "ddfg"
+      "id": "2",
+      "name": "Cold"
+    },
+    {
+      "id": "3",
+      "name": "High Temp"
     }
   ]
 }

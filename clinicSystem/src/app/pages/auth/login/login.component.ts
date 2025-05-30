@@ -20,6 +20,7 @@ export class LoginComponent {
   logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   errorMessage: string = '';
+  hidePassword: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -49,10 +50,8 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: (user) => {
-        // ✅ حفظ بيانات المستخدم في localStorage
         localStorage.setItem('user', JSON.stringify(user));
 
-        // ✅ التوجيه حسب نوع المستخدم
         if (user.userType === 'admin') {
           this.router.navigate(['/admin/dashboard']);
         } else if (user.userType === 'doctor') {
@@ -65,5 +64,9 @@ export class LoginComponent {
         this.errorMessage = 'Invalid email or password';
       },
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
   }
 }
