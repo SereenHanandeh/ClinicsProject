@@ -1,44 +1,47 @@
-<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
-  <label>الاسم:</label>
-  <input formControlName="name" type="text" />
-  <div *ngIf="f['name'].touched && f['name'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['name'].errors?.['required']">الاسم مطلوب.</div>
-  </div>
+<div class="form-container">
+  <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
 
-  <label>البريد الإلكتروني:</label>
-  <input formControlName="email" type="email" />
-  <div *ngIf="f['email'].touched && f['email'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['email'].errors?.['required']">البريد مطلوب.</div>
-    <div *ngIf="f['email'].errors?.['email']">البريد غير صالح.</div>
-  </div>
-
-  <label>الهاتف:</label>
-  <input formControlName="phone" type="text" placeholder="مثال: 079 123 4567" />
-  <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['phone'].errors?.['required']">رقم الهاتف مطلوب.</div>
-    <div *ngIf="f['phone'].errors?.['pattern']">
-      أدخل 10 أرقام فقط مفصولة بمسافات: 079 123 4567
+    <label>Name:</label>
+    <input formControlName="name" type="text" />
+    <div *ngIf="f['name'].touched && f['name'].invalid" class="text-red-600 text-sm">
+      <div *ngIf="f['name'].errors?.['required']">Name is required.</div>
     </div>
-  </div>
 
-  <label>التخصص:</label>
-  <input formControlName="specification" type="text" />
-  <div *ngIf="f['specification'].touched && f['specification'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['specification'].errors?.['required']">التخصص مطلوب.</div>
-  </div>
+    <label>Email:</label>
+    <input formControlName="email" type="email" />
+    <div *ngIf="f['email'].touched && f['email'].invalid" class="text-red-600 text-sm">
+      <div *ngIf="f['email'].errors?.['required']">Email is required.</div>
+      <div *ngIf="f['email'].errors?.['email']">Invalid email address.</div>
+    </div>
 
-  <label>العيادة:</label>
-  <select formControlName="clinicId">
-    <option value="">اختر العيادة</option>
-    <option *ngFor="let clinic of clinics" [value]="clinic.id">
-      {{ clinic.name }}
-    </option>
-  </select>
-  <div *ngIf="f['clinicId'].touched && f['clinicId'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['clinicId'].errors?.['required']">العيادة مطلوبة.</div>
-  </div>
+    <label>Phone:</label>
+    <input formControlName="phone" type="text" placeholder="e.g., 079 123 4567" />
+    <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
+      <div *ngIf="f['phone'].errors?.['required']">Phone number is required.</div>
+      <div *ngIf="f['phone'].errors?.['pattern']">
+        Please enter 10 digits separated by spaces: 079 123 4567
+      </div>
+    </div>
 
-  <button type="submit" [disabled]="loading || doctorForm.invalid">إضافة</button>
+    <label>Specialization:</label>
+    <input formControlName="specification" type="text" />
+    <div *ngIf="f['specification'].touched && f['specification'].invalid" class="text-red-600 text-sm">
+      <div *ngIf="f['specification'].errors?.['required']">Specialization is required.</div>
+    </div>
 
-  <div *ngIf="errorMessage" class="error text-red-600 mt-2">{{ errorMessage }}</div>
-</form>
+    <label>Clinic:</label>
+    <select formControlName="clinicId">
+      <option value="">Select a clinic</option>
+      <option *ngFor="let clinic of clinics" [value]="clinic.id">
+        {{ clinic.name }}
+      </option>
+    </select>
+    <div *ngIf="f['clinicId'].touched && f['clinicId'].invalid" class="text-red-600 text-sm">
+      <div *ngIf="f['clinicId'].errors?.['required']">Clinic is required.</div>
+    </div>
+
+    <button type="submit" [disabled]="loading || doctorForm.invalid">Add</button>
+
+    <div *ngIf="errorMessage" class="error text-red-600 mt-2">{{ errorMessage }}</div>
+  </form>
+</div>

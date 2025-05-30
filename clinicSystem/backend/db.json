@@ -394,6 +394,19 @@
         "diagnosis": "",
         "payment": 0
       }
+    },
+    {
+      "id": 1748609619931,
+      "doctorId": 1,
+      "patientId": "3557",
+      "patientName": "sereen hanandeh",
+      "date": "2025-06-03T09:30",
+      "status": "pending",
+      "details": {
+        "drugs": [],
+        "diagnosis": "",
+        "payment": 0
+      }
     }
   ],
   "clinics": [
