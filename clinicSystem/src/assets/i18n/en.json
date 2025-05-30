@@ -1,0 +1,44 @@
+{
+  "ADMIN_DASHBOARD": {
+    "TITLE": "Admin Dashboard",
+    "HOME": "Home",
+    "DOCTORS": "Doctors",
+    "CLINICS": "Clinics",
+    "DIAGNOSES": "Diagnoses",
+    "DRUGS": "Drugs",
+    "LOGOUT": "Logout"
+  },
+  "DOCTOR_PANEL": {
+    "TITLE": "Doctor Panel",
+    "DASHBOARD": "Dashboard",
+    "APPOINTMENTS": "Appointments",
+    "PROFILE": "Profile",
+    "LOGOUT": "Logout",
+    "WELCOME": "Welcome Doctor"
+  },
+  "PATIENT_DASHBOARD": {
+    "TITLE": "Patient Dashboard",
+    "HOME": "Home",
+    "APPOINTMENTS": "My Appointments",
+    "DOCTORS": "Doctors",
+    "PROFILE": "Profile",
+    "LOGOUT": "Logout"
+  },
+   "DOCTOR_FORM": {
+    "NAME_LABEL": "Name:",
+    "NAME_REQUIRED": "Name is required.",
+    "EMAIL_LABEL": "Email:",
+    "EMAIL_REQUIRED": "Email is required.",
+    "EMAIL_INVALID": "Invalid email.",
+    "PHONE_LABEL": "Phone:",
+    "PHONE_PLACEHOLDER": "Example: 079 123 4567",
+    "PHONE_REQUIRED": "Phone number is required.",
+    "PHONE_PATTERN": "Enter exactly 10 digits separated by spaces: 079 123 4567",
+    "SPEC_LABEL": "Specialization:",
+    "SPEC_REQUIRED": "Specialization is required.",
+    "CLINIC_LABEL": "Clinic:",
+    "CLINIC_SELECT": "Select a clinic",
+    "CLINIC_REQUIRED": "Clinic is required.",
+    "SUBMIT": "Add"
+  }
+}

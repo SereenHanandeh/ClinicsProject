@@ -11,10 +11,11 @@ import { DoctorService } from '../../../core/services/Doctor/doctor.service';
 import { ClinicService } from '../../../core/services/Clinic/clinic.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-add-doctor',
-  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './add-doctor.component.html',
   styleUrl: './add-doctor.component.scss',
 })

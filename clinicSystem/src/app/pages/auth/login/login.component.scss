@@ -73,13 +73,13 @@
 
 /* زر الدخول */
 button[type="submit"] {
+  width: 94.5%;
   background: linear-gradient(135deg, #8f0b0b, #2cb48f);
   color: #fff;
   padding: 12px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  width: 104%;
   font-size: 16px;
   transition: background 0.3s;
 }
@@ -147,80 +147,6 @@ h2 {
   padding: 40px;
 }
 
-.login-logo-section img {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-/* الفاصل العمودي */
-.vertical-divider {
-  width: 1px;
-  background-color: #e0e0e0;
-}
-
-/* القسم الأيمن: النموذج */
-.login-form-section {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login-form-section h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* تنسيق الحقول */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #555;
-}
-
-.form-group input {
-  width: 95%;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 14px;
-  outline: none;
-  transition: border 0.3s;
-}
-
-.form-group input:focus {
-  border-color: #8f0b0b;
-}
-
-/* زر الدخول */
-button[type="submit"] {
-  background: linear-gradient(135deg, #8f0b0b, #2cb48f);
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  width: 104%;
-  font-size: 16px;
-  transition: background 0.3s;
-}
-
-button[type="submit"]:hover {
-  background: linear-gradient(135deg, #8f0b0b, #2cb48f);
-}
-
-button[disabled] {
-  background: #2cb48f;
-  cursor: not-allowed;
-}
-
 .have-account {
   margin-top: 20px;
   text-align: center;
@@ -238,15 +164,51 @@ button[disabled] {
   text-decoration: underline;
 }
 
-/* رسائل الخطأ */
-.error {
-  color: #e74c3c;
-  font-size: 13px;
-  margin-top: 5px;
+.login-logo-section img {
+  max-width: 300px;
+  max-height: 300px;
 }
 
-.error-message {
-  color: #e74c3c;
-  margin-top: 15px;
-  font-weight: bold;
+.password-group {
+  position: relative;
+
+  .password-input-wrapper {
+    position: relative;
+
+    input {
+      width: 95%;
+      padding-right: 0.5rem; 
+      box-sizing: border-box;
+    }
+
+    .toggle-password-btn {
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+/* الفاصل العمودي */
+.vertical-divider {
+  width: 1px;
+  background-color: #e0e0e0;
 }
