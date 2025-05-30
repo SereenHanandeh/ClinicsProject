@@ -12,7 +12,7 @@
     <div *ngIf="f['email'].errors?.['required']">البريد الإلكتروني مطلوب.</div>
     <div *ngIf="f['email'].errors?.['email']">صيغة البريد الإلكتروني غير صحيحة.</div>
   </div>
-
+<!---->
   <label>الهاتف:</label>
   <input formControlName="phone" type="text" />
   <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
