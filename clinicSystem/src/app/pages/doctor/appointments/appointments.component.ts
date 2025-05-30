@@ -99,7 +99,7 @@ export class AppointmentsComponent implements OnInit {
       details: updatedDetails,
     };
 
-   const appointmentId = this.selectedAppointment.id; 
+   const appointmentId = this.selectedAppointment.id;
 
     this.appointmentService
       .updateAppointmentStatus(appointmentId, updatedData)
