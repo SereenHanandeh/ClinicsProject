@@ -28,3 +28,4 @@ export class DiagnosisService {
     return this.http.put<Diagnosis>(`${this.baseUrl}/${id}`, data);
   }
 }
+

@@ -20,6 +20,7 @@ export class LoginComponent {
   logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   errorMessage: string = '';
+  hidePassword: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -63,5 +64,9 @@ export class LoginComponent {
         this.errorMessage = 'Invalid email or password';
       },
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
   }
 }

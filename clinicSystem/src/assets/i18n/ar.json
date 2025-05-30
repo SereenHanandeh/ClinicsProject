@@ -1,0 +1,44 @@
+{
+  "ADMIN_DASHBOARD": {
+    "TITLE": "لوحة تحكم المشرف",
+    "HOME": "الرئيسية",
+    "DOCTORS": "الأطباء",
+    "CLINICS": "العيادات",
+    "DIAGNOSES": "التشخيصات",
+    "DRUGS": "الأدوية",
+    "LOGOUT": "تسجيل الخروج"
+  },
+    "DOCTOR_PANEL": {
+    "TITLE": "لوحة الطبيب",
+    "DASHBOARD": "لوحة التحكم",
+    "APPOINTMENTS": "المواعيد",
+    "PROFILE": "الملف الشخصي",
+    "LOGOUT": "تسجيل الخروج",
+    "WELCOME": "مرحبًا بك، دكتور"
+  },
+   "PATIENT_DASHBOARD": {
+    "TITLE": "لوحة المريض",
+    "HOME": "الرئيسية",
+    "APPOINTMENTS": "مواعيدي",
+    "DOCTORS": "الأطباء",
+    "PROFILE": "الملف الشخصي",
+    "LOGOUT": "تسجيل الخروج"
+  },
+   "DOCTOR_FORM": {
+    "NAME_LABEL": "الاسم:",
+    "NAME_REQUIRED": "الاسم مطلوب.",
+    "EMAIL_LABEL": "البريد الإلكتروني:",
+    "EMAIL_REQUIRED": "البريد مطلوب.",
+    "EMAIL_INVALID": "البريد غير صالح.",
+    "PHONE_LABEL": "الهاتف:",
+    "PHONE_PLACEHOLDER": "مثال: 079 123 4567",
+    "PHONE_REQUIRED": "رقم الهاتف مطلوب.",
+    "PHONE_PATTERN": "أدخل 10 أرقام فقط مفصولة بمسافات: 079 123 4567",
+    "SPEC_LABEL": "التخصص:",
+    "SPEC_REQUIRED": "التخصص مطلوب.",
+    "CLINIC_LABEL": "العيادة:",
+    "CLINIC_SELECT": "اختر العيادة",
+    "CLINIC_REQUIRED": "العيادة مطلوبة.",
+    "SUBMIT": "إضافة"
+  }
+}
