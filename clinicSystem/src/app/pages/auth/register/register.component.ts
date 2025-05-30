@@ -22,6 +22,8 @@ export class RegisterComponent {
   errorMessage: string = '';
   successMessage: string = '';
   logoPath = 'assets/logo.png';
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -66,6 +68,16 @@ export class RegisterComponent {
     }
     this.registerForm.get('phone')?.setValue(formatted, { emitEvent: false });
   }
+
+   // دوال لتبديل حالة العرض لكلمة المرور
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleShowConfirmPassword() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+
 
   onSubmit() {
     if (this.registerForm.invalid) {
