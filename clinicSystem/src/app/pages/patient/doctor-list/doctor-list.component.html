@@ -5,7 +5,7 @@
     <button
       *ngFor="let clinic of clinics"
       (click)="filterDoctorsByClinic(clinic.id)"
-      class="clinic-button"
+      class="clinic-button" id="clinic-buttons-container"
     >
       <img [src]="clinic.image" [alt]="clinic.name" class="clinic-image" />
       <span>{{ clinic.name }}</span>

@@ -22,8 +22,6 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  border: 2px solid #2cb48f;
-  border-radius: 10px;
   background-color: #9b9b9b02;
   text-align: center;
   font-weight: 600;
@@ -32,14 +30,20 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
 }
 
 .clinic-button:hover {
-  background-color: #eaf4fb;
-  border-color: #2cb48f;
+  background-color: #2cb49021;
+
   transform: translateY(-6px);
   box-shadow: 0 10px 24px rgba(52, 152, 219, 0.1);
 }
+#clinic-buttons-container:active {
+  border: 1px solid #2cb48f;
+  border-radius: 10px;
+  color: #ffffff;}
 
 .clinic-image {
   width: 100px;
