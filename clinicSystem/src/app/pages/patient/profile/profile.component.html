@@ -1,38 +1,21 @@
-<h2>Profile</h2>
+<h1>Profile</h1>
 
-<form
-  [formGroup]="profileForm"
-  (ngSubmit)="updateProfile()"
-  *ngIf="profileForm"
->
+<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" *ngIf="profileForm">
   <label>Name:</label>
   <input formControlName="name" type="text" />
-  <div
-    *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched"
-    class="error"
-  >
+  <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched" class="error">
     Please enter your name
   </div>
 
   <label>Email:</label>
   <input formControlName="email" type="email" />
-  <div
-    *ngIf="
-      profileForm.get('email')?.invalid && profileForm.get('email')?.touched
-    "
-    class="error"
-  >
+  <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" class="error">
     Please enter a valid email address
   </div>
 
   <label>Phone Number:</label>
   <input formControlName="phone" type="tel" />
-  <div
-    *ngIf="
-      profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched
-    "
-    class="error"
-  >
+  <div *ngIf="profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched" class="error">
     Please enter your phone number
   </div>
 
@@ -42,27 +25,17 @@
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
-  <div
-    *ngIf="
-      profileForm.get('gender')?.invalid && profileForm.get('gender')?.touched
-    "
-    class="error"
-  >
+  <div *ngIf="profileForm.get('gender')?.invalid && profileForm.get('gender')?.touched" class="error">
     Please select your gender
   </div>
 
   <label>Date of Birth:</label>
   <input type="date" formControlName="dateOfBirth" />
-  <div
-    *ngIf="
-      profileForm.get('dateOfBirth')?.invalid &&
-      profileForm.get('dateOfBirth')?.touched
-    "
-    class="error"
-  >
+  <div *ngIf="profileForm.get('dateOfBirth')?.invalid && profileForm.get('dateOfBirth')?.touched" class="error">
     Please enter your date of birth
   </div>
 
   <button type="submit" [disabled]="profileForm.invalid">Update</button>
 </form>
+
 <router-outlet></router-outlet>

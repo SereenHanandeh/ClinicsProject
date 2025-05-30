@@ -1,75 +1,83 @@
-h2 {
+.appointments-container {
+  max-width: 900px;
+  margin: 6px auto;
+  padding: 10px;
+}
+
+h1 {
+
   text-align: center;
-  margin-bottom: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50;
+}
+.section-title {
+  text-align: center;
+
+  color: #2cb48f;
+
 }
 
 .appointments-list {
   list-style: none;
   padding: 0;
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .appointment-item {
-  background: #f9f9f9;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  padding: 16px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease;
-  cursor: default;
+  background-color: #f9fdfc;
+  border: 1px solid #dfeeea;
+
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .appointment-item:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12),
+    0 6px 10px rgba(69, 212, 174, 0.15);
 }
 
 .appointment-info {
-  font-weight: 600;
   font-size: 1.1rem;
+  font-weight: 600;
   color: #34495e;
+  margin-bottom: 10px;
 }
 
 .doctor-name {
-  color: #2980b9;
+  color: #2cb48f;
 }
 
 .clinic-name {
-  color: #27ae60;
-  margin-left: 8px;
-  font-style: italic;
-  font-weight: 500;
+  color: #7f8c8d;
 }
 
 .appointment-datetime {
-  margin-top: 6px;
-  color: #7f8c8d;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
 }
 
 .no-appointments-msg {
   text-align: center;
-  font-style: italic;
-  color: #95a5a6;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: #999;
   margin-top: 40px;
 }
 
 .cancel-btn {
-  background-color: #e74c3c; /* لون أحمر ناري */
-  color: white;
-  border: none;
+  margin-top: 10px;
   padding: 6px 12px;
-  border-radius: 4px;
+  background-color: #f8d7da;
+  color: #a94442;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  margin-top: 8px;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
 }
 
 .cancel-btn:hover {
-  background-color: #c0392b; /* لون أغمق عند المرور */
+  background-color: #f5c6cb;
 }
-

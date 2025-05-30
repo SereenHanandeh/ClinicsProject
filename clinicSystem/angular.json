@@ -25,7 +25,10 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": [],
+            "scripts": [
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+
+],
 
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -78,10 +81,13 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/assets"]
+            "assets": ["src/assets"],
 
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts":  [
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+]
+
           }
         }
       }

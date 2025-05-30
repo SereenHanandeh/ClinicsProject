@@ -1,4 +1,4 @@
-.doctor-layout {
+.layout {
   display: flex;
   height: 100vh;
 
@@ -37,6 +37,13 @@
   }
 
   
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin-top: 0;
+}
+
+
+
 .sidebar {
   width: 220px;
   background-color: #2cb48f;
@@ -47,6 +54,10 @@
 .sidebar h2 {
   margin-top: 0;
   font-size: 20px;
+
+.sidebar h2{
+  margin-top: 0;
+  font-size: 22px;
   text-align: center;
   color: #ffffff;
 }
@@ -79,4 +90,8 @@
       margin-bottom: 2rem;
     }
   }
+.content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f4f6f8;
 }

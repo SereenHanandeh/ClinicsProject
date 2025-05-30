@@ -1,60 +1,69 @@
 .section-title {
   text-align: center;
-
   color: #2cb48f;
-
-  font-size: 2.5rem; /* أكبر */
+  font-size: 2.5rem;
   margin-bottom: 2.5rem;
   font-weight: 700;
 }
 
+/* Clinic Buttons */
 .clinic-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  margin-top: 1rem;
   margin-bottom: 4rem;
 }
 
 .clinic-button {
-  background-color: #9b9b9b02;
-  border: 2px solid #2cb48f;
-  border-radius: 10px;
-  padding: 2rem 2.5rem; /* أكبر */
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
   width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
+  background-color: #9b9b9b02;
+  text-align: center;
   font-weight: 600;
   font-size: 1.3rem;
   color: #34495e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
 }
 
 .clinic-button:hover {
-  background-color: #eaf4fb;
-  border-color: #2cb48f;
+  background-color: #2cb49021;
+
   transform: translateY(-6px);
   box-shadow: 0 10px 24px rgba(52, 152, 219, 0.1);
 }
+#clinic-buttons-container:active {
+  border: 1px solid #2cb48f;
+  border-radius: 10px;
+  color: #ffffff;}
 
 .clinic-image {
-  width: 130px;
+  width: 100px;
   height: 100px;
-  object-fit: contain;
-  margin-bottom: 1rem;
 }
 
-/* Doctor Card Style */
+/* Doctors Grid */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
 .doctor-card {
   background-color: #ffffff;
   border: 1px solid #dce1e600;
   border-radius: 10px;
   padding: 2.5rem;
-  margin: 2rem auto;
-  max-width: 800px;
+  margin: auto;
   text-align: center;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
@@ -89,14 +98,14 @@
 }
 
 .book-appointment {
-  margin-top: 1.5rem;
-  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  padding: 10px;
   border: none;
   border-radius: 7px;
   background: linear-gradient(to right, #2c492c, #2cb48f);
   color: #fff;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 200;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -105,20 +114,27 @@
   background: linear-gradient(to right, #2cb48f, #717d85);
 }
 
-/* Responsive Layout */
+span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Responsive Tweaks */
 @media (max-width: 768px) {
   .clinic-button {
-    width: 180px;
+    width: 160px;
     font-size: 1.1rem;
-  }
-
-  .doctor-card {
-    margin: 1rem 1.5rem;
-    font-size: 1rem;
   }
 
   .doctor-image {
     width: 100px;
     height: 100px;
+  }
+
+  .doctor-card {
+    padding: 1.5rem;
+    font-size: 1rem;
   }
 }

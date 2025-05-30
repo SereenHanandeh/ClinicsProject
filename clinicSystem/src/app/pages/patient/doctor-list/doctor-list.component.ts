@@ -22,6 +22,7 @@ export class DoctorListComponent implements OnInit {
     private clinicService: ClinicService
   ) {}
 
+
   ngOnInit(): void {
     this.clinicService.getClinics().subscribe((clinicsData) => {
       this.clinics = clinicsData;
