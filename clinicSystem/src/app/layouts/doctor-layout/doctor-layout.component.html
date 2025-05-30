@@ -1,17 +1,33 @@
 <div class="doctor-layout">
   <nav class="sidebar">
-    <h2>Doctor Panel</h2>
+    <h2>{{ "DOCTOR_PANEL.TITLE" | translate }}</h2>
     <ul>
-      <li><a routerLink="/doctor/dashboard" routerLinkActive="active">Dashboard</a></li>
-      <li><a routerLink="/doctor/appointments" routerLinkActive="active">Appointments</a></li>
-      <li><a routerLink="/doctor/profile" routerLinkActive="active">Profile</a></li>
-      <li><a routerLink="/">Logout</a></li>
+      <li>
+        <a routerLink="/doctor/dashboard" routerLinkActive="active">
+          {{ "DOCTOR_PANEL.DASHBOARD" | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/doctor/appointments" routerLinkActive="active">
+          {{ "DOCTOR_PANEL.APPOINTMENTS" | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/doctor/profile" routerLinkActive="active">
+          {{ "DOCTOR_PANEL.PROFILE" | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/">
+          {{ "DOCTOR_PANEL.LOGOUT" | translate }}
+        </a>
+      </li>
     </ul>
   </nav>
 
   <main class="content">
     <header>
-      <h1>Welcome Doctor</h1>
+      <h1>{{ "DOCTOR_PANEL.WELCOME" | translate }}</h1>
     </header>
 
     <router-outlet></router-outlet>

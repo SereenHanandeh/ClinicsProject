@@ -1,44 +1,60 @@
 <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
-  <label>الاسم:</label>
+  <label>{{ 'DOCTOR_FORM.NAME_LABEL' | translate }}</label>
   <input formControlName="name" type="text" />
   <div *ngIf="f['name'].touched && f['name'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['name'].errors?.['required']">الاسم مطلوب.</div>
-  </div>
-
-  <label>البريد الإلكتروني:</label>
-  <input formControlName="email" type="email" />
-  <div *ngIf="f['email'].touched && f['email'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['email'].errors?.['required']">البريد مطلوب.</div>
-    <div *ngIf="f['email'].errors?.['email']">البريد غير صالح.</div>
-  </div>
-
-  <label>الهاتف:</label>
-  <input formControlName="phone" type="text" placeholder="مثال: 079 123 4567" />
-  <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['phone'].errors?.['required']">رقم الهاتف مطلوب.</div>
-    <div *ngIf="f['phone'].errors?.['pattern']">
-      أدخل 10 أرقام فقط مفصولة بمسافات: 079 123 4567
+    <div *ngIf="f['name'].errors?.['required']">
+      {{ 'DOCTOR_FORM.NAME_REQUIRED' | translate }}
     </div>
   </div>
 
-  <label>التخصص:</label>
-  <input formControlName="specification" type="text" />
-  <div *ngIf="f['specification'].touched && f['specification'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['specification'].errors?.['required']">التخصص مطلوب.</div>
+  <label>{{ 'DOCTOR_FORM.EMAIL_LABEL' | translate }}</label>
+  <input formControlName="email" type="email" />
+  <div *ngIf="f['email'].touched && f['email'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['email'].errors?.['required']">
+      {{ 'DOCTOR_FORM.EMAIL_REQUIRED' | translate }}
+    </div>
+    <div *ngIf="f['email'].errors?.['email']">
+      {{ 'DOCTOR_FORM.EMAIL_INVALID' | translate }}
+    </div>
   </div>
 
-  <label>العيادة:</label>
+  <label>{{ 'DOCTOR_FORM.PHONE_LABEL' | translate }}</label>
+  <input formControlName="phone" type="text" placeholder="{{ 'DOCTOR_FORM.PHONE_PLACEHOLDER' | translate }}" />
+  <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['phone'].errors?.['required']">
+      {{ 'DOCTOR_FORM.PHONE_REQUIRED' | translate }}
+    </div>
+    <div *ngIf="f['phone'].errors?.['pattern']">
+      {{ 'DOCTOR_FORM.PHONE_PATTERN' | translate }}
+    </div>
+  </div>
+
+  <label>{{ 'DOCTOR_FORM.SPEC_LABEL' | translate }}</label>
+  <input formControlName="specification" type="text" />
+  <div *ngIf="f['specification'].touched && f['specification'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['specification'].errors?.['required']">
+      {{ 'DOCTOR_FORM.SPEC_REQUIRED' | translate }}
+    </div>
+  </div>
+
+  <label>{{ 'DOCTOR_FORM.CLINIC_LABEL' | translate }}</label>
   <select formControlName="clinicId">
-    <option value="">اختر العيادة</option>
+    <option value="">{{ 'DOCTOR_FORM.CLINIC_SELECT' | translate }}</option>
     <option *ngFor="let clinic of clinics" [value]="clinic.id">
       {{ clinic.name }}
     </option>
   </select>
   <div *ngIf="f['clinicId'].touched && f['clinicId'].invalid" class="text-red-600 text-sm">
-    <div *ngIf="f['clinicId'].errors?.['required']">العيادة مطلوبة.</div>
+    <div *ngIf="f['clinicId'].errors?.['required']">
+      {{ 'DOCTOR_FORM.CLINIC_REQUIRED' | translate }}
+    </div>
   </div>
 
-  <button type="submit" [disabled]="loading || doctorForm.invalid">إضافة</button>
+  <button type="submit" [disabled]="loading || doctorForm.invalid">
+    {{ 'DOCTOR_FORM.SUBMIT' | translate }}
+  </button>
 
-  <div *ngIf="errorMessage" class="error text-red-600 mt-2">{{ errorMessage }}</div>
+  <div *ngIf="errorMessage" class="error text-red-600 mt-2">
+    {{ errorMessage }}
+  </div>
 </form>
