@@ -47,38 +47,39 @@ export const routes: Routes = [
     ],
   },
 
-  // Doctor routes
-  {
-    path: 'doctor',
-    component: DoctorLayoutComponent,
-    // canActivateChild: [authGuard],
-    data: { roles: ['doctor'] },
-    children: [
-      { path: 'dashboard', component: DoctorDashboardComponent },
-      { path: 'appointments', component: AppointmentsComponent },
-      { path: 'profile', component: DocProfileComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    ],
-  },
+// Doctor routes
+{
+  path: 'doctor',
+  component: DoctorLayoutComponent,
+  canActivateChild: [authGuard], //
+  data: { roles: ['doctor'] },
+  children: [
+    { path: 'dashboard', component: DoctorDashboardComponent },
+    { path: 'appointments', component: AppointmentsComponent },
+    { path: 'profile', component: DocProfileComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  ],
+},
 
-  // Patient routes
-  {
-    path: 'patient',
-    component: PatientLayoutComponent,
-    // canActivateChild: [authGuard],
-    data: { roles: ['patient'] },
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'doctors', component: DoctorListComponent },
-      {
-        path: 'book-appointment/:doctorId',
-        component: BookAppointmentComponent,
-      },
-      { path: 'appointments', component: MyAppointmentsComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    ],
-  },
+// Patient routes
+{
+  path: 'patient',
+  component: PatientLayoutComponent,
+  canActivateChild: [authGuard], 
+  data: { roles: ['patient'] },
+  children: [
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'doctors', component: DoctorListComponent },
+    {
+      path: 'book-appointment/:doctorId',
+      component: BookAppointmentComponent,
+    },
+    { path: 'appointments', component: MyAppointmentsComponent },
+    { path: 'profile', component: ProfileComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  ],
+},
+
 
   // 404
   { path: '**', component: NotFoundComponent },
