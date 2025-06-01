@@ -1,6 +1,9 @@
-<div class="doctor-layout">
-  <nav class="sidebar">
-    <h2>{{ "DOCTOR_PANEL.TITLE" | translate }}</h2>
+<div class="layout">
+  <aside class="sidebar">
+     <h2>{{ "DOCTOR_PANEL.TITLE" | translate }}</h2>
+  <hr/>
+ <nav>
+
     <ul>
       <li>
         <a routerLink="/doctor/dashboard" routerLinkActive="active">
@@ -24,38 +27,9 @@
       </li>
     </ul>
   </nav>
-
-  <main class="content">
-    <header>
-      <h1>{{ "DOCTOR_PANEL.WELCOME" | translate }}</h1>
-    </header>
-
-<div class="layout">
-  <aside class="sidebar">
-    <h2>Welcome Doctor</h2>
-    <hr />
-    <nav>
-      <ul>
-        <li>
-          <a routerLink="/doctor/dashboard" routerLinkActive="active"
-            >Dashboard</a
-          >
-        </li>
-        <li>
-          <a routerLink="/doctor/appointments" routerLinkActive="active"
-            >Appointments</a
-          >
-        </li>
-        <li>
-          <a routerLink="/doctor/profile" routerLinkActive="active">Profile</a>
-        </li>
-        <li><a routerLink="/">Logout</a></li>
-      </ul>
-    </nav>
   </aside>
 
   <main class="content">
-
     <router-outlet></router-outlet>
   </main>
 </div>
