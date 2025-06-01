@@ -15,7 +15,7 @@ import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-add-doctor',
-  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule, TranslatePipe],
+  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
   templateUrl: './add-doctor.component.html',
   styleUrl: './add-doctor.component.scss',
 })
