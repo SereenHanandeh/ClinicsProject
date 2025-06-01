@@ -396,7 +396,7 @@
       }
     },
     {
-      "id": 1748609619931,
+      "id": "1748609619931",
       "doctorId": 1,
       "patientId": "3557",
       "patientName": "sereen hanandeh",
@@ -451,12 +451,8 @@
       "name": "Flu"
     },
     {
-      "id": "2",
-      "name": "Cold"
-    },
-    {
-      "id": "3",
-      "name": "High Temp"
+      "id": 4,
+      "name": "banana"
     }
   ]
 }

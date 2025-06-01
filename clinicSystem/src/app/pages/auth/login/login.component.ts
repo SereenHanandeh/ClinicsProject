@@ -53,7 +53,8 @@ export class LoginComponent {
         localStorage.setItem('user', JSON.stringify(user));
 
         if (user.userType === 'admin') {
-          this.router.navigate(['/admin/dashboard']);
+
+          this.router.navigateByUrl('/admin/dashboard');
         } else if (user.userType === 'doctor') {
           this.router.navigate(['/doctor']);
         } else {

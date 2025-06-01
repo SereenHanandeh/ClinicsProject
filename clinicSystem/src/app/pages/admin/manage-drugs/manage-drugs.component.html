@@ -1,19 +1,39 @@
-<h2>إدارة الأدوية</h2>
+<h2>Drug Management</h2>
 
-<form [formGroup]="drugForm" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="name" placeholder="اسم الدواء" />
-  <button type="submit" [disabled]="drugForm.invalid || loading">
-    {{ isEditing ? 'تحديث' : 'إضافة' }}
-  </button>
-  <button *ngIf="isEditing" type="button" (click)="cancelEdit()">إلغاء</button>
-</form>
+<div class="table-wrapper">
 
-<p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+  <form [formGroup]="drugForm" (ngSubmit)="onSubmit()" class="drug-form">
+<div class="input-with-icon">
+  <i class="bi bi-search"></i>
+  <input type="text" formControlName="name" placeholder="Drug Name" />
+</div>
+    <button type="submit" [disabled]="drugForm.invalid || loading" class="bg-green-500">
+      {{ isEditing ? 'Update' : 'Add' }}
+    </button>
+    <button *ngIf="isEditing" type="button" (click)="cancelEdit()" class="bg-blue-500">
+      Cancel
+    </button>
+  </form>
 
-<ul>
-  <li *ngFor="let drug of drugs">
-    {{ drug.name }}
-    <button (click)="editDrug(drug)">تعديل</button>
-    <button (click)="deleteDrug(drug.id)">حذف</button>
-  </li>
-</ul>
+  <p *ngIf="errorMessage" class="text-red-500">{{ errorMessage }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Drug Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let drug of drugs; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ drug.name }}</td>
+        <td>
+          <button (click)="editDrug(drug)" class="bg-blue-500">Edit</button>
+          <button (click)="deleteDrug(drug.id)" class="bg-red-500">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

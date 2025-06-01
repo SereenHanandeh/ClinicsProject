@@ -28,13 +28,13 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
-
+{ path: '', component: HomeComponent },
 
   // Admin routes
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    // canActivateChild: [authGuard],
+    canActivateChild: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageDoctor', component: ManageDoctorsComponent },

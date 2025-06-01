@@ -1,21 +1,45 @@
-<h3 class="mb-3">🔍 Manage Diagnoses</h3>
+<h2 class="mb-4 fw-bold text-center">Manage Diagnoses</h2>
 
-<form (ngSubmit)="addDiagnosis()" class="mb-4">
-  <input [(ngModel)]="newDiagnosis.name" name="name" class="form-control mb-2" placeholder="New Diagnosis Name">
-  <button class="btn btn-primary">Add Diagnosis</button>
-</form>
+<div class="container p-4 rounded bg-white">
 
-<ul class="list-group">
-  <li *ngFor="let diagnosis of diagnoses" class="list-group-item d-flex justify-content-between align-items-center">
-    <div *ngIf="editDiagnosisId !== diagnosis.id">{{ diagnosis.name }}</div>
-    <div *ngIf="editDiagnosisId === diagnosis.id" class="flex-grow-1 me-2">
-      <input [(ngModel)]="editName" name="editName" class="form-control">
+  <!-- Add Diagnosis Form -->
+  <form (ngSubmit)="addDiagnosis()" class="row g-2 align-items-center mb-4">
+    <div class="col-md-9 position-relative">
+      <!-- Search Input with Icon -->
+      <input [(ngModel)]="newDiagnosis.name"
+             name="name"
+             class="form-control"
+             placeholder="🔍 Enter new diagnosis">
+      <!-- Optional: إذا بدك تستخدم SVG أو أيقونة حقيقية -->
+      <!-- <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ps-3 text-muted"></i> -->
     </div>
-    <div>
-      <button *ngIf="editDiagnosisId !== diagnosis.id" class="btn btn-sm btn-warning me-2" (click)="startEdit(diagnosis)">Edit</button>
-      <button *ngIf="editDiagnosisId === diagnosis.id" class="btn btn-sm btn-success me-2" (click)="saveEdit()">Save</button>
-      <button *ngIf="editDiagnosisId === diagnosis.id" class="btn btn-sm btn-secondary me-2" (click)="cancelEdit()">Cancel</button>
-      <button class="btn btn-sm btn-danger" (click)="deleteDiagnosis(diagnosis.id)">Delete</button>
+
+    <div class="col-md-3 d-grid">
+      <button class="btn btn-sm btn-primary" type="submit">Add</button>
     </div>
-  </li>
-</ul>
+  </form>
+
+  <!-- Diagnosis List -->
+  <ul class="list-group">
+    <li *ngFor="let diagnosis of diagnoses" class="list-group-item d-flex justify-content-between align-items-center">
+
+      <!-- View or Edit Mode -->
+      <div class="flex-grow-1 me-3">
+        <div *ngIf="editDiagnosisId !== diagnosis.id" class="fw-semibold">
+          {{ diagnosis.name }}
+        </div>
+        <div *ngIf="editDiagnosisId === diagnosis.id">
+          <input [(ngModel)]="editName" name="editName" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="btn-group btn-group-sm">
+        <button *ngIf="editDiagnosisId !== diagnosis.id" class="btn btn-outline-success" (click)="startEdit(diagnosis)">Edit</button>
+        <button *ngIf="editDiagnosisId === diagnosis.id" class="btn btn-outline-success" (click)="saveEdit()">Save</button>
+        <button *ngIf="editDiagnosisId === diagnosis.id" class="btn btn-outline-secondary" (click)="cancelEdit()">Cancel</button>
+        <button class="btn btn-outline-danger" (click)="deleteDiagnosis(diagnosis.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
