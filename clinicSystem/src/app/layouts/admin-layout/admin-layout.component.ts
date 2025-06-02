@@ -4,7 +4,7 @@ import { TranslatePipe } from '../../shared/pips/translate.pipe';
 
 @Component({
   selector: 'app-admin-layout',
-  imports: [RouterModule,TranslatePipe],
+  imports: [RouterModule, TranslatePipe],
 
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.scss',

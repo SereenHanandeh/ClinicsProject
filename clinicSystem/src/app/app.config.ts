@@ -4,7 +4,11 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 
@@ -14,5 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withFetch())
   ],
 };

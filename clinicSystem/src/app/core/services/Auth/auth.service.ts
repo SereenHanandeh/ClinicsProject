@@ -24,10 +24,13 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<User> {
+    const encodedPassword = btoa(password); // ✅ تشفير كلمة المرور قبل البحث
     return this.http
-      .get<User[]>(`${this.baseUrl}/users?email=${email}&password=${password}`)
+      .get<User[]>(
+        `${this.baseUrl}/users?email=${email}&password=${encodedPassword}`
+      )
       .pipe(
-        map((users: string | any[]) => {
+        map((users: User[]) => {
           if (users.length === 0) {
             throw new Error('Invalid email or password');
           }
@@ -80,12 +83,12 @@ export class AuthService {
     }
 
     const strongPasswordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
     if (!user.password || !strongPasswordRegex.test(user.password)) {
       return throwError(
         () =>
           new Error(
-            'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.'
+            'Password must be at least 5 characters long and include uppercase, lowercase, number, and special character.'
           )
       );
     }
@@ -98,10 +101,21 @@ export class AuthService {
             return throwError(() => new Error('Email is already registered.'));
           }
 
+          if (!user.password || !strongPasswordRegex.test(user.password)) {
+            return throwError(
+              () =>
+                new Error(
+                  'Password must be at least 5 characters long and include uppercase, lowercase, number, and special character.'
+                )
+            );
+          }
+
+          const encodedPassword = btoa(user.password);
+
           const newUser = {
             name: user.name ?? '',
             email: user.email ?? '',
-            password: user.password!,
+            password: encodedPassword,
             userType: 'patient',
           };
 
@@ -113,9 +127,9 @@ export class AuthService {
                 email: createdUser.email,
                 gender: user.gender ?? 'male',
                 dateOfBirth: user.dateOfBirth ?? '',
-                password: '',
+                password: '', // لا نحتاج لكلمة المرور هنا
                 userType: 'patient',
-                phone: undefined,
+                phone: user.phone,
               };
 
               return this.http

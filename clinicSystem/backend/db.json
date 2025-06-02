@@ -188,10 +188,10 @@
       "userType": "doctor"
     },
     {
-      "id": "3557",
+      "id": "bc46",
       "name": "sereen hanandeh",
-      "email": "s@g.com",
-      "password": "Ahmad@123",
+      "email": "sereen@gmail.com",
+      "password": "U2VyZWVuQDEyMw==",
       "userType": "patient"
     },
     {
@@ -216,15 +216,7 @@
       "userType": "patient"
     }
   ],
-  "patients": [
-    {
-      "name": "sereen hanandeh",
-      "email": "s@g.com",
-      "phone": "0539457480",
-      "gender": "female",
-      "dateOfBirth": "1997-10-10",
-      "id": "3557"
-    },
+  "patients": 
     {
       "id": "b1be",
       "name": "Albader",
@@ -251,6 +243,7 @@
       "dateOfBirth": "2025-06-25",
       "password": "",
       "userType": "patient"
+      "id": "bc46"
     }
   ],
   "doctors": [
@@ -386,15 +379,6 @@
       "phone": "0786666666",
       "specification": "Dermatology",
       "clinicId": 4
-    },
-    {
-      "id": "17",
-      "name": "Dr.Rand",
-      "email": "essam@gmail.com",
-      "phone": "0798098967",
-      "specification": "Eye",
-      "clinicId": "5",
-      "image": ""
     }
   ],
   "appointments": [
@@ -449,6 +433,19 @@
       "patientId": "3557",
       "patientName": "sereen hanandeh",
       "date": "2025-06-03T09:30",
+      "status": "pending",
+      "details": {
+        "drugs": [],
+        "diagnosis": "",
+        "payment": 0
+      }
+    },
+    {
+      "id": 1748899150709,
+      "doctorId": 10,
+      "patientId": 0,
+      "patientName": "sereen hanandeh",
+      "date": "2025-06-01T10:30",
       "status": "pending",
       "details": {
         "drugs": [],

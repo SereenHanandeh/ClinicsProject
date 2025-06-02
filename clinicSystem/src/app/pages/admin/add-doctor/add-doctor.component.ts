@@ -86,12 +86,12 @@ export class AddDoctorComponent {
     this.doctorService.addDoctor(newDoctor).subscribe({
       next: () => {
         this.loading = false;
-        alert('تم إضافة الطبيب بنجاح');
+        alert('Doctor Added Successfully');
         this.router.navigate(['/admin/manageDoctor']);
       },
       error: () => {
         this.loading = false;
-        this.errorMessage = 'فشل في إضافة الطبيب';
+        this.errorMessage = 'Faild to add New Doctor';
       },
     });
   }

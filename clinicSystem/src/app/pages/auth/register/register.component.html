@@ -127,9 +127,10 @@
           <small *ngIf="registerForm.controls['password'].errors?.['required']"
             >Password is required.</small
           >
-          <small *ngIf="registerForm.controls['password'].errors?.['minlength']"
-            >Minimum 6 characters.</small
-          >
+          <div *ngIf="password?.errors?.['pattern']">
+            Password must be at least 8 characters long and include uppercase,
+            lowercase, number, and special character.
+          </div>
         </div>
       </div>
 
