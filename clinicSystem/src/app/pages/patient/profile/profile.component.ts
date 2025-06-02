@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.patientId = this.authService.getCurrentUserId();
+  this.patientId = this.authService.getCurrentUserId();
 
     if (!this.patientId) {
       alert('User not logged in.');

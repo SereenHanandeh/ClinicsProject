@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppointmentsComponent } from "./pages/doctor/appointments/appointments.component";
+
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,6 @@ import { AppointmentsComponent } from "./pages/doctor/appointments/appointments.
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {}
+export class AppComponent {
+
+}
