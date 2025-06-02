@@ -193,15 +193,56 @@
       "email": "sereen@gmail.com",
       "password": "U2VyZWVuQDEyMw==",
       "userType": "patient"
+    },
+    {
+      "id": "b1be",
+      "name": "Albader",
+      "email": "Albader@g.com",
+      "password": "Ahmad@123",
+      "userType": "patient"
+    },
+    {
+      "id": "f7af",
+      "name": "Albader",
+      "email": "osama@g.com",
+      "password": "Ahmad@123",
+      "userType": "patient"
+    },
+    {
+      "id": "eb98",
+      "name": "Albader",
+      "email": "wasan@k.com",
+      "password": "Wasan@123",
+      "userType": "patient"
     }
   ],
-  "patients": [
+  "patients": 
     {
-      "name": "sereen hanandeh",
-      "email": "sereen@gmail.com",
-      "phone": "053 945 7475",
+      "id": "b1be",
+      "name": "Albader",
+      "email": "Albader@g.com",
       "gender": "female",
-      "dateOfBirth": "1997-10-10",
+      "dateOfBirth": "2025-06-18",
+      "password": "",
+      "userType": "patient"
+    },
+    {
+      "id": "f7af",
+      "name": "Albader",
+      "email": "osama@g.com",
+      "gender": "male",
+      "dateOfBirth": "2025-07-02",
+      "password": "",
+      "userType": "patient"
+    },
+    {
+      "id": "eb98",
+      "name": "Albader",
+      "email": "wasan@k.com",
+      "gender": "male",
+      "dateOfBirth": "2025-06-25",
+      "password": "",
+      "userType": "patient"
       "id": "bc46"
     }
   ],
@@ -447,6 +488,46 @@
     {
       "id": "3",
       "name": "Adol"
+    },
+    {
+      "id": "4",
+      "name": "fd"
+    },
+    {
+      "id": "5",
+      "name": "sdf"
+    },
+    {
+      "id": "6",
+      "name": "sgr"
+    },
+    {
+      "id": "7",
+      "name": "gvr"
+    },
+    {
+      "id": "8",
+      "name": "egvr"
+    },
+    {
+      "id": "9",
+      "name": "gr"
+    },
+    {
+      "id": "10",
+      "name": "egr"
+    },
+    {
+      "id": "11",
+      "name": "e"
+    },
+    {
+      "id": "12",
+      "name": "def"
+    },
+    {
+      "id": "13",
+      "name": "e"
     }
   ],
   "diagnoses": [
@@ -461,6 +542,58 @@
     {
       "id": "3",
       "name": "High Temp"
+    },
+    {
+      "id": "4",
+      "name": "Albader"
+    },
+    {
+      "id": "5",
+      "name": "Paracetamol"
+    },
+    {
+      "id": "6",
+      "name": "Ibuprofen"
+    },
+    {
+      "id": "7",
+      "name": "Aspirin"
+    },
+    {
+      "id": "8",
+      "name": "Amoxicillin"
+    },
+    {
+      "id": "9",
+      "name": "Omeprazole"
+    },
+    {
+      "id": "10",
+      "name": "Atorvastatin"
+    },
+    {
+      "id": "11",
+      "name": "Lisinopril"
+    },
+    {
+      "id": "12",
+      "name": "Lisinopril"
+    },
+    {
+      "id": "13",
+      "name": "Omeprazole"
+    },
+    {
+      "id": "14",
+      "name": "Albader"
+    },
+    {
+      "id": "15",
+      "name": "cold"
+    },
+    {
+      "id": "16",
+      "name": "Albader"
     }
   ]
 }

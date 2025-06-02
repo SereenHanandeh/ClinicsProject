@@ -40,32 +40,41 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password');
   }
+onSubmit(): void {
+  const { email, password } = this.loginForm.value;
 
-  onSubmit(): void {
-    debugger
-    if (this.loginForm.invalid) {
-      return;
-    }
+  this.authService.login(email, password).subscribe({
+    next: (user) => {
+      console.log('Login successful:', user);
+      const loginKey = `hasLoggedInBefore_${email}`;
+      const isFirstLogin = !localStorage.getItem(loginKey);
 
-    const { email, password } = this.loginForm.value;
+      localStorage.setItem('user', JSON.stringify(user));
 
-    this.authService.login(email, password).subscribe({
-      next: (user) => {
-        localStorage.setItem('user', JSON.stringify(user));
+      if (isFirstLogin) {
+        localStorage.setItem(loginKey, 'true');
+        this.router.navigate(['/welcome-page']).then(() => {
+          console.log('Navigated to welcome-page');
+        });
+      } else {
+        this.redirectUser(user.userType);
+      }
+    },
+    error: () => {
+      this.errorMessage = 'Invalid email or password';
+    },
+  });
+}
 
-        if (user.userType === 'admin') {
-          this.router.navigate(['/admin/dashboard']);
-        } else if (user.userType === 'doctor') {
-          this.router.navigate(['/doctor']);
-        } else {
-          this.router.navigate(['/patient/dashboard']);
-        }
-      },
-      error: () => {
-        this.errorMessage = 'Invalid email or password';
-      },
-    });
+redirectUser(userType: string) {
+  if (userType === 'admin') {
+    this.router.navigate(['/admin/dashboard']);
+  } else if (userType === 'doctor') {
+    this.router.navigate(['/doctor/dashboard']); // هنا أضفت dashboard
+  } else {
+    this.router.navigate(['/patient/dashboard']);
   }
+}
 
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;

@@ -19,6 +19,7 @@ import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.co
 import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
 import { AddDoctorComponent } from './pages/admin/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './pages/admin/edit-doctor/edit-doctor.component';
+import { WelcomComponent } from './welcom/welcom.component';
 import { roleGuard } from './core/guards/Auth/auth.guard';
 import { PatientDashboardComponent } from './pages/patient/patient-dashboard/patient-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
@@ -28,6 +29,11 @@ export const routes: Routes = [
   { path: 'welcome', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+    { path: 'home', component: HomeComponent },
+  {
+    path: 'welcome-page',
+    loadComponent: () => import('./welcom/welcom.component').then(m => m.WelcomComponent)
+  },
   { path: 'home', component: HomeComponent },
 
   // Admin routes
@@ -46,6 +52,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
+
 
   // Doctor routes
   {
