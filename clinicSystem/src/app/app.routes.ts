@@ -21,6 +21,7 @@ import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.co
 import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
 import { AddDoctorComponent } from './pages/admin/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './pages/admin/edit-doctor/edit-doctor.component';
+import { WelcomComponent } from './welcom/welcom.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -28,7 +29,10 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
-
+  {
+    path: 'welcome-page',
+    loadComponent: () => import('./welcom/welcom.component').then(m => m.WelcomComponent)
+  },
 
   // Admin routes
   {
@@ -57,7 +61,9 @@ export const routes: Routes = [
     { path: 'dashboard', component: DoctorDashboardComponent },
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'profile', component: DocProfileComponent },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+
+    ,
   ],
 },
 
@@ -65,7 +71,7 @@ export const routes: Routes = [
 {
   path: 'patient',
   component: PatientLayoutComponent,
-  canActivateChild: [authGuard], 
+  canActivateChild: [authGuard],
   data: { roles: ['patient'] },
   children: [
     { path: 'dashboard', component: DashboardComponent },

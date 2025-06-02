@@ -1,0 +1,66 @@
+
+
+        .card-link {
+            text-decoration: none;
+
+            width: 60%;
+            text-align: center;
+            margin: auto;
+
+        }
+
+        .card {
+
+            background: white;
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: float 6s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+              margin-top: 150px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h1 {
+            font-size: 2.5rem;
+            color: #2cb48f;
+            margin-bottom: 20px;
+            text-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Confetti */
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
