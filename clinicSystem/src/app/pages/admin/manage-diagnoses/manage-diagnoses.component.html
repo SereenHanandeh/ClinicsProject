@@ -1,21 +1,71 @@
-<h3 class="mb-3">🔍 Manage Diagnoses</h3>
+<h1>Manage Diagnoses</h1>
+<!-- Search and Add Diagnosis Form -->
+<form (ngSubmit)="addDiagnosis()" class="d-flex justify-content-center align-items-end mb-4" style="gap: 10px;">
 
-<form (ngSubmit)="addDiagnosis()" class="mb-4">
-  <input [(ngModel)]="newDiagnosis.name" name="name" class="form-control mb-2" placeholder="New Diagnosis Name">
-  <button class="btn btn-primary">Add Diagnosis</button>
+  <!-- حقل البحث -->
+  <input [(ngModel)]="searchTerm"
+         name="search"
+         class="form-control"
+         placeholder="ابحث عن التشخيص"
+         style="max-width: 300px;" />
+
+  <!-- حقل إضافة التشخيص -->
+  <input [(ngModel)]="newDiagnosis.name"
+         name="name"
+         class="form-control"
+         placeholder="أدخل التشخيص الجديد"
+         style="max-width: 300px;" />
+
+  <!-- زر الإضافة -->
+  <button class="btn btn-primary btn-sm px-3 py-1" style="width: auto;" type="submit">Add</button>
+
 </form>
 
-<ul class="list-group">
-  <li *ngFor="let diagnosis of diagnoses" class="list-group-item d-flex justify-content-between align-items-center">
-    <div *ngIf="editDiagnosisId !== diagnosis.id">{{ diagnosis.name }}</div>
-    <div *ngIf="editDiagnosisId === diagnosis.id" class="flex-grow-1 me-2">
-      <input [(ngModel)]="editName" name="editName" class="form-control">
-    </div>
-    <div>
-      <button *ngIf="editDiagnosisId !== diagnosis.id" class="btn btn-sm btn-warning me-2" (click)="startEdit(diagnosis)">Edit</button>
-      <button *ngIf="editDiagnosisId === diagnosis.id" class="btn btn-sm btn-success me-2" (click)="saveEdit()">Save</button>
-      <button *ngIf="editDiagnosisId === diagnosis.id" class="btn btn-sm btn-secondary me-2" (click)="cancelEdit()">Cancel</button>
-      <button class="btn btn-sm btn-danger" (click)="deleteDiagnosis(diagnosis.id)">Delete</button>
-    </div>
-  </li>
-</ul>
+<!-- Diagnosis List -->
+<div class="container p-4 rounded bg-white">
+  <ul class="list-group">
+    <li *ngFor="let diagnosis of pagedDiagnoses" class="list-group-item d-flex justify-content-between align-items-center">
+      <!-- Diagnosis Name or Edit Input -->
+      <div class="flex-grow-1 me-3">
+        <div *ngIf="editDiagnosisId !== diagnosis.id" class="fw-semibold">
+          {{ diagnosis.name }}
+        </div>
+        <div *ngIf="editDiagnosisId === diagnosis.id">
+          <input [(ngModel)]="editName" name="editName" class="form-control" />
+        </div>
+      </div>
+      <!-- Action Buttons -->
+      <div class="btn-group btn-group-sm">
+        <button *ngIf="editDiagnosisId !== diagnosis.id"
+                class="btn btn-outline-success"
+                (click)="startEdit(diagnosis)">Edit</button>
+        <button *ngIf="editDiagnosisId === diagnosis.id"
+                class="btn btn-outline-success"
+                (click)="saveEdit()">Save</button>
+        <button *ngIf="editDiagnosisId === diagnosis.id"
+                class="btn btn-outline-secondary"
+                (click)="cancelEdit()">Cancel</button>
+        <button class="btn btn-outline-danger"
+                (click)="deleteDiagnosis(diagnosis.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Pagination Controls -->
+  <nav *ngIf="totalPages > 1" aria-label="Page navigation example" class="mt-3">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(currentPage - 1)">previous</button>
+      </li>
+      <li
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        class="page-item"
+        [class.active]="currentPage === (i + 1)">
+        <button class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(currentPage + 1)">next</button>
+      </li>
+    </ul>
+  </nav>
+</div>

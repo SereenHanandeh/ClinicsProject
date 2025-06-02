@@ -7,15 +7,24 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-manage-diagnoses',
-  imports: [CommonModule,FormsModule,RouterModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './manage-diagnoses.component.html',
-  styleUrl: './manage-diagnoses.component.scss'
+  styleUrls: ['./manage-diagnoses.component.scss']
 })
 export class ManageDiagnosesComponent {
-diagnoses: Diagnosis[] = [];
+  diagnoses: Diagnosis[] = [];
   newDiagnosis: Diagnosis = { id: 0, name: '' };
   editDiagnosisId: number | null = null;
   editName: string = '';
+
+  // بحث
+  showSearch: boolean = true;
+  searchTerm: string = '';
+
+  // صفحات
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
 
   constructor(private diagnosisService: DiagnosisService) {}
 
@@ -26,29 +35,32 @@ diagnoses: Diagnosis[] = [];
   loadDiagnoses(): void {
     this.diagnosisService.getAll().subscribe(data => {
       this.diagnoses = data;
+      this.currentPage = 1; // رجع للصفحة الأولى عند تحميل البيانات
     });
   }
 
-addDiagnosis(): void {
-  if (!this.newDiagnosis.name.trim()) return;
+  addDiagnosis(): void {
+    if (!this.newDiagnosis.name.trim()) return;
 
-  // توليد id يدويًا بناءً على أعلى id موجود حاليًا
-  const maxId = this.diagnoses.length > 0 ? Math.max(...this.diagnoses.map(d => d.id)) : 0;
-  const diagnosisToAdd: Diagnosis = {
-    id: maxId + 1,
-    name: this.newDiagnosis.name.trim()
-  };
+    const maxId = this.diagnoses.length > 0 ? Math.max(...this.diagnoses.map(d => d.id)) : 0;
+    const diagnosisToAdd: Diagnosis = {
+      id: maxId + 1,
+      name: this.newDiagnosis.name.trim()
+    };
 
-  this.diagnosisService.add(diagnosisToAdd).subscribe(d => {
-    this.diagnoses.push(d);
-    this.newDiagnosis = { id: 0, name: '' };
-  });
-}
-
+    this.diagnosisService.add(diagnosisToAdd).subscribe(d => {
+      this.diagnoses.push(d);
+      this.newDiagnosis = { id: 0, name: '' };
+      this.currentPage = this.totalPages; // إذا أضفنا عنصر جديد، نروح آخر صفحة تلقائياً
+    });
+  }
 
   deleteDiagnosis(id: number): void {
     this.diagnosisService.delete(id).subscribe(() => {
       this.diagnoses = this.diagnoses.filter(d => d.id !== id);
+      if (this.currentPage > this.totalPages) {
+        this.currentPage = this.totalPages; // ضبط الصفحة لو حذفنا آخر عنصر في الصفحة
+      }
     });
   }
 
@@ -71,4 +83,37 @@ addDiagnosis(): void {
     this.editDiagnosisId = null;
     this.editName = '';
   }
+
+  toggleSearch(): void {
+    this.showSearch = !this.showSearch;
+    if (!this.showSearch) {
+      this.searchTerm = '';
+      this.currentPage = 1;
+    }
+  }
+
+  // فلترة التشخيصات حسب البحث
+  get filteredDiagnoses(): Diagnosis[] {
+    if (!this.searchTerm.trim()) {
+      return this.diagnoses;
+    }
+    const term = this.searchTerm.trim().toLowerCase();
+    return this.diagnoses.filter(d => d.name.toLowerCase().includes(term));
+  }
+
+  get pagedDiagnoses(): Diagnosis[] {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filteredDiagnoses.slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.filteredDiagnoses.length / this.itemsPerPage) || 1;
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+
 }

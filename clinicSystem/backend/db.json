@@ -396,7 +396,7 @@
       }
     },
     {
-      "id": 1748609619931,
+      "id": "1748609619931",
       "doctorId": 1,
       "patientId": "3557",
       "patientName": "sereen hanandeh",
@@ -443,6 +443,46 @@
     {
       "id": "3",
       "name": "Adol"
+    },
+    {
+      "id": "4",
+      "name": "fd"
+    },
+    {
+      "id": "5",
+      "name": "sdf"
+    },
+    {
+      "id": "6",
+      "name": "sgr"
+    },
+    {
+      "id": "7",
+      "name": "gvr"
+    },
+    {
+      "id": "8",
+      "name": "egvr"
+    },
+    {
+      "id": "9",
+      "name": "gr"
+    },
+    {
+      "id": "10",
+      "name": "egr"
+    },
+    {
+      "id": "11",
+      "name": "e"
+    },
+    {
+      "id": 12,
+      "name": "def"
+    },
+    {
+      "id": 13,
+      "name": "e"
     }
   ],
   "diagnoses": [
@@ -457,6 +497,58 @@
     {
       "id": "3",
       "name": "High Temp"
+    },
+    {
+      "id": "4",
+      "name": "Albader"
+    },
+    {
+      "id": "5",
+      "name": "Paracetamol"
+    },
+    {
+      "id": "6",
+      "name": "Ibuprofen"
+    },
+    {
+      "id": "7",
+      "name": "Aspirin"
+    },
+    {
+      "id": "8",
+      "name": "Amoxicillin"
+    },
+    {
+      "id": "9",
+      "name": "Omeprazole"
+    },
+    {
+      "id": "10",
+      "name": "Atorvastatin"
+    },
+    {
+      "id": "11",
+      "name": "Lisinopril"
+    },
+    {
+      "id": "12",
+      "name": "Lisinopril"
+    },
+    {
+      "id": "13",
+      "name": "Omeprazole"
+    },
+    {
+      "id": "14",
+      "name": "Albader"
+    },
+    {
+      "id": "15",
+      "name": "cold"
+    },
+    {
+      "id": "16",
+      "name": "Albader"
     }
   ]
 }
