@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule,RouterModule, RouterModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -40,7 +41,16 @@ export class RegisterComponent {
         ],
         gender: ['male', [Validators.required]],
         dateOfBirth: ['', [Validators.required]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.pattern(
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+            ),
+          ],
+        ],
         confirmPassword: ['', [Validators.required]],
         userType: ['patient'],
       },
@@ -69,7 +79,6 @@ export class RegisterComponent {
     this.registerForm.get('phone')?.setValue(formatted, { emitEvent: false });
   }
 
-   // دوال لتبديل حالة العرض لكلمة المرور
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
   }
@@ -77,7 +86,6 @@ export class RegisterComponent {
   toggleShowConfirmPassword() {
     this.showConfirmPassword = !this.showConfirmPassword;
   }
-
 
   onSubmit() {
     if (this.registerForm.invalid) {
@@ -94,5 +102,9 @@ export class RegisterComponent {
         this.errorMessage = error.message || 'Registration failed.';
       },
     });
+  }
+
+  get password(): AbstractControl | null {
+    return this.registerForm.get('password');
   }
 }
