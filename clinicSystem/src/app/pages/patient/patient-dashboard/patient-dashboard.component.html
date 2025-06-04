@@ -1,1 +1,21 @@
-<p>patient-dashboard works!</p>
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<div *ngIf="patient && !isLoading">
+  <h2>Welcome, {{ patient.name }}</h2>
+  <p>Email: {{ patient.email }}</p>
+  <p>Phone: {{ patient.phone }}</p>
+  <p>Gender: {{ patient.gender }}</p>
+  <p>Date of Birth: {{ patient.dateOfBirth | date }}</p>
+
+  <h3>My Appointments</h3>
+  <div *ngIf="appointments.length === 0">No appointments found.</div>
+  <ul>
+    <li *ngFor="let appointment of appointments">
+      <strong>Doctor:</strong> {{ getDoctorName(appointment.doctorId) }} |
+      <strong>Date:</strong> {{ appointment.date }} |
+
+      <button (click)="cancelAppointment(appointment.id)">Cancel Appointment</button>
+    </li>
+  </ul>
+</div>

@@ -18,10 +18,11 @@ export class AuthService {
       this.currentUserSubject.next(JSON.parse(storedUser));
     }
   }
-  getCurrentUserId(): number | null {
-    const user = JSON.parse(localStorage.getItem('user') || 'null');
-    return user ? user.id : null;
-  }
+getCurrentUserId(): number | null {
+  const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+  return user ? user.id : null;
+}
+
 
   login(email: string, password: string): Observable<User> {
     const encodedPassword = btoa(password); // ✅ تشفير كلمة المرور قبل البحث

@@ -193,57 +193,18 @@
       "email": "sereen@gmail.com",
       "password": "U2VyZWVuQDEyMw==",
       "userType": "patient"
-    },
-    {
-      "id": "b1be",
-      "name": "Albader",
-      "email": "Albader@g.com",
-      "password": "Ahmad@123",
-      "userType": "patient"
-    },
-    {
-      "id": "f7af",
-      "name": "Albader",
-      "email": "osama@g.com",
-      "password": "Ahmad@123",
-      "userType": "patient"
-    },
-    {
-      "id": "eb98",
-      "name": "Albader",
-      "email": "wasan@k.com",
-      "password": "Wasan@123",
-      "userType": "patient"
     }
   ],
-  "patients": 
+  "patients": [
     {
-      "id": "b1be",
-      "name": "Albader",
-      "email": "Albader@g.com",
+      "id": "bc46",
+      "name": "sereen hanandeh",
+      "email": "sereen@gmail.com",
       "gender": "female",
-      "dateOfBirth": "2025-06-18",
-      "password": "",
+      "dateOfBirth": "1997-10-10",
+      "phone": "0539457475",
+      "password": "U2VyZWVuQDEyMw==",
       "userType": "patient"
-    },
-    {
-      "id": "f7af",
-      "name": "Albader",
-      "email": "osama@g.com",
-      "gender": "male",
-      "dateOfBirth": "2025-07-02",
-      "password": "",
-      "userType": "patient"
-    },
-    {
-      "id": "eb98",
-      "name": "Albader",
-      "email": "wasan@k.com",
-      "gender": "male",
-      "dateOfBirth": "2025-06-25",
-      "password": "",
-      "userType": "patient"
-      "id": "bc46"
     }
   ],
   "doctors": [
@@ -383,56 +344,11 @@
   ],
   "appointments": [
     {
-      "id": "1748297980328",
-      "doctorId": 9,
-      "patientId": "3557",
+      "id": 1749046813205,
+      "doctorId": 14,
+      "patientId": "bc46",
       "patientName": "sereen hanandeh",
-      "date": "2025-05-31T12:00",
-      "status": "approved",
-      "details": {
-        "diagnosis": "dcegtrgre",
-        "drugs": [
-          "fergtr",
-          "fvtrhyu",
-          "gbhtyht"
-        ],
-        "payment": 20
-      }
-    },
-    {
-      "id": "1748369271603",
-      "doctorId": 5,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-06T09:00",
-      "status": "approved",
-      "details": {
-        "diagnosis": "",
-        "drugs": [
-          ""
-        ],
-        "payment": 0
-      }
-    },
-    {
-      "id": "1748522144106",
-      "doctorId": 5,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-01T09:30",
-      "status": "rejected",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
-      "id": "1748609619931",
-      "doctorId": 1,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-03T09:30",
+      "date": "2025-06-01T13:00",
       "status": "pending",
       "details": {
         "drugs": [],
@@ -441,11 +357,24 @@
       }
     },
     {
-      "id": 1748899150709,
-      "doctorId": 10,
-      "patientId": 0,
+      "id": 1749046944240,
+      "doctorId": 13,
+      "patientId": "bc46",
       "patientName": "sereen hanandeh",
       "date": "2025-06-01T10:30",
+      "status": "pending",
+      "details": {
+        "drugs": [],
+        "diagnosis": "",
+        "payment": 0
+      }
+    },
+    {
+      "id": 1749047315845,
+      "doctorId": 10,
+      "patientId": "bc46",
+      "patientName": "sereen hanandeh",
+      "date": "2025-06-20T12:30",
       "status": "pending",
       "details": {
         "drugs": [],
