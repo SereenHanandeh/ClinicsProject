@@ -23,25 +23,28 @@ getCurrentUserId(): number | null {
   return user ? user.id : null;
 }
 
+login(email: string, password: string): Observable<User> {
+  const encodedPassword = btoa(password); // ترميز Base64
 
-  login(email: string, password: string): Observable<User> {
-    const encodedPassword = btoa(password); // ✅ تشفير كلمة المرور قبل البحث
-    return this.http
-      .get<User[]>(
-        `${this.baseUrl}/users?email=${email}&password=${encodedPassword}`
-      )
-      .pipe(
-        map((users: User[]) => {
-          if (users.length === 0) {
-            throw new Error('Invalid email or password');
-          }
-          const user = users[0];
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-          return user;
-        })
-      );
-  }
+  return this.http
+    .get<User[]>(`${this.baseUrl}/users?email=${email}&password=${encodedPassword}`)
+    .pipe(
+      map((users: User[]) => {
+        if (users.length === 0) {
+          throw new Error('Invalid email or password');
+        }
+
+        const user = users[0];
+
+        // حفظ بيانات المستخدم الحالي
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+
+        return user;
+      })
+    );
+}
+
 
   logout(): void {
     localStorage.removeItem('currentUser');

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Doctor } from '../../../core/models/doctor.model';
 import { DoctorService } from '../../../core/services/Doctor/doctor.service';
-import {  Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -18,14 +18,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './manage-doctors.component.scss',
 })
 export class ManageDoctorsComponent {
-   doctors: Doctor[] = [];
+  doctors: Doctor[] = [];
   loading = false;
   errorMessage = '';
 
-  constructor(
-    private doctorService: DoctorService,
-    private router: Router
-  ) {}
+  constructor(private doctorService: DoctorService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadAllDoctors();
@@ -54,7 +51,7 @@ export class ManageDoctorsComponent {
       this.doctorService.deleteDoctor(id).subscribe({
         next: () => {
           alert('تم حذف الطبيب بنجاح');
-          this.loadAllDoctors(); // إعادة تحميل القائمة بعد الحذف
+          this.loadAllDoctors();
         },
         error: () => {
           alert('حدث خطأ أثناء حذف الطبيب');
@@ -64,7 +61,6 @@ export class ManageDoctorsComponent {
   }
 
   goToAddDoctor() {
-  this.router.navigate(['/admin/addDoctor']);
-}
-
+    this.router.navigate(['/admin/addDoctor']);
+  }
 }

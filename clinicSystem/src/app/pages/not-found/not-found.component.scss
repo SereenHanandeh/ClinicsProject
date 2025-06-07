@@ -1,3 +1,13 @@
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.notfound-img {
+  animation: rotate 3s ease-in-out infinite;
+}
+
 .notfound-container {
   text-align: center;
   padding: 40px;

@@ -8,13 +8,13 @@
     >
       <div *ngIf="f['name'].errors?.['required']">Name is required.</div>
 
-<!--     <!-- Name -->
+<!-- Name -->
     <label>{{ 'DOCTOR_FORM.NAME_LABEL' | translate }}</label>
     <input formControlName="name" type="text" />
     <div *ngIf="f['name'].touched && f['name'].invalid" class="text-red-600 text-sm">
       <div *ngIf="f['name'].errors?.['required']">
         {{ 'DOCTOR_FORM.NAME_REQUIRED' | translate }}
-      </div> -->
+      </div>
     </div>
 
     <!-- Emaill   -->

@@ -40,7 +40,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    canActivateChild: [roleGuard('admin')],
+    // canActivateChild: [roleGuard('admin')],
     children: [
       { path: 'dashboard', component: AdminDashboardComponent  },
       { path: 'manageDoctor', component: ManageDoctorsComponent },
@@ -58,7 +58,7 @@ export const routes: Routes = [
   {
     path: 'doctor',
     component: DoctorLayoutComponent,
-    canActivateChild: [roleGuard('doctor')],
+    // canActivateChild: [roleGuard('doctor')],
     children: [
       { path: 'dashboard', component: DoctorDashboardComponent },
       { path: 'appointments', component: AppointmentsComponent },

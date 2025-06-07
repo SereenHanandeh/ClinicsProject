@@ -3,188 +3,188 @@
     {
       "id": "1",
       "email": "admin@cms.com",
-      "password": "admin123",
+      "password": "YWRtaW4xMjM=",
       "userType": "admin"
     },
     {
       "id": "2",
       "email": "dr.sara@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "3",
       "email": "dr.laila@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "4",
       "email": "dr.majd@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "5",
       "email": "dr.rawan@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "6",
       "email": "dr.yazan@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "7",
       "email": "dr.dana@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "8",
       "email": "dr.ayman@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "9",
       "email": "dr.hadeel@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "10",
       "email": "dr.basel@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "11",
       "email": "dr.nour@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "12",
       "name": "Dr. Eyad",
       "email": "dr.eyad@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "13",
       "email": "dr.lina@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "14",
       "email": "dr.fares@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "15",
       "email": "dr.rami@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "16",
       "email": "dr.samar@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "17",
       "email": "dr.ahmad@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "18",
       "email": "dr.laila@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "19",
       "email": "dr.majd@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "20",
       "email": "dr.rawan@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "21",
       "email": "dr.yazan@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "22",
       "email": "dr.dana@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "23",
       "email": "dr.ayman@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "24",
       "email": "dr.hadeel@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "25",
       "email": "dr.basel@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "26",
       "email": "dr.nour@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "27",
       "email": "dr.eyad@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "28",
       "email": "dr.lina@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "29",
       "email": "dr.fares@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "30",
       "email": "dr.rami@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
       "id": "31",
       "email": "dr.samar@cms.com",
-      "password": "doc123",
+      "password": "ZG9jMTIz",
       "userType": "doctor"
     },
     {
@@ -209,13 +209,12 @@
   ],
   "doctors": [
     {
-      "id": "1",
       "name": "Dr. Sara",
       "email": "dr.sara@cms.com",
       "phone": "0799999999",
       "specification": "Cardiology",
       "clinicId": 1,
-      "image": "data:image/jpeg;base64,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"
+      "id": "1"
     },
     {
       "id": "2",
@@ -344,37 +343,11 @@
   ],
   "appointments": [
     {
-      "id": 1749046813205,
-      "doctorId": 14,
+      "id": 1749070349498,
+      "doctorId": 1,
       "patientId": "bc46",
       "patientName": "sereen hanandeh",
-      "date": "2025-06-01T13:00",
-      "status": "pending",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
-      "id": 1749046944240,
-      "doctorId": 13,
-      "patientId": "bc46",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-01T10:30",
-      "status": "pending",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
-      "id": 1749047315845,
-      "doctorId": 10,
-      "patientId": "bc46",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-20T12:30",
+      "date": "2025-06-20T09:30",
       "status": "pending",
       "details": {
         "drugs": [],

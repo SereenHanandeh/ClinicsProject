@@ -40,6 +40,7 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password');
   }
+
 onSubmit(): void {
   const { email, password } = this.loginForm.value;
 
@@ -70,7 +71,7 @@ redirectUser(userType: string) {
   if (userType === 'admin') {
     this.router.navigate(['/admin/dashboard']);
   } else if (userType === 'doctor') {
-    this.router.navigate(['/doctor/dashboard']); // هنا أضفت dashboard
+    this.router.navigate(['/doctor/dashboard']); 
   } else {
     this.router.navigate(['/patient/dashboard']);
   }
