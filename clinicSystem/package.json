@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:frontend": "ng serve",
+    "start:frontend": "ng serve --open",
     "start:backend": "json-server --watch backend/db.json --port 3000",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "build": "ng build",

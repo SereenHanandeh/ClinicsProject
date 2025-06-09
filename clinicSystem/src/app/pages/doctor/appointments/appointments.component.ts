@@ -40,7 +40,7 @@ export class AppointmentsComponent implements OnInit {
   loadAppointments(): void {
   this.appointmentService.getDoctorAppointments().subscribe({
     next: (appointments) => {
-      console.log('Loaded appointments:', appointments);
+      // console.log('Loaded appointments:', appointments);
       this.appointments = appointments;
     },
     error: (err) => {

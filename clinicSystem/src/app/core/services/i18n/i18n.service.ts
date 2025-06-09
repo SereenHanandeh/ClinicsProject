@@ -18,9 +18,15 @@ export class I18nService {
 
     try {
       const translationsFile = `assets/i18n/${lang}.json`;
+
+      // console.log(`Loading translations from: ${translationsFile}`);
+
+
       this.translations = await firstValueFrom(
         this.httpClient.get<Record<string, any>>(translationsFile)
       );
+
+      // console.log('Loaded translations:', this.translations);
 
       this.currentLanguage = lang;
       localStorage.setItem('language', lang);
