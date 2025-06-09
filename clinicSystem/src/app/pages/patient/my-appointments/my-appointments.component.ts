@@ -5,11 +5,12 @@ import { AuthService } from '../../../core/services/Auth/auth.service';
 import { forkJoin } from 'rxjs';
 import { Doctor } from '../../../core/models/doctor.model';
 import { Clinic } from '../../../core/models/clinic.model';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-my-appointments',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './my-appointments.component.html',
   styleUrls: ['./my-appointments.component.scss'],
 })

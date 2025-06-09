@@ -1,5 +1,5 @@
+<h1 class="section-title">{{ 'MY_APPOINTMENTS.TITLE' | translate }}</h1>
 
-  <h1 class="section-title">My Appointments</h1>
 <div class="appointments-container">
   <ul
     *ngIf="appointments.length > 0; else noAppointments"
@@ -18,17 +18,10 @@
         📅 {{ appointment.date | date : "fullDate" }}<br />
         🕒 {{ appointment.date | date : "shortTime" }}
       </div>
-
-      <!-- زر إلغاء الموعد (اختياري) -->
-      <!--
-      <button (click)="cancelAppointment(appointment.id)" class="cancel-btn">
-        Cancel
-      </button>
-      -->
     </li>
   </ul>
 
   <ng-template #noAppointments>
-    <p class="no-appointments-msg">You have no appointments.</p>
+    <p class="no-appointments-msg">{{ 'MY_APPOINTMENTS.NO_APPOINTMENTS_MSG' | translate }}</p>
   </ng-template>
 </div>
