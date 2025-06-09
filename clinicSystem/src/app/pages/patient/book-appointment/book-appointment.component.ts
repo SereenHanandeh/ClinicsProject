@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Appointment } from '../../../core/models/appointment.model';
 import { HttpClient } from '@angular/common/http';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-book-appointment',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './book-appointment.component.html',
   styleUrls: ['./book-appointment.component.scss']
 })

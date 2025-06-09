@@ -1,9 +1,9 @@
 <div class="profile-container" *ngIf="doctor">
-  <h2>Edit Doctor Profile</h2>
+  <h2>{{ 'DOCTOR_PROFILE.TITLE' | translate }}</h2>
 
   <form (ngSubmit)="onSubmit()" #doctorForm="ngForm" class="profile-form">
     <div class="form-group">
-      <label for="name">Full Name:</label>
+      <label for="name">{{ 'DOCTOR_PROFILE.FULL_NAME' | translate }}:</label>
       <input
         type="text"
         id="name"
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-      <label for="email">Email:</label>
+      <label for="email">{{ 'DOCTOR_PROFILE.EMAIL' | translate }}:</label>
       <input
         type="email"
         id="email"
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group">
-      <label for="phone">Phone Number:</label>
+      <label for="phone">{{ 'DOCTOR_PROFILE.PHONE_NUMBER' | translate }}:</label>
       <input
         type="tel"
         id="phone"
@@ -35,11 +35,11 @@
         pattern="^07[7-9][0-9]{7}$"
         required
       />
-      <small>Example: 0771234567</small>
+      <small>{{ 'DOCTOR_PROFILE.PHONE_EXAMPLE' | translate }}</small>
     </div>
 
     <div class="form-group">
-      <label for="image">Image URL:</label>
+      <label for="image">{{ 'DOCTOR_PROFILE.IMAGE_URL' | translate }}:</label>
       <input
         type="url"
         id="image"
@@ -48,13 +48,16 @@
         required
       />
       <div *ngIf="doctor.image" class="image-preview">
-        <img [src]="doctor.image" alt="Doctor Image" />
+        <img [src]="doctor.image" [alt]="'DOCTOR_PROFILE.IMAGE_PREVIEW_ALT' | translate" />
       </div>
     </div>
 
-    <button type="submit" [disabled]="doctorForm.invalid">Save Changes</button>
+    <button type="submit" [disabled]="doctorForm.invalid">
+      {{ 'DOCTOR_PROFILE.SAVE_CHANGES' | translate }}
+    </button>
   </form>
 </div>
 
-<div *ngIf="!doctor" class="loading">Loading doctor data...</div>
-<!--h-->
+<div *ngIf="!doctor" class="loading">
+  {{ 'DOCTOR_PROFILE.LOADING' | translate }}
+</div>

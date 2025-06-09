@@ -6,175 +6,107 @@
   <div class="vertical-divider"></div>
 
   <div class="login-form-section">
-    <h2>Register</h2>
+    <h2>{{ 'REGISTER.TITLE' | translate }}</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label>Name</label>
+        <label>{{ 'REGISTER.NAME' | translate }}</label>
         <input type="text" formControlName="name" />
-        <div
-          *ngIf="
-            registerForm.controls['name'].touched &&
-            registerForm.controls['name'].invalid
-          "
-          class="error"
-        >
-          <small *ngIf="registerForm.controls['name'].errors?.['required']"
-            >Name is required.</small
-          >
-          <small *ngIf="registerForm.controls['name'].errors?.['minlength']"
-            >Minimum 3 characters.</small
-          >
+        <div *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid" class="error">
+          <small *ngIf="registerForm.controls['name'].errors?.['required']">
+            {{ 'REGISTER.ERRORS.NAME_REQUIRED' | translate }}
+          </small>
+          <small *ngIf="registerForm.controls['name'].errors?.['minlength']">
+            {{ 'REGISTER.ERRORS.NAME_MINLENGTH' | translate }}
+          </small>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Email</label>
+        <label>{{ 'REGISTER.EMAIL' | translate }}</label>
         <input type="email" formControlName="email" />
-        <div
-          *ngIf="
-            registerForm.controls['email'].touched &&
-            registerForm.controls['email'].invalid
-          "
-          class="error"
-        >
-          <small *ngIf="registerForm.controls['email'].errors?.['required']"
-            >Email is required.</small
-          >
-          <small *ngIf="registerForm.controls['email'].errors?.['email']"
-            >Invalid email format.</small
-          >
+        <div *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid" class="error">
+          <small *ngIf="registerForm.controls['email'].errors?.['required']">
+            {{ 'REGISTER.ERRORS.EMAIL_REQUIRED' | translate }}
+          </small>
+          <small *ngIf="registerForm.controls['email'].errors?.['email']">
+            {{ 'REGISTER.ERRORS.EMAIL_INVALID' | translate }}
+          </small>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Phone</label>
-        <input
-          type="text"
-          formControlName="phone"
-          (input)="onPhoneInput($event)"
-        />
-        <div
-          *ngIf="
-            registerForm.controls['phone'].touched &&
-            registerForm.controls['phone'].invalid
-          "
-          class="error"
-        >
-          <small *ngIf="registerForm.controls['phone'].errors?.['required']"
-            >Phone is required.</small
-          >
-          <small *ngIf="registerForm.controls['phone'].errors?.['pattern']"
-            >Must be 10 digits (e.g. 079 123 4567).</small
-          >
+        <label>{{ 'REGISTER.PHONE' | translate }}</label>
+        <input type="text" formControlName="phone" (input)="onPhoneInput($event)" />
+        <div *ngIf="registerForm.controls['phone'].touched && registerForm.controls['phone'].invalid" class="error">
+          <small *ngIf="registerForm.controls['phone'].errors?.['required']">
+            {{ 'REGISTER.ERRORS.PHONE_REQUIRED' | translate }}
+          </small>
+          <small *ngIf="registerForm.controls['phone'].errors?.['pattern']">
+            {{ 'REGISTER.ERRORS.PHONE_PATTERN' | translate }}
+          </small>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group half-width">
-          <label>Gender</label>
+          <label>{{ 'REGISTER.GENDER' | translate }}</label>
           <select formControlName="gender">
-            <option value="">Select gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="">{{ 'REGISTER.GENDER_PLACEHOLDER' | translate }}</option>
+            <option value="male">{{ 'REGISTER.GENDER_MALE' | translate }}</option>
+            <option value="female">{{ 'REGISTER.GENDER_FEMALE' | translate }}</option>
           </select>
         </div>
 
         <div class="form-group half-width">
-          <label>Date of Birth</label>
+          <label>{{ 'REGISTER.DATE_OF_BIRTH' | translate }}</label>
           <input type="date" formControlName="dateOfBirth" />
-          <div
-            *ngIf="
-              registerForm.controls['dateOfBirth'].touched &&
-              registerForm.controls['dateOfBirth'].invalid
-            "
-            class="error"
-          >
-            <small
-              *ngIf="registerForm.controls['dateOfBirth'].errors?.['required']"
-              >Date of Birth is required.</small
-            >
+          <div *ngIf="registerForm.controls['dateOfBirth'].touched && registerForm.controls['dateOfBirth'].invalid" class="error">
+            <small *ngIf="registerForm.controls['dateOfBirth'].errors?.['required']">
+              {{ 'REGISTER.ERRORS.DATE_OF_BIRTH_REQUIRED' | translate }}
+            </small>
           </div>
         </div>
       </div>
 
       <div class="form-group password-group">
-        <label>Password</label>
+        <label>{{ 'REGISTER.PASSWORD' | translate }}</label>
         <div class="password-wrapper">
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            formControlName="password"
-          />
-          <button
-            type="button"
-            class="toggle-password-btn"
-            (click)="toggleShowPassword()"
-            aria-label="Toggle password visibility"
-          >
-            <i
-              class="eye-icon"
-              [ngClass]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
-              aria-hidden="true"
-            ></i>
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+          <button type="button" class="toggle-password-btn" (click)="toggleShowPassword()" aria-label="Toggle password visibility">
+            <i class="eye-icon" [ngClass]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
           </button>
         </div>
-        <div
-          *ngIf="
-            registerForm.controls['password'].touched &&
-            registerForm.controls['password'].invalid
-          "
-          class="error"
-        >
-          <small *ngIf="registerForm.controls['password'].errors?.['required']"
-            >Password is required.</small
-          >
+        <div *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid" class="error">
+          <small *ngIf="registerForm.controls['password'].errors?.['required']">
+            {{ 'REGISTER.ERRORS.PASSWORD_REQUIRED' | translate }}
+          </small>
           <div *ngIf="password?.errors?.['pattern']">
-            Password must be at least 8 characters long and include uppercase,
-            lowercase, number, and special character.
+            {{ 'REGISTER.ERRORS.PASSWORD_PATTERN' | translate }}
           </div>
         </div>
       </div>
 
       <div class="form-group password-group">
-        <label>Confirm Password</label>
+        <label>{{ 'REGISTER.CONFIRM_PASSWORD' | translate }}</label>
         <div class="password-wrapper">
-          <input
-            [type]="showConfirmPassword ? 'text' : 'password'"
-            formControlName="confirmPassword"
-          />
-          <button
-            type="button"
-            class="toggle-password-btn"
-            (click)="toggleShowConfirmPassword()"
-            aria-label="Toggle confirm password visibility"
-          >
-            <i
-              class="eye-icon"
-              [ngClass]="showConfirmPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
-              aria-hidden="true"
-            ></i>
+          <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" />
+          <button type="button" class="toggle-password-btn" (click)="toggleShowConfirmPassword()" aria-label="Toggle confirm password visibility">
+            <i class="eye-icon" [ngClass]="showConfirmPassword ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
           </button>
         </div>
-        <div
-          *ngIf="
-      registerForm.controls['confirmPassword'].touched &&
-      registerForm.errors?.['mismatch']
-    "
-          class="error"
-        >
-          <small>Passwords do not match.</small>
+        <div *ngIf="registerForm.controls['confirmPassword'].touched && registerForm.errors?.['mismatch']" class="error">
+          <small>{{ 'REGISTER.ERRORS.PASSWORD_MISMATCH' | translate }}</small>
         </div>
       </div>
 
-      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <button type="submit" [disabled]="registerForm.invalid">{{ 'REGISTER.BUTTON' | translate }}</button>
       <div class="have-account">
-        Already have an account?
-        <a routerLink="/login">Login</a>
+        {{ 'REGISTER.ALREADY_HAVE_ACCOUNT' | translate }}
+        <a routerLink="/login">{{ 'REGISTER.LOGIN' | translate }}</a>
       </div>
 
       <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-      <div class="success-message" *ngIf="successMessage">
-        {{ successMessage }}
-      </div>
+      <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
     </form>
   </div>
 </div>

@@ -1,11 +1,9 @@
-
-    <!-- Entire card is clickable --><div class="card card-link" (click)="goToUserPage()" style="cursor: pointer;">
-  <h1>Welcome to our platform!</h1>
+<div class="card card-link" (click)="goToUserPage()" style="cursor: pointer">
+  <h1>{{ 'WELCOME_PAGE.welcomeMessage' | translate }}</h1>
   <p class="lead">
-    Your registration was successful.<br />
-    <small>NABDA</small>
+    {{ 'WELCOME_PAGE.registrationSuccess' | translate }}<br />
+    <small>{{ 'WELCOME_PAGE.platformName' | translate }}</small>
   </p>
 </div>
 
-
-    <script src="assets/js/welcom.js"></script>
+<script src="assets/js/welcom.js"></script>

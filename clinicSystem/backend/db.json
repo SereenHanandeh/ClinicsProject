@@ -195,9 +195,7 @@
       "userType": "patient"
     }
   ],
-  "patients": [
-    {
-      "id": "bc46",
+
   "patients": [
     {
       "id": "f543",
@@ -205,10 +203,7 @@
       "email": "sereen@gmail.com",
       "gender": "female",
       "dateOfBirth": "2025-06-18",
-      "password": "",
-      "userType": "patient"
-      "dateOfBirth": "1997-10-10",
-      "password": "",
+      "password": "U2VyZWVuQDEyMw==",
       "userType": "patient",
       "phone": "053 945 7475"
     }

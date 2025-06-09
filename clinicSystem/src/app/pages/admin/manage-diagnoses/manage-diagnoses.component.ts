@@ -4,11 +4,12 @@ import { DiagnosisService } from '../../../core/services/diagnosis/diagnosis.ser
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-manage-diagnoses',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
   templateUrl: './manage-diagnoses.component.html',
   styleUrls: ['./manage-diagnoses.component.scss']
 })

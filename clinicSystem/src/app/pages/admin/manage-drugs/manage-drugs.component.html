@@ -1,4 +1,4 @@
-<h1>Drug Management</h1>
+<h1>{{ 'MANAGE_DRUGS.TITLE' | translate }}</h1>
 
 <form [formGroup]="drugForm"
       (ngSubmit)="onSubmit()"
@@ -11,20 +11,20 @@
          (ngModelChange)="filterDrugs()"
          name="search"
          class="form-control"
-         placeholder="  search drug name"
+         [placeholder]="'MANAGE_DRUGS.SEARCH_PLACEHOLDER' | translate"
          style="max-width: 300px;" />
 
-  <!-- حقل اسم الدواء (Reactive Forms) -->
+  <!-- حقل اسم الدواء -->
   <input type="text"
          formControlName="name"
          class="form-control"
-         placeholder="  insert drug name"
+         [placeholder]="'MANAGE_DRUGS.INSERT_PLACEHOLDER' | translate"
          style="max-width: 300px;" />
 
   <button type="submit"
-          class="btn btn-sm btn-primary px-3 py-1 "
+          class="btn btn-sm btn-primary px-3 py-1"
           [disabled]="drugForm.invalid || loading">
-    {{ isEditing ? 'edit' : 'add' }}
+    {{ isEditing ? ('MANAGE_DRUGS.BUTTONS.EDIT' | translate) : ('MANAGE_DRUGS.BUTTONS.ADD' | translate) }}
   </button>
 
   <!-- زر الإلغاء في حال التعديل -->
@@ -32,12 +32,11 @@
           type="button"
           class="btn btn-sm btn-secondary px-3 py-1"
           (click)="cancelEdit()">
- cancel
+    {{ 'MANAGE_DRUGS.BUTTONS.CANCEL' | translate }}
   </button>
 </form>
 
-
-<p *ngIf="errorMessage" class="text-danger text-center">{{ errorMessage }}</p>
+<p *ngIf="errorMessage" class="text-danger text-center">{{ 'MANAGE_DRUGS.ERROR_MESSAGE' | translate }}: {{ errorMessage }}</p>
 
 <div class="container p-4 rounded bg-white">
   <!-- قائمة الأدوية -->
@@ -57,28 +56,37 @@
       <div class="btn-group btn-group-sm">
         <button *ngIf="editDrugId !== drug.id"
                 class="btn btn-outline-success"
-                (click)="editDrug(drug)">edit</button>
+                (click)="editDrug(drug)">
+          {{ 'MANAGE_DRUGS.BUTTONS.EDIT' | translate }}
+        </button>
 
         <button *ngIf="editDrugId === drug.id"
                 class="btn btn-outline-success"
-                (click)="onSubmit()">save</button>
+                (click)="onSubmit()">
+          {{ 'MANAGE_DRUGS.BUTTONS.SAVE' | translate }}
+        </button>
 
         <button *ngIf="editDrugId === drug.id"
                 class="btn btn-outline-secondary"
-                (click)="cancelEdit()">cancel</button>
+                (click)="cancelEdit()">
+          {{ 'MANAGE_DRUGS.BUTTONS.CANCEL' | translate }}
+        </button>
 
         <button class="btn btn-outline-danger"
-                (click)="deleteDrug(drug.id)">delete</button>
+                (click)="deleteDrug(drug.id)">
+          {{ 'MANAGE_DRUGS.BUTTONS.DELETE' | translate }}
+        </button>
       </div>
     </li>
   </ul>
-
 
   <!-- 📄 التصفح -->
   <nav *ngIf="totalPages > 1" class="mt-4">
     <ul class="pagination justify-content-center">
       <li class="page-item" [class.disabled]="currentPage === 1">
-        <button class="page-link" (click)="changePage(currentPage - 1)">previous</button>
+        <button class="page-link" (click)="changePage(currentPage - 1)">
+          {{ 'MANAGE_DRUGS.PAGINATION.PREVIOUS' | translate }}
+        </button>
       </li>
       <li class="page-item"
           *ngFor="let page of [].constructor(totalPages); let i = index"
@@ -86,7 +94,10 @@
         <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
       </li>
       <li class="page-item" [class.disabled]="currentPage === totalPages">
-        <button class="page-link" (click)="changePage(currentPage + 1)">next</button>
+        <button class="page-link" (click)="changePage(currentPage + 1)">
+          {{ 'MANAGE_DRUGS.PAGINATION.NEXT' | translate }}
+        </button>
       </li>
     </ul>
   </nav>
+</div>

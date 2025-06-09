@@ -22,7 +22,7 @@ import { EditDoctorComponent } from './pages/admin/edit-doctor/edit-doctor.compo
 import { WelcomComponent } from './welcom/welcom.component';
 import { roleGuard } from './core/guards/Auth/auth.guard';
 import { PatientDashboardComponent } from './pages/patient/patient-dashboard/patient-dashboard.component';
-import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -42,7 +42,7 @@ export const routes: Routes = [
     component: AdminLayoutComponent,
     canActivateChild: [roleGuard('admin')],
     children: [
-      { path: 'dashboard', component: AdminDashboardComponent  },
+      { path: 'home', component: AdminHomeComponent },
       { path: 'manageDoctor', component: ManageDoctorsComponent },
       { path: 'editDoctor/:id', component: EditDoctorComponent },
       { path: 'addDoctor', component: AddDoctorComponent },

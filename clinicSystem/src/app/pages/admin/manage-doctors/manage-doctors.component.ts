@@ -10,10 +10,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-manage-doctors',
-  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './manage-doctors.component.html',
   styleUrl: './manage-doctors.component.scss',
 })

@@ -8,7 +8,7 @@
     "DRUGS": "الأدوية",
     "LOGOUT": "تسجيل الخروج"
   },
-    "DOCTOR_PANEL": {
+  "DOCTOR_PANEL": {
     "TITLE": "لوحة الطبيب",
     "DASHBOARD": "لوحة التحكم",
     "APPOINTMENTS": "المواعيد",
@@ -16,7 +16,7 @@
     "LOGOUT": "تسجيل الخروج",
     "WELCOME": "مرحبًا بك، دكتور"
   },
-   "PATIENT_DASHBOARD": {
+  "PATIENT_DASHBOARD": {
     "TITLE": "لوحة المريض",
     "HOME": "الرئيسية",
     "APPOINTMENTS": "مواعيدي",
@@ -24,7 +24,7 @@
     "PROFILE": "الملف الشخصي",
     "LOGOUT": "تسجيل الخروج"
   },
-   "DOCTOR_FORM": {
+  "DOCTOR_FORM": {
     "NAME_LABEL": "الاسم:",
     "NAME_REQUIRED": "الاسم مطلوب.",
     "EMAIL_LABEL": "البريد الإلكتروني:",
@@ -40,5 +40,180 @@
     "CLINIC_SELECT": "اختر العيادة",
     "CLINIC_REQUIRED": "العيادة مطلوبة.",
     "SUBMIT": "إضافة"
+  },
+  "LOGIN_FORM": {
+    "login": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "emailRequired": "البريد الإلكتروني مطلوب.",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح.",
+    "password": "كلمة المرور",
+    "passwordRequired": "كلمة المرور مطلوبة.",
+    "passwordMinLength": "على الأقل 6 أحرف.",
+    "loginButton": "تسجيل الدخول",
+    "noAccount": "ليس لديك حساب؟",
+    "register": "سجل الآن",
+    "togglePasswordVisibility": "تبديل إظهار كلمة المرور"
+  },
+
+  "WELCOME_PAGE": {
+    "welcomeMessage": "مرحبًا بك في منصتنا!",
+    "registrationSuccess": "تم تسجيلك بنجاح.",
+    "platformName": "نبدأ"
+  },
+  "CHANGE_DOCTOR_FORM": {
+    "name": "الاسم",
+    "nameRequired": "الاسم مطلوب.",
+    "nameMinLength": "يجب أن يكون الاسم على الأقل 3 حروف.",
+    "email": "البريد الإلكتروني",
+    "emailRequired": "البريد الإلكتروني مطلوب.",
+    "emailInvalid": "صيغة البريد الإلكتروني غير صحيحة.",
+    "phone": "رقم الهاتف",
+    "phoneRequired": "رقم الهاتف مطلوب.",
+    "phonePattern": "يجب أن يحتوي رقم الهاتف على 10 إلى 15 رقماً فقط.",
+    "specialization": "التخصص",
+    "specializationRequired": "التخصص مطلوب.",
+    "specializationMinLength": "يجب أن يكون التخصص على الأقل 3 حروف.",
+    "clinic": "العيادة",
+    "clinicRequired": "العيادة مطلوبة.",
+    "selectClinic": "اختر العيادة",
+    "update": "تحديث"
+  },
+  "MANAGE_CLINICS": {
+    "title": "إدارة العيادات",
+    "clinicNamePlaceholder": "اسم العيادة",
+    "imageUrlPlaceholder": "رابط الصورة",
+    "addButton": "إضافة عيادة",
+    "deleteButton": "حذف"
+  },
+  "MANAGE_DIAGNOSES": {
+    "title": "إدارة التشخيصات",
+    "searchPlaceholder": "بحث عن تشخيص",
+    "newDiagnosisPlaceholder": "أدخل تشخيصًا جديدًا",
+    "addButton": "إضافة",
+    "editButton": "تعديل",
+    "saveButton": "حفظ",
+    "cancelButton": "إلغاء",
+    "deleteButton": "حذف",
+    "previousPage": "السابق",
+    "nextPage": "التالي",
+    "pageNavigationLabel": "مثال على التنقل بين الصفحات"
+  },
+  "DOCTORS_TABLE": {
+    "LOADING": " جارٍ التحميل...",
+    "ERROR_MESSAGE": "رسالة الخطأ",
+    "ADD_NEW_DOCTOR": " إضافة طبيب جديد",
+    "TABLE_HEADERS": {
+      "NAME": "الاسم",
+      "EMAIL": "البريد",
+      "PHONE": "الهاتف",
+      "SPECIALIZATION": "التخصص",
+      "ACTIONS": "الإجراءات"
+    },
+    "BUTTONS": {
+      "EDIT": "تعديل",
+      "DELETE": "حذف"
+    }
+  },
+  "MANAGE_DRUGS": {
+    "TITLE": "إدارة الأدوية",
+    "SEARCH_PLACEHOLDER": "ابحث عن اسم الدواء",
+    "INSERT_PLACEHOLDER": "أدخل اسم الدواء",
+    "BUTTONS": {
+      "ADD": "إضافة",
+      "EDIT": "تعديل",
+      "SAVE": "حفظ",
+      "CANCEL": "إلغاء",
+      "DELETE": "حذف"
+    },
+    "ERROR_MESSAGE": "رسالة الخطأ",
+    "PAGINATION": {
+      "PREVIOUS": "السابق",
+      "NEXT": "التالي"
+    }
+  },
+  "REGISTER": {
+    "TITLE": "تسجيل حساب جديد",
+    "NAME": "الاسم",
+    "EMAIL": "البريد الإلكتروني",
+    "PHONE": "رقم الهاتف",
+    "GENDER": "الجنس",
+    "GENDER_PLACEHOLDER": "اختر الجنس",
+    "GENDER_MALE": "ذكر",
+    "GENDER_FEMALE": "أنثى",
+    "DATE_OF_BIRTH": "تاريخ الميلاد",
+    "PASSWORD": "كلمة المرور",
+    "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+    "BUTTON": "تسجيل",
+    "ALREADY_HAVE_ACCOUNT": "هل لديك حساب بالفعل؟",
+    "LOGIN": "تسجيل الدخول",
+    "ERRORS": {
+      "NAME_REQUIRED": "الاسم مطلوب.",
+      "NAME_MINLENGTH": "الحد الأدنى 3 أحرف.",
+      "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب.",
+      "EMAIL_INVALID": "تنسيق البريد الإلكتروني غير صالح.",
+      "PHONE_REQUIRED": "رقم الهاتف مطلوب.",
+      "PHONE_PATTERN": "يجب أن يحتوي على 10 أرقام (مثال: 079 123 4567).",
+      "DATE_OF_BIRTH_REQUIRED": "تاريخ الميلاد مطلوب.",
+      "PASSWORD_REQUIRED": "كلمة المرور مطلوبة.",
+      "PASSWORD_PATTERN": "يجب أن تكون كلمة المرور 8 أحرف على الأقل، وتحتوي على حرف كبير، حرف صغير، رقم، وحرف خاص.",
+      "PASSWORD_MISMATCH": "كلمتا المرور غير متطابقتين."
+    }
+  },
+  "APPOINTMENTS": {
+    "SEARCH_PLACEHOLDER": "أدخل اسم المريض",
+    "PATIENT": "المريض",
+    "APPOINTMENT_DATE": "تاريخ الموعد",
+    "STATUS": "الحالة",
+    "STATUS_PENDING": "قيد الانتظار",
+    "STATUS_APPROVED": "موافق عليه",
+    "STATUS_REJECTED": "مرفوض",
+    "DETAILS_BUTTON": "التفاصيل",
+    "DETAILS_TITLE": "تفاصيل الموعد",
+    "DETAILS_DATE": "التاريخ",
+    "DETAILS_PATIENT": "المريض",
+    "DETAILS_DIAGNOSIS": "التشخيص",
+    "DETAILS_DRUGS": "الأدوية (مفصولة بفواصل)",
+    "DETAILS_PAYMENT": "الدفعة",
+    "DETAILS_UPDATE_BUTTON": "تحديث التفاصيل",
+    "APPROVE_BUTTON": "موافقة",
+    "REJECT_BUTTON": "رفض",
+    "CLOSE_BUTTON_ARIA": "إغلاق التفاصيل",
+    "MESSAGES": {
+      "ERROR": "حدث خطأ.",
+      "SUCCESS": "تم تحديث التفاصيل بنجاح."
+    }
+  },
+  "DOCTOR_PROFILE": {
+    "TITLE": "تعديل ملف الطبيب",
+    "FULL_NAME": "الاسم الكامل",
+    "EMAIL": "البريد الإلكتروني",
+    "PHONE_NUMBER": "رقم الهاتف",
+    "PHONE_EXAMPLE": "مثال: 0771234567",
+    "IMAGE_URL": "رابط الصورة",
+    "IMAGE_PREVIEW_ALT": "صورة الطبيب",
+    "SAVE_CHANGES": "حفظ التغييرات",
+    "LOADING": "جاري تحميل بيانات الطبيب..."
+  },
+  "PATIENT_HISTORY": {
+    "TITLE": "تاريخ المريض",
+    "DATE": "التاريخ",
+    "DIAGNOSIS": "التشخيص",
+    "DRUGS": "الأدوية",
+    "PAYMENT": "الدفع",
+    "STATUS": "الحالة",
+    "NO_HISTORY": "لا توجد مواعيد سابقة."
+  },
+  "NOTFOUND_PAGE": {
+    "TITLE": "الصفحة غير موجودة 404",
+    "HEADER": "404",
+    "MESSAGE": "يبدو أنك ضائع\nالصفحة التي تبحث عنها غير متوفرة!",
+    "GO_HOME": "العودة إلى الرئيسية",
+    "IMAGE_ALT": "404"
+  },
+  "APPOINTMENT_FORM": {
+    "TITLE": "حجز موعد",
+    "DATE_LABEL": "التاريخ:",
+    "AVAILABLE_TIMES_LABEL": "الأوقات المتاحة:",
+    "BOOK_NOW_BUTTON": "احجز الآن"
   }
 }

@@ -1,13 +1,11 @@
-
 <div class="layout">
-
   <aside class="sidebar">
     <h2>{{ "ADMIN_DASHBOARD.TITLE" | translate }}</h2>
-  <hr>
+    <hr />
     <nav>
-        <ul>
+      <ul>
         <li>
-          <a routerLink="/admin/dashboard" routerLinkActive="active">
+          <a routerLink="/admin/home" routerLinkActive="active">
             {{ "ADMIN_DASHBOARD.HOME" | translate }}
           </a>
         </li>
@@ -39,9 +37,8 @@
       </ul>
     </nav>
   </aside>
-
+<app-footer></app-footer>
   <main class="content">
     <router-outlet></router-outlet>
   </main>
-
-
+</div>

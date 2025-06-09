@@ -11,6 +11,8 @@ import {
 } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import { provideTranslateService } from '@ngx-translate/core';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +21,8 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
     provideHttpClient(withInterceptorsFromDi()),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideTranslateService(),
+
   ],
 };
