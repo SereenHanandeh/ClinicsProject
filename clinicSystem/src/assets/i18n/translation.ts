@@ -220,7 +220,45 @@ export const translation = {
       AVAILABLE_TIMES_LABEL: 'Available Time Slots:',
       BOOK_NOW_BUTTON: 'Book Now',
     },
+    CLINIC: {
+      DEPARTMENTS_TITLE: ' 🏥 Clinic Departments',
+      SPECIALTY_LABEL: 'Specialty',
+      CLINIC_ID_LABEL: ' Clinic ID',
+      BOOK_APPOINTMENT_BUTTON: 'Book Appointment',
+    },
+    MY_APPOINTMENTS: {
+      TITLE: 'My Appointments',
+      NO_APPOINTMENTS_MSG: 'You have no appointments.',
+    },
+    PATIENT_DASHBOARD_CUSTOM: {
+      LOADING: 'Loading...',
+      ERROR: 'An error occurred',
+      WELCOME: 'Welcome,',
+      MY_APPOINTMENTS: 'My Appointments',
+      NO_APPOINTMENTS: 'No appointments found.',
+      DOCTOR_LABEL: 'Doctor:',
+      DATE_LABEL: 'Date:',
+      CANCEL_BUTTON: 'Cancel Appointment',
+    },
+    PROFILE_FORM: {
+      TITLE: 'Profile',
+      NAME_LABEL: 'Name:',
+      NAME_ERROR: 'Please enter your name',
+      EMAIL_LABEL: 'Email:',
+      EMAIL_ERROR: 'Please enter a valid email address',
+      PHONE_LABEL: 'Phone Number:',
+      PHONE_ERROR: 'Please enter your phone number',
+      GENDER_LABEL: 'Gender:',
+      GENDER_SELECT: 'Select gender',
+      GENDER_MALE: 'Male',
+      GENDER_FEMALE: 'Female',
+      GENDER_ERROR: 'Please select your gender',
+      DOB_LABEL: 'Date of Birth:',
+      DOB_ERROR: 'Please enter your date of birth',
+      UPDATE_BUTTON: 'Update',
+    },
   },
+
   ar: {
     ADMIN_DASHBOARD: {
       TITLE: 'لوحة تحكم المشرف',
@@ -438,6 +476,43 @@ export const translation = {
       DATE_LABEL: 'التاريخ:',
       AVAILABLE_TIMES_LABEL: 'الأوقات المتاحة:',
       BOOK_NOW_BUTTON: 'احجز الآن',
+    },
+    CLINIC: {
+      DEPARTMENTS_TITLE: '🏥 أقسام العيادة',
+      SPECIALTY_LABEL: 'التخصص',
+      CLINIC_ID_LABEL: 'رقم العيادة',
+      BOOK_APPOINTMENT_BUTTON: 'احجز موعد',
+    },
+    MY_APPOINTMENTS: {
+      TITLE: 'مواعيدي',
+      NO_APPOINTMENTS_MSG: 'لا توجد لديك مواعيد.',
+    },
+    PATIENT_DASHBOARD_CUSTOM: {
+      LOADING: 'جاري التحميل...',
+      ERROR: 'حدث خطأ',
+      WELCOME: 'مرحباً،',
+      MY_APPOINTMENTS: 'مواعيدي',
+      NO_APPOINTMENTS: 'لا توجد مواعيد.',
+      DOCTOR_LABEL: 'الطبيب:',
+      DATE_LABEL: 'التاريخ:',
+      CANCEL_BUTTON: 'إلغاء الموعد',
+    },
+    PROFILE_FORM: {
+      TITLE: 'الملف الشخصي',
+      NAME_LABEL: 'الاسم:',
+      NAME_ERROR: 'يرجى إدخال الاسم',
+      EMAIL_LABEL: 'البريد الإلكتروني:',
+      EMAIL_ERROR: 'يرجى إدخال بريد إلكتروني صالح',
+      PHONE_LABEL: 'رقم الهاتف:',
+      PHONE_ERROR: 'يرجى إدخال رقم الهاتف',
+      GENDER_LABEL: 'الجنس:',
+      GENDER_SELECT: 'اختر الجنس',
+      GENDER_MALE: 'ذكر',
+      GENDER_FEMALE: 'أنثى',
+      GENDER_ERROR: 'يرجى اختيار الجنس',
+      DOB_LABEL: 'تاريخ الميلاد:',
+      DOB_ERROR: 'يرجى إدخال تاريخ الميلاد',
+      UPDATE_BUTTON: 'تحديث',
     },
   },
 };

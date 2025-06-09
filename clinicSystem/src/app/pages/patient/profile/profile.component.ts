@@ -9,10 +9,11 @@ import { PatientService } from '../../../core/services/Patient/patient.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/Auth/auth.service';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
