@@ -25,14 +25,14 @@ import { PatientDashboardComponent } from './pages/patient/patient-dashboard/pat
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-  { path: 'welcome', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-    { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: 'welcome-page',
-    loadComponent: () => import('./welcom/welcom.component').then(m => m.WelcomComponent)
+    loadComponent: () =>
+      import('./welcom/welcom.component').then((m) => m.WelcomComponent),
   },
   { path: 'home', component: HomeComponent },
 
@@ -52,7 +52,6 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
-
 
   // Doctor routes
   {

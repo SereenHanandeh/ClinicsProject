@@ -30,7 +30,7 @@ export class MyAppointmentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.authService.getCurrentUserId();
-    console.log('Current userId:', this.userId);
+    // console.log('Current userId:', this.userId);
 
     if (this.userId != null) {
       forkJoin({

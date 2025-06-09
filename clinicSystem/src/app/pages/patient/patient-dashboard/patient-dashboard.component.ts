@@ -69,7 +69,7 @@ export class PatientDashboardComponent {
     });
   }
   getDoctorName(doctorId: number): string {
-    console.log('Looking for doctorId:', doctorId);
+    // console.log('Looking for doctorId:', doctorId);
     const doctor = this.doctors.find((d) => d.id === doctorId);
     if (!doctor) {
       console.warn('Doctor not found for ID:', doctorId, this.doctors);
@@ -87,7 +87,7 @@ export class PatientDashboardComponent {
 
     this.patientService.deleteAppointment(Number(appointmentId)).subscribe({
       next: () => {
-        console.log('Appointment deleted successfully');
+        // console.log('Appointment deleted successfully');
         this.appointments = this.appointments.filter(
           (a) => a.id !== appointmentId
         );

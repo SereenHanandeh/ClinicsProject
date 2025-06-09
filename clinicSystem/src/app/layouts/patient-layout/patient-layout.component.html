@@ -20,7 +20,11 @@
           </a>
         </li>
         <li>
-          <a routerLink="/patient/profile" routerLinkActive="active" style="font-weight: 200; font-size: small;">
+          <a
+            routerLink="/patient/profile"
+            routerLinkActive="active"
+            style="font-weight: 200; font-size: small"
+          >
             {{ "PATIENT_DASHBOARD.PROFILE" | translate }}
           </a>
         </li>
@@ -32,7 +36,7 @@
       </ul>
     </nav>
   </aside>
-
+  <app-footer></app-footer>
   <main class="content">
     <router-outlet></router-outlet>
   </main>

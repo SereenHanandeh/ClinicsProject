@@ -41,19 +41,6 @@
     "CLINIC_REQUIRED": "العيادة مطلوبة.",
     "SUBMIT": "إضافة"
   },
-  "LOGIN_FORM": {
-    "login": "تسجيل الدخول",
-    "email": "البريد الإلكتروني",
-    "emailRequired": "البريد الإلكتروني مطلوب.",
-    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح.",
-    "password": "كلمة المرور",
-    "passwordRequired": "كلمة المرور مطلوبة.",
-    "passwordMinLength": "على الأقل 6 أحرف.",
-    "loginButton": "تسجيل الدخول",
-    "noAccount": "ليس لديك حساب؟",
-    "register": "سجل الآن",
-    "togglePasswordVisibility": "تبديل إظهار كلمة المرور"
-  },
 
   "WELCOME_PAGE": {
     "welcomeMessage": "مرحبًا بك في منصتنا!",
@@ -252,5 +239,21 @@
     "DOB_LABEL": "تاريخ الميلاد:",
     "DOB_ERROR": "يرجى إدخال تاريخ الميلاد",
     "UPDATE_BUTTON": "تحديث"
+
+  "Nav": {
+    "HOME": "الرئيسية",
+    "ABOUT": "من نحن",
+    "SERVICES": "الخدمات",
+    "DEPARTMENTS": "الأقسام",
+    "TEAM": "فريقنا",
+    "CONTACT": "تواصل معنا",
+    "LOGIN": "تسجيل الدخول"
+  },
+  "Footer": {
+    "COPYRIGHT": "جميع الحقوق محفوظة."
+  },
+  "Departments": {
+    "TITLE": "الأقسام",
+    "SUBTITLE": "استكشف تخصصاتنا الطبية"
   }
 }

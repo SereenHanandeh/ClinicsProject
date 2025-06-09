@@ -55,7 +55,7 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: (user) => {
-        console.log('Login successful:', user);
+        // console.log('Login successful:', user);
         const loginKey = `hasLoggedInBefore_${email}`;
         const isFirstLogin = !localStorage.getItem(loginKey);
 
@@ -64,7 +64,7 @@ export class LoginComponent {
         if (isFirstLogin) {
           localStorage.setItem(loginKey, 'true');
           this.router.navigate(['/welcome-page']).then(() => {
-            console.log('Navigated to welcome-page');
+            // console.log('Navigated to welcome-page');
           });
         } else {
           this.redirectUser(user.userType);
