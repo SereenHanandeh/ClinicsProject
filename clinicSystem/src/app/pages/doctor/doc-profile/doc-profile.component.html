@@ -1,60 +1,44 @@
-<div class="profile-container" *ngIf="doctor">
-  <h2>Edit Doctor Profile</h2>
-
-  <form (ngSubmit)="onSubmit()" #doctorForm="ngForm" class="profile-form">
-    <div class="form-group">
-      <label for="name">Full Name:</label>
+<div class="profile-container" *ngIf="doctor; else loading">
+  <h2>Doctor Profile</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
       <input
-        type="text"
         id="name"
-        name="name"
+        type="text"
         [(ngModel)]="doctor.name"
+        name="name"
         required
-        minlength="3"
       />
     </div>
 
-    <div class="form-group">
+    <div>
       <label for="email">Email:</label>
       <input
-        type="email"
         id="email"
-        name="email"
+        type="email"
         [(ngModel)]="doctor.email"
+        name="email"
         required
+        readonly
       />
     </div>
 
-    <div class="form-group">
-      <label for="phone">Phone Number:</label>
+    <div>
+      <label for="phone">Phone:</label>
       <input
-        type="tel"
         id="phone"
-        name="phone"
+        type="tel"
         [(ngModel)]="doctor.phone"
-        pattern="^07[7-9][0-9]{7}$"
+        name="phone"
         required
       />
-      <small>Example: 0771234567</small>
     </div>
 
-    <div class="form-group">
-      <label for="image">Image URL:</label>
-      <input
-        type="url"
-        id="image"
-        name="image"
-        [(ngModel)]="doctor.image"
-        required
-      />
-      <div *ngIf="doctor.image" class="image-preview">
-        <img [src]="doctor.image" alt="Doctor Image" />
-      </div>
-    </div>
-
-    <button type="submit" [disabled]="doctorForm.invalid">Save Changes</button>
+    <button type="submit">Update Profile</button>
   </form>
 </div>
 
-<div *ngIf="!doctor" class="loading">Loading doctor data...</div>
-<!--h-->
+<ng-template #loading>
+  <p>Loading doctor profile...</p>
+</ng-template>

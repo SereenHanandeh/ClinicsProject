@@ -10,7 +10,6 @@ import { AppointmentsComponent } from './pages/doctor/appointments/appointments.
 import { DoctorListComponent } from './pages/patient/doctor-list/doctor-list.component';
 import { BookAppointmentComponent } from './pages/patient/book-appointment/book-appointment.component';
 import { MyAppointmentsComponent } from './pages/patient/my-appointments/my-appointments.component';
-import { DoctorDashboardComponent } from './pages/doctor/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/patient/profile/profile.component';
 import { DocProfileComponent } from './pages/doctor/doc-profile/doc-profile.component';
 import { ManageDoctorsComponent } from './pages/admin/manage-doctors/manage-doctors.component';
@@ -60,7 +59,6 @@ export const routes: Routes = [
     component: DoctorLayoutComponent,
     canActivateChild: [roleGuard('doctor')],
     children: [
-      { path: 'dashboard', component: DoctorDashboardComponent },
       { path: 'appointments', component: AppointmentsComponent },
       { path: 'profile', component: DocProfileComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

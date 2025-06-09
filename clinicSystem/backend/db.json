@@ -337,97 +337,12 @@
       "id": "16",
       "name": "Dr. Samar",
       "email": "dr.samar@cms.com",
-      "phone": "0786666666",
+      "phone": "0786666665",
       "specification": "Dermatology",
       "clinicId": 4
     }
   ],
-  "appointments": [
-    {
-      "id": "1748297980328",
-      "doctorId": 9,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-05-31T12:00",
-      "status": "approved",
-      "details": {
-        "diagnosis": "dcegtrgre",
-        "drugs": [
-          "fergtr",
-          "fvtrhyu",
-          "gbhtyht"
-        ],
-        "payment": 20
-      }
-    },
-    {
-      "id": "1748369271603",
-      "doctorId": 5,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-06T09:00",
-      "status": "approved",
-      "details": {
-        "diagnosis": "",
-        "drugs": [
-          ""
-        ],
-        "payment": 0
-      }
-    },
-    {
-      "id": "1748522144106",
-      "doctorId": 5,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-01T09:30",
-      "status": "rejected",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
-      "id": "1748609619931",
-      "doctorId": 1,
-      "patientId": "3557",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-03T09:30",
-      "status": "pending",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
-      "id": 1748899150709,
-      "doctorId": 10,
-      "patientId": 0,
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-01T10:30",
-      "status": "pending",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
-      "id": 1749474042595,
-      "doctorId": 10,
-      "patientId": "f543",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-20T12:00",
-      "status": "pending",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    }
-  ],
+  "appointments": [],
   "clinics": [
     {
       "id": "1",
