@@ -11,11 +11,12 @@ import { AuthService } from '../../../core/services/Auth/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslatePipe],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslatePipe, FooterComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

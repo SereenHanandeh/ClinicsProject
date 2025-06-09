@@ -8,12 +8,16 @@ import { I18nService } from '../../core/services/i18n/i18n.service';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  currentLang: 'en' | 'ar' = 'en';
 
-  constructor(public i18nService: I18nService) {}
+  constructor(private i18n: I18nService) {
+    this.currentLang = this.i18n.getLanguage();
+  }
 
-  switchLanguage(lang: 'en' | 'ar') {
-    this.i18nService.setLanguage(lang);
-    this.i18nService.loadTranslations(lang);
-    localStorage.setItem('lang', lang);
+  switchLang(lang: 'en' | 'ar') {
+    console.log(lang);
+    this.i18n.loadTranslations(lang);
+    this.i18n.setLanguage(lang);
+    this.currentLang = lang;
   }
 }

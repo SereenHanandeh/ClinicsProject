@@ -34,7 +34,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./welcom/welcom.component').then((m) => m.WelcomComponent),
   },
-  { path: 'home', component: HomeComponent },
 
   // Admin routes
   {
