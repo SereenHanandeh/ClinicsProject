@@ -211,36 +211,12 @@
   ],
   "patients": [
     {
-      "name": "sereen hanandeh",
-      "email": "s@g.com",
-      "phone": "0539457480",
-      "gender": "female",
-      "dateOfBirth": "1997-10-10",
-      "id": "3557"
-    },
-
-    }
-  ],
-  "patients": [
-    {
       "id": "bc46",
       "name": "sereen hanandeh",
       "email": "sereen@gmail.com",
       "gender": "female",
       "dateOfBirth": "2025-06-18",
       "password": "",
-      "userType": "patient"
-    },
-    {
-      "id": "f7af",
-      "name": "Albader",
-      "email": "osama@g.com",
-      "gender": "male",
-      "dateOfBirth": "2025-07-02",
-      "password": "",
-      "dateOfBirth": "1997-10-10",
-      "phone": "0539457475",
-      "password": "U2VyZWVuQDEyMw==",
       "userType": "patient"
     }
   ],
