@@ -195,14 +195,15 @@
       "userType": "patient"
     }
   ],
+
   "patients": [
     {
       "id": "f543",
       "name": "sereen hanandeh",
       "email": "sereen@gmail.com",
       "gender": "female",
-      "dateOfBirth": "1997-10-10",
-      "password": "",
+      "dateOfBirth": "2025-06-18",
+      "password": "U2VyZWVuQDEyMw==",
       "userType": "patient",
       "phone": "053 945 7475"
     }

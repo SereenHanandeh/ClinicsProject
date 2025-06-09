@@ -3,10 +3,11 @@ import { Doctor } from '../../../core/models/doctor.model';
 import { DoctorService } from '../../../core/services/Doctor/doctor.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-doc-profile',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule, TranslatePipe],
   templateUrl: './doc-profile.component.html',
   styleUrl: './doc-profile.component.scss'
 })

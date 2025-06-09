@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { TranslatePipe } from "../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-welcom',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule, TranslatePipe],
   templateUrl: './welcom.component.html',
   styleUrls: ['./welcom.component.scss']
 })
