@@ -1,4 +1,6 @@
 🏥 Clinic Management System (CMS)
+
+
 A modern Clinic Management System built with Angular 19 and ng-bootstrap.
 Supports role-based access for Admin, Doctor, and Patient with a fully responsive and multilingual UI (English & Arabic).
 
