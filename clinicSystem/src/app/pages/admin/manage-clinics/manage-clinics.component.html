@@ -1,29 +1,27 @@
-<div class="container">
-  <h1>Manage Clinics</h1>
+<h1>{{ 'MANAGE_CLINICS.title' | translate }}</h1>
 
-  <form (ngSubmit)="addClinic()" class="form">
-    <input
-      type="text"
-      [(ngModel)]="newClinic.name"
-      name="name"
-      placeholder="Clinic Name"
-      required
-    />
-    <input
-      type="text"
-      [(ngModel)]="newClinic.image"
-      name="image"
-      placeholder="Image URL"
-      required
-    />
-    <button type="submit">Add Clinic</button>
-  </form>
-<!----->
-  <div class="clinic-grid">
-    <div class="clinic-card" *ngFor="let clinic of clinics">
-      <img [src]="clinic.image" alt="Clinic Image" />
-      <h3>{{ clinic.name }}</h3>
-      <button (click)="deleteClinic(clinic.id)">Delete</button>
-    </div>
+<form (ngSubmit)="addClinic()" class="form">
+  <input
+    type="text"
+    [(ngModel)]="newClinic.name"
+    name="name"
+    [placeholder]="'MANAGE_CLINICS.clinicNamePlaceholder' | translate"
+    required
+  />
+  <input
+    type="text"
+    [(ngModel)]="newClinic.image"
+    name="image"
+    [placeholder]="'MANAGE_CLINICS.imageUrlPlaceholder' | translate"
+    required
+  />
+  <button type="submit">{{ 'MANAGE_CLINICS.addButton' | translate }}</button>
+</form>
+
+<div class="clinic-grid">
+  <div class="clinic-card" *ngFor="let clinic of clinics">
+    <img [src]="clinic.image" alt="Clinic Image" />
+    <h3>{{ clinic.name }}</h3>
+    <button (click)="deleteClinic(clinic.id)">{{ 'MANAGE_CLINICS.deleteButton' | translate }}</button>
   </div>
 </div>

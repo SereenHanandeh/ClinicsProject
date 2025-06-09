@@ -3,46 +3,48 @@
     <img [src]="logoPath" alt="Logo" />
   </div>
 
-  <!-- فاصل عمودي -->
   <div class="vertical-divider"></div>
 
-  <!-- النموذج على اليمين -->
   <div class="login-form-section">
-    <h2>Login</h2>
+    <h2>{{ "LOGIN_FORM.login" | translate }}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label>Email</label>
+        <label>{{ "LOGIN_FORM.email" | translate }}</label>
         <input type="email" formControlName="email" />
         <div
           *ngIf="email?.invalid && (email?.dirty || email?.touched)"
           class="error"
         >
-          <div *ngIf="email?.errors?.['required']">Email is required.</div>
+          <div *ngIf="email?.errors?.['required']">
+            {{ "LOGIN_FORM.emailRequired" | translate }}
+          </div>
           <div *ngIf="email?.errors?.['email']">
-            Please enter a valid email.
+            {{ "LOGIN_FORM.emailInvalid" | translate }}
           </div>
         </div>
       </div>
 
       <div class="form-group password-group">
-        <label>Password</label>
+        <label>{{ "LOGIN_FORM.password" | translate }}</label>
         <div class="password-input-wrapper">
           <input
             [type]="hidePassword ? 'password' : 'text'"
             formControlName="password"
+            [attr.aria-label]="'LOGIN_FORM.password'"
           />
           <button
-  type="button"
-  class="toggle-password-btn"
-  (click)="togglePasswordVisibility()"
-  aria-label="Toggle password visibility"
->
-  <i
-    class="fa-solid"
-    [ngClass]="hidePassword ? 'fa-eye-slash' : 'fa-eye'"
-  ></i>
-</button>
-
+            type="button"
+            class="toggle-password-btn"
+            (click)="togglePasswordVisibility()"
+            [attr.aria-label]="
+              'LOGIN_FORM.togglePasswordVisibility' | translate
+            "
+          >
+            <i
+              class="fa-solid"
+              [ngClass]="hidePassword ? 'fa-eye-slash' : 'fa-eye'"
+            ></i>
+          </button>
         </div>
 
         <div
@@ -50,19 +52,21 @@
           class="error"
         >
           <div *ngIf="password?.errors?.['required']">
-            Password is required.
+            {{ "LOGIN_FORM.passwordRequired" | translate }}
           </div>
           <div *ngIf="password?.errors?.['minlength']">
-            At least 6 characters.
+            {{ "LOGIN_FORM.passwordMinLength" | translate }}
           </div>
         </div>
       </div>
 
-      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <button type="submit" [disabled]="loginForm.invalid">
+        {{ "LOGIN_FORM.loginButton" | translate }}
+      </button>
 
       <div class="have-account">
-        You don't have an account?
-        <a routerLink="/register">Register</a>
+        {{ "LOGIN_FORM.noAccount" | translate }}
+        <a routerLink="/register">{{ "LOGIN_FORM.register" | translate }}</a>
       </div>
 
       <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>

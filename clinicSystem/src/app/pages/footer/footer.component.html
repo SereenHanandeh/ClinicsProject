@@ -1,0 +1,14 @@
+<footer>
+  <!-- أزرار التبديل -->
+  <button 
+    [disabled]="i18nService.getLanguage() === 'en'" 
+    (click)="switchLanguage('en')">
+    English
+  </button>
+
+  <button 
+    [disabled]="i18nService.getLanguage() === 'ar'" 
+    (click)="switchLanguage('ar')">
+    العربية
+  </button>
+</footer>

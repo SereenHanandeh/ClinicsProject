@@ -4,10 +4,11 @@ import { Clinic } from '../../../core/models/clinic.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-manage-clinics',
-  imports: [CommonModule,FormsModule,RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
   templateUrl: './manage-clinics.component.html',
   styleUrl: './manage-clinics.component.scss'
 })

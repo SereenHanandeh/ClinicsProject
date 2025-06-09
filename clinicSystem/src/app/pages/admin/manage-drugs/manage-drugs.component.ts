@@ -4,11 +4,12 @@ import { Drug } from '../../../core/models/durg.model';
 import { DrugService } from '../../../core/services/Drug/drug.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-manage-drugs',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './manage-drugs.component.html',
   styleUrl: './manage-drugs.component.scss'
 })
