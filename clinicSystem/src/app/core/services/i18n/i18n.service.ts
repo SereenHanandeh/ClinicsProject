@@ -21,13 +21,13 @@ export class I18nService {
 
     try {
       const translationsFile = `assets/i18n/${lang}.json`;
-      console.log(`Loading translations from: ${translationsFile}`);
+      // console.log(`Loading translations from: ${translationsFile}`);
 
       this.translations = await firstValueFrom(
         this.httpClient.get<Record<string, any>>(translationsFile)
       );
 
-      console.log('Loaded translations:', this.translations);
+      // console.log('Loaded translations:', this.translations);
 
       this.currentLanguage = lang;
       document.documentElement.lang = lang;
