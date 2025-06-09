@@ -1,83 +1,73 @@
-# 🏥 Clinic Management System (CMS)
-
-A full-featured **Clinic Management System** built with **Angular 19** and **ng-bootstrap**.  
-Supports **Admin**, **Doctor**, and **Patient** roles, with role-based routing, multi-language UI (EN/AR), and responsive design.
+🏥 Clinic Management System (CMS)
+A modern Clinic Management System built with Angular 19 and ng-bootstrap.
+Supports role-based access for Admin, Doctor, and Patient with a fully responsive and multilingual UI (English & Arabic).
 
 🖥️ Tech Stack
-Frontend: Angular 19 (with Standalone Components)
+Layer	Technology
+Frontend	Angular 19
+UI Components	ng-bootstrap + Bootstrap 5
+Styles	SCSS
+Internationalization	i18n (EN / AR)
+API	json-server (mock REST API)
+Responsive	Desktop, Tablet, Mobile
 
-UI Library: ng-bootstrap
-
-Styles: SCSS / Bootstrap 5
-
-Internationalization: i18n (English & Arabic)
-
-API: Local mock API using json-server
-
-Responsive: Desktop, Tablet, Mobile
-
-🎬 Features
+🎬 Core Features
 🔐 Authentication & Authorization
-Role-based login (Admin, Doctor, Patient)
+✅ Role-based login
+✅ Signup (Patient)
+✅ JWT token handling
+✅ Role-based routing & guards
 
-Signup for Patients
+👤 Patient Workflows
+✅ Sign up / Sign in
+✅ View & update profile
+✅ Browse & filter doctors
+✅ Book appointments
+✅ View appointments & details
 
-JWT Token Handling with HttpInterceptor
+🩺 Doctor Workflows
+✅ Sign in & update profile
+✅ View appointments
+✅ Accept / Reject appointments
+✅ Fill appointment details (Drugs, Diagnosis, Payment)
+✅ View patients & history
 
-Role-based guards and routing protection
-
-👤 Patient Features
-Sign up, sign in
-
-View & update profile
-
-Browse & filter doctors
-
-Book appointments
-
-View appointment list & details
-
-🩺 Doctor Features
-Sign in & update profile
-
-View appointments
-
-Accept / Reject appointments
-
-Fill appointment details (Drugs, Diagnosis, Payment)
-
-View patients with filters
-
-View patient appointment history
-
-🛡️ Admin Features
-Add / view clinics
-
-Add / view doctors
-
-View doctors per clinic
-
-Add / view drugs
-
-Add / view diagnoses
+🛡️ Admin Workflows
+✅ Add / view clinics
+✅ Add / view doctors
+✅ View doctors by clinic
+✅ Add / view drugs & diagnoses
 
 🧪 Testing & Validation
-Forms use Reactive Forms with validation feedback
+✅ Form validation (with feedback)
+✅ Role-based routing with guards
+✅ JWT token handling via HttpInterceptor
+✅ Responsive UI (desktop / tablet / mobile)
+✅ Language switcher (EN / AR)
 
-Role-based routing tested via Guards
 
-UI tested on Desktop, Tablet, and Mobile
+Evaluation Criteria Checklist:
 
-Arabic and English switch tested with i18n
-
-د=د
-ا
-✨ Evaluation Criteria Checklist
 ✅ Core Angular Concepts
-✅ Clean & Maintainable Code
-✅ Role-based Guards + Token Interceptor
-✅ i18n (English & Arabic)
-✅ Full Responsive Design
-✅ API Integration with json-server
-✅ GitHub Repo + Clear Commits + README
-✅ Presentation ready
+
+✅ Coding Proficiency & Clean Code
+
+✅ Token Interceptor & Role Guards
+
+✅ Full Responsive UI
+
+✅ i18n Support
+
+✅ Working GitHub Repo + README
+
+✅ Presentation Ready
+
+📌 Future Improvements
+Add email notifications
+
+Backend implementation with Node.js / Express
+
+Advanced calendar component
+
+Analytics charts for Admin
+
