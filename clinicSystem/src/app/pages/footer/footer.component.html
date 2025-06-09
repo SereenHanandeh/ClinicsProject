@@ -1,14 +1,9 @@
-<footer>
-  <!-- أزرار التبديل -->
-  <button 
-    [disabled]="i18nService.getLanguage() === 'en'" 
-    (click)="switchLanguage('en')">
-    English
-  </button>
-
-  <button 
-    [disabled]="i18nService.getLanguage() === 'ar'" 
-    (click)="switchLanguage('ar')">
-    العربية
-  </button>
+<footer class="footer">
+  <select
+    class="lang-select"
+    (change)="switchLang($any($event.target).value)"
+  >
+    <option value="en" [selected]="currentLang === 'en'">English</option>
+    <option value="ar" [selected]="currentLang === 'ar'">العربية</option>
+  </select>
 </footer>

@@ -85,6 +85,7 @@
     "DOB_LABEL": "Date of Birth:",
     "DOB_ERROR": "Please enter your date of birth",
     "UPDATE_BUTTON": "Update"
+  },
 
   "Departments": {
     "TITLE": "Departments",

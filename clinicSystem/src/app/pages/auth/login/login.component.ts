@@ -10,7 +10,8 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/Auth/auth.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
-import { FooterComponent } from "../../footer/footer.component";
+import { FooterComponent } from '../../footer/footer.component';
+import { I18nService } from '../../../core/services/i18n/i18n.service';
 
 @Component({
   standalone: true,
@@ -20,22 +21,24 @@ import { FooterComponent } from "../../footer/footer.component";
     ReactiveFormsModule,
     RouterModule,
     TranslatePipe,
-    TranslateModule,
-],
+    FooterComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  currentLang: 'en' | 'ar' = 'en';
+
   logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   errorMessage: string = '';
   hidePassword: boolean = true;
-  private translate = inject(TranslateService);
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private i18n: I18nService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -80,7 +83,7 @@ export class LoginComponent {
     if (userType === 'admin') {
       this.router.navigate(['/admin/home']);
     } else if (userType === 'doctor') {
-      this.router.navigate(['/doctor/dashboard']); // هنا أضفت dashboard
+      this.router.navigate(['/doctor/dashboard']);
     } else {
       this.router.navigate(['/patient/dashboard']);
     }
@@ -90,9 +93,10 @@ export class LoginComponent {
     this.hidePassword = !this.hidePassword;
   }
 
-  switchLanguage(lang: string) {
-    this.translate.use(lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  switchLang(lang: 'en' | 'ar') {
+    console.log(lang);
+    this.i18n.loadTranslations(lang);
+    this.i18n.setLanguage(lang);
+    this.currentLang = lang;
   }
 }
