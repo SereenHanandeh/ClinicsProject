@@ -1,36 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { translation } from '../../../../assets/i18n/translation';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class I18nService {
-
   currentLanguage: 'en' | 'ar' = 'en';
   translations: Record<string, any> | null = null;
 
   constructor(private httpClient: HttpClient) {}
 
   async loadTranslations(lang: 'en' | 'ar') {
-    // لو نفس اللغة محملة، ارجع الترجمة
     if (this.translations && this.currentLanguage === lang) {
       return this.translations;
     }
 
     try {
       const translationsFile = `assets/i18n/${lang}.json`;
-      console.log(`Loading translations from: ${translationsFile}`);
-
       this.translations = await firstValueFrom(
         this.httpClient.get<Record<string, any>>(translationsFile)
       );
 
-      console.log('Loaded translations:', this.translations);
-
       this.currentLanguage = lang;
-      document.documentElement.lang = lang;
+      localStorage.setItem('language', lang);
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
       return this.translations;
@@ -42,7 +35,7 @@ export class I18nService {
 
   setLanguage(language: 'en' | 'ar') {
     this.currentLanguage = language;
-    document.documentElement.lang = language;
+    localStorage.setItem('language', language);
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
   }
 
