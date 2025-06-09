@@ -15,7 +15,6 @@ Supports role-based access for Admin, Doctor, and Patient with a fully responsiv
 | Responsive           | Desktop, Tablet, Mobile     |
 
 
-🎬 Core Features
 🔐 Authentication & Authorization
 ✅ Role-based login
 ✅ Signup (Patient)
