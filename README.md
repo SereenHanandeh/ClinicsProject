@@ -3,13 +3,15 @@ A modern Clinic Management System built with Angular 19 and ng-bootstrap.
 Supports role-based access for Admin, Doctor, and Patient with a fully responsive and multilingual UI (English & Arabic).
 
 🖥️ Tech Stack
-Layer	Technology
-Frontend	Angular 19
-UI Components	ng-bootstrap + Bootstrap 5
-Styles	SCSS
-Internationalization	i18n (EN / AR)
-API	json-server (mock REST API)
-Responsive	Desktop, Tablet, Mobile
+| Layer                | Technology                  |
+| -------------------- | --------------------------- |
+| Frontend             | Angular 19                  |
+| UI Components        | ng-bootstrap + Bootstrap 5  |
+| Styles               | SCSS                        |
+| Internationalization | i18n (EN / AR)              |
+| API                  | json-server (mock REST API) |
+| Responsive           | Desktop, Tablet, Mobile     |
+
 
 🎬 Core Features
 🔐 Authentication & Authorization
