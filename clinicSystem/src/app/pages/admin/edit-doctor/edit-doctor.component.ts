@@ -14,7 +14,8 @@ import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-edit-doctor',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslatePipe],
+  standalone: true,
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './edit-doctor.component.html',
   styleUrl: './edit-doctor.component.scss',
 })
@@ -25,6 +26,9 @@ export class EditDoctorComponent {
   doctorId!: number;
 
   clinics: any[] = [];
+
+  showSuccessModal = false;
+  progressBarWidth = 100;
 
   constructor(
     private route: ActivatedRoute,
@@ -51,7 +55,7 @@ export class EditDoctorComponent {
   loadClinics() {
     this.clinicService.getClinics().subscribe({
       next: (data) => (this.clinics = data),
-      error: () => (this.errorMessage = 'فشل في جلب قائمة العيادات'),
+      error: () => (this.errorMessage = 'Failed to load clinics list'),
     });
   }
 
@@ -69,7 +73,7 @@ export class EditDoctorComponent {
         this.loading = false;
       },
       error: () => {
-        this.errorMessage = 'حدث خطأ في تحميل بيانات الطبيب';
+        this.errorMessage = 'Failed to load doctor data';
         this.loading = false;
       },
     });
@@ -89,11 +93,23 @@ export class EditDoctorComponent {
       .updateDoctor(this.doctorId, this.doctorForm.value)
       .subscribe({
         next: () => {
-          alert('تم تحديث بيانات الطبيب بنجاح');
-          this.router.navigate(['/admin/manageDoctor']);
+          this.loading = false;
+
+          // Show success modal
+          this.showSuccessModal = true;
+          this.progressBarWidth = 100;
+
+          const interval = setInterval(() => {
+            this.progressBarWidth -= 2;
+            if (this.progressBarWidth <= 0) {
+              clearInterval(interval);
+              this.showSuccessModal = false;
+              this.router.navigate(['/admin/manageDoctor']);
+            }
+          }, 60);
         },
         error: () => {
-          this.errorMessage = 'حدث خطأ أثناء تحديث بيانات الطبيب';
+          this.errorMessage = 'An error occurred while updating doctor data';
           this.loading = false;
         },
       });

@@ -11,11 +11,18 @@ import { DoctorService } from '../../../core/services/Doctor/doctor.service';
 import { ClinicService } from '../../../core/services/Clinic/clinic.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 
 @Component({
   selector: 'app-add-doctor',
-  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule, TranslatePipe],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
+    TranslatePipe,
+  ],
   templateUrl: './add-doctor.component.html',
   styleUrl: './add-doctor.component.scss',
 })
@@ -25,6 +32,8 @@ export class AddDoctorComponent {
   loading = false;
   errorMessage = '';
   doctors: any[] = [];
+  showSuccessModal = false;
+  progressValue = 100;
 
   constructor(
     private fb: FormBuilder,
@@ -63,12 +72,11 @@ export class AddDoctorComponent {
       return;
     }
 
-    // تحقق من تكرار الايميل
     const email = this.doctorForm.value.email;
     const emailExists = this.doctors.some((doc) => doc.email === email);
 
     if (emailExists) {
-      this.errorMessage = 'البريد الإلكتروني مستخدم مسبقًا';
+      this.errorMessage = 'Email is already in use';
       this.loading = false;
       return;
     }
@@ -86,12 +94,22 @@ export class AddDoctorComponent {
     this.doctorService.addDoctor(newDoctor).subscribe({
       next: () => {
         this.loading = false;
-        alert('Doctor Added Successfully');
-        this.router.navigate(['/admin/manageDoctor']);
+        this.errorMessage = '';
+        this.showSuccessModal = true;
+        this.progressValue = 100; 
+
+        const interval = setInterval(() => {
+          this.progressValue -= 2; 
+          if (this.progressValue <= 0) {
+            clearInterval(interval);
+            this.showSuccessModal = false;
+            this.router.navigate(['/admin/manageDoctor']);
+          }
+        }, 60);
       },
       error: () => {
         this.loading = false;
-        this.errorMessage = 'Faild to add New Doctor';
+        this.errorMessage = ' Falid to add new doctor';
       },
     });
   }

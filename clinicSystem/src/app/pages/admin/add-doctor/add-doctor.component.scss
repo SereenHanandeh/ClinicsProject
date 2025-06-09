@@ -68,3 +68,53 @@ button[type="submit"]:disabled {
   font-size: 14px;
   font-weight: 500;
 }
+/* Side Modal */
+.modal-side-overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 320px;
+  z-index: 1000;
+}
+
+.modal-side-content {
+  background-color: #ffffff;
+  border-left: 6px solid #10b981;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 16px 20px 32px 20px;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.4s ease-out;
+}
+
+.modal-side-content h2 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #10b981;
+}
+
+.modal-side-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background-color: #10b981;
+  transition: width 0.05s linear;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
