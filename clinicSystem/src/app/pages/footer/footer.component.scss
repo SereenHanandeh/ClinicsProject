@@ -1,4 +1,3 @@
-/* footer.css */
 
 /* تصميم الفوتر */
 .footer {
@@ -42,4 +41,33 @@
 .footer i {
   color: #ffc107;
   margin: 0 15px;
+=======
+  background-color: #222;        /* خلفية داكنة */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: flex-end;     /* زر التبديل على اليمين */
+  align-items: center;
+  direction: ltr;                /* ليكون ترتيب المحتوى من اليسار لليمين */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.lang-select {
+  background-color: #fff;
+  border: 1.5px solid #007bff;  /* لون إطار أزرق */
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  min-width: 110px;
+}
+
+.lang-select:hover,
+.lang-select:focus {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #0056b3;
 }

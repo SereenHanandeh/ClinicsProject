@@ -6,9 +6,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FooterComponent } from './pages/footer/footer.component';
 import { Title } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TranslateModule, FooterComponent],
+  imports: [RouterOutlet, TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -16,6 +17,7 @@ export class AppComponent {
   title = 'Clinic-Management-System';
   lang: 'en' | 'ar' = 'en';
   constructor(private titleService: Title, private i18nService: I18nService) {}
+
 
   async ngOnInit() {
     await this.getLang();

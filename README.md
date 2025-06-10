@@ -1,76 +1,178 @@
-🏥 Clinic Management System (CMS)
 
+# 🏥 Medical Appointment System - Full Stack Web Application
 
-A modern Clinic Management System built with Angular 19 and ng-bootstrap.
-Supports role-based access for Admin, Doctor, and Patient with a fully responsive and multilingual UI (English & Arabic).
+---
 
-🖥️ Tech Stack
-| Layer                | Technology                  |
-| -------------------- | --------------------------- |
-| Frontend             | Angular 19                  |
-| UI Components        | ng-bootstrap + Bootstrap 5  |
-| Styles               | SCSS                        |
-| Internationalization | i18n (EN / AR)              |
-| API                  | json-server (mock REST API) |
-| Responsive           | Desktop, Tablet, Mobile     |
+## 📖 Table of Contents
+- [✨ About](#-about)  
+- [👥 Team Members](#-team-members)  
+- [🚀 Features](#-features)  
+- [🖼️ Screenshots](#-screenshots)  
+- [🛠️ Technologies Used](#-technologies-used)  
+- [⚙️ Installation](#-installation)  
+- [📂 Project Structure](#-project-structure)  
+- [🔐 Authentication & Guards](#-authentication--guards)  
+- [🧑‍⚕️ User Roles](#-user-roles)  
+- [💾 API (db.json)](#-api-dbjson)  
+- [🚧 TODO & Improvements](#-todo--improvements)  
 
+---
 
-🔐 Authentication & Authorization
-✅ Role-based login
-✅ Signup (Patient)
-✅ JWT token handling
-✅ Role-based routing & guards
+## 👥 Team Members
+- **Sereen Hanandeh** – Admin & Doctor  
+- **Raneem Albader** – Patient  
 
-👤 Patient Workflows
-✅ Sign up / Sign in
-✅ View & update profile
-✅ Browse & filter doctors
-✅ Book appointments
-✅ View appointments & details
+---
 
-🩺 Doctor Workflows
-✅ Sign in & update profile
-✅ View appointments
-✅ Accept / Reject appointments
-✅ Fill appointment details (Drugs, Diagnosis, Payment)
-✅ View patients & history
+## ✨ About
+Medical Appointment System is a simple full-stack web application designed to manage medical appointment booking and administration, including management of doctors, clinics, drugs, and diagnoses. It features a multi-role access system with Admin, Doctor, and Patient roles.
 
-🛡️ Admin Workflows
-✅ Add / view clinics
-✅ Add / view doctors
-✅ View doctors by clinic
-✅ Add / view drugs & diagnoses
+The project is built with:
+- Angular (frontend)
+- json-server (Mock Backend API)
 
-🧪 Testing & Validation
-✅ Form validation (with feedback)
-✅ Role-based routing with guards
-✅ JWT token handling via HttpInterceptor
-✅ Responsive UI (desktop / tablet / mobile)
-✅ Language switcher (EN / AR)
+---
 
+## 🚀 Features
 
-Evaluation Criteria Checklist:
+### 👩‍⚕️ Admin Dashboard
+- Add new clinics  
+- Add new doctors and assign them to clinics  
+- Add new drugs and diagnoses  
+- View all clinics, doctors, drugs, and diagnoses  
+- Edit and delete doctors  
 
-✅ Core Angular Concepts
+### 👨‍⚕️ Doctor Dashboard
+- View personal appointments  
+- Manage patient medical records  
+- View and update doctor profile  
 
-✅ Coding Proficiency & Clean Code
+### 🧑‍💻 Patient Dashboard
+- Browse doctors by clinics  
+- Book appointments  
+- View booked appointments  
+- Update personal profile  
 
-✅ Token Interceptor & Role Guards
+### General Features
+- User authentication and registration  
+- Route guards with role-based access control  
+- Token storage in localStorage  
+- Beautiful animated 404 page  
+- Modern, responsive UI design  
 
-✅ Full Responsive UI
+---
 
-✅ i18n Support
+## 🖼️ Screenshots
 
-✅ Working GitHub Repo + README
+### 🏠 Home Page
+*Add your screenshots here*
 
-✅ Presentation Ready
+---
 
-📌 Future Improvements
-Add email notifications
+## 🛠️ Technologies Used
+- Angular 17  
+- TypeScript  
+- RxJS  
+- SCSS  
+- json-server  
 
-Backend implementation with Node.js / Express
+---
 
-Advanced calendar component
+## ⚙️ Installation
 
-Analytics charts for Admin
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/your-username/medical-appointment-system.git
+   cd medical-appointment-system
+   ```
 
+2. Install dependencies  
+   ```bash
+   npm install
+   ```
+
+3. Start json-server  
+   ```bash
+   json-server --watch db.json --port 3000
+   ```
+
+4. Run Angular application  
+   ```bash
+   npm start
+   ```
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── core/
+│   ├── services/
+│   ├── guards/
+├── layouts/
+│   ├── admin-layout/
+│   ├── doctor-layout/
+│   ├── patient-layout/
+├── pages/
+│   ├── admin/
+│   ├── doctor/
+│   ├── patient/
+│   ├── auth/
+│   ├── home/
+│   ├── not-found/
+├── assets/
+│   ├── images/
+│   ├── styles/
+└── environments/
+db.json (Mock API)
+```
+
+---
+
+## 🔐 Authentication & Guards
+
+- User authentication handled via `AuthService`
+- Token and `userType` stored in `localStorage`
+- Route guards (`authGuard`) verify token presence and enforce role-based access:
+  - If `userType === 'admin'` → redirect to `/admin/dashboard`
+  - If `userType === 'doctor'` → redirect to `/doctor/dashboard`
+  - If `userType === 'patient'` → redirect to `/patient/dashboard`
+
+---
+
+## 🧑‍⚕️ User Roles
+
+| Role    | Permissions                        |
+|---------|----------------------------------|
+| Admin   | Full system management            |
+| Doctor  | Manage own profile & appointments |
+| Patient | Book appointments & manage profile |
+
+---
+
+## 💾 API (db.json)
+
+```json
+{
+  "users": [],
+  "appointments": [],
+  "clinics": [],
+  "doctors": [],
+  "drugs": [],
+  "diagnoses": []
+}
+```
+
+---
+
+## 🚧 TODO & Improvements
+- ✅ Add pagination for data lists  
+- ✅ Improve mobile responsiveness  
+- ✅ Enhance appointment booking user experience  
+- ✅ Use Lottie animation for 404 page  
+- ✅ Optimize performance with Lazy Loading  
+
+---
+
+✨ Developed with ❤️ by Sereen Hanandeh  

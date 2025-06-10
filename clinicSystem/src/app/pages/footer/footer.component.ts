@@ -9,12 +9,17 @@ import { TranslatePipe } from "../../shared/pips/translate.pipe";
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  constructor(private i18nService: I18nService) {}
 
-  lang: 'en' | 'ar' = 'en';
+  currentLang: 'en' | 'ar' = 'en';
 
-  changeLanguage(lang: 'en' | 'ar') {
-    this.i18nService.loadTranslations(lang);
-    this.lang = lang;
+  constructor(private i18n: I18nService) {
+    this.currentLang = this.i18n.getLanguage();
+  }
+
+  switchLang(lang: 'en' | 'ar') {
+    console.log(lang);
+    this.i18n.loadTranslations(lang);
+    this.i18n.setLanguage(lang);
+    this.currentLang = lang;
   }
 }

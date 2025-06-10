@@ -9,10 +9,12 @@ import {
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/Auth/auth.service';
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
+
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { I18nService } from '../../../core/services/i18n/i18n.service';
 import { filter, take } from 'rxjs';
+
 
 @Component({
   standalone: true,
@@ -22,13 +24,18 @@ import { filter, take } from 'rxjs';
     ReactiveFormsModule,
     RouterModule,
     TranslatePipe,
+
     ToastModule,
   ],
   providers: [MessageService],
+
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  currentLang: 'en' | 'ar' = 'en';
+
   logoPath = 'assets/logo.png';
   loginForm: FormGroup;
   hidePassword: boolean = true;
@@ -39,6 +46,7 @@ export class LoginComponent {
     private router: Router,
     private messageService: MessageService,
     private i18nService: I18nService
+
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -112,4 +120,13 @@ export class LoginComponent {
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
   }
+د
+
+  switchLang(lang: 'en' | 'ar') {
+    console.log(lang);
+    this.i18n.loadTranslations(lang);
+    this.i18n.setLanguage(lang);
+    this.currentLang = lang;
+  }
+
 }

@@ -10,10 +10,12 @@ import {
 import { AuthService } from '../../../core/services/Auth/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+ 
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { I18nService } from '../../../core/services/i18n/i18n.service';
+
 
 @Component({
   selector: 'app-register',
