@@ -65,7 +65,14 @@ The project is built with:
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
-*Add your screenshots here*
+![image](https://github.com/user-attachments/assets/aba32f71-02a7-417d-bf30-7eb4ed9794f9)
+
+###Login Page
+![image](https://github.com/user-attachments/assets/fd55b45a-64e9-4dd4-a732-5aec5ef31777)
+
+###Register Page
+![image](https://github.com/user-attachments/assets/07d1330c-4e96-43ac-951c-66fcdaa7ed32)
+
 
 ---
 
