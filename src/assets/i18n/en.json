@@ -251,5 +251,14 @@
     "DOB_LABEL": "Date of Birth:",
     "DOB_ERROR": "Please enter your date of birth",
     "UPDATE_BUTTON": "Update"
+  },
+  "Nav": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "SERVICES": "Services",
+    "DEPARTMENTS": "Departments",
+    "TEAM": "Our Team",
+    "CONTACT": "Contact",
+    "LOGIN": "Login"
   }
 }
