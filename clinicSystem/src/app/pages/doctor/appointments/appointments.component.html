@@ -1,5 +1,5 @@
+<p-toast></p-toast>
 <div class="p-4">
- <!-- Search Filter -->
 <!-- Search Filter with Icon -->
 <form [formGroup]="filterForm" class="search-filter mb-4">
   <div class="position-relative">
@@ -104,12 +104,5 @@
         Reject
       </button>
     </div>
-  </div>
-
-  <div *ngIf="errorMessage" class="alert alert-danger mt-2">
-    {{ errorMessage }}
-  </div>
-  <div *ngIf="successMessage" class="alert alert-success mt-2">
-    {{ successMessage }}
   </div>
 </div>

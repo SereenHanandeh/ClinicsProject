@@ -1,3 +1,5 @@
+<p-toast></p-toast>
+
 <div class="login-container-split">
   <div class="login-logo-section">
     <img [src]="logoPath" alt="Logo" />
@@ -68,8 +70,6 @@
         {{ "LOGIN_FORM.noAccount" | translate }}
         <a routerLink="/register">{{ "LOGIN_FORM.register" | translate }}</a>
       </div>
-
-      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     </form>
   </div>
 </div>

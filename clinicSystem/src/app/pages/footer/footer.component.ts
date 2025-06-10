@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { I18nService } from '../../core/services/i18n/i18n.service';
+import { TranslatePipe } from "../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-footer',
   imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
+  constructor(private i18nService: I18nService) {}
 
-  constructor(public i18nService: I18nService) {}
+  lang: 'en' | 'ar' = 'en';
 
-  switchLanguage(lang: 'en' | 'ar') {
-    this.i18nService.setLanguage(lang);
+  changeLanguage(lang: 'en' | 'ar') {
     this.i18nService.loadTranslations(lang);
-    localStorage.setItem('lang', lang);
+    this.lang = lang;
   }
 }

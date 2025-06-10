@@ -67,7 +67,6 @@ export class HomeComponent {
     },
   ];
   currentLang: 'en' | 'ar' = 'en';
-  currentYear = new Date().getFullYear();
 
   constructor(private i18n: I18nService) {
     this.currentLang = this.i18n.getLanguage();
@@ -76,7 +75,7 @@ export class HomeComponent {
   switchLang(lang: 'en' | 'ar') {
     console.log(lang);
     this.i18n.loadTranslations(lang);
-    this.i18n.setLanguage(lang);
+    this.i18n.getLanguage();
     this.currentLang = lang;
   }
 }

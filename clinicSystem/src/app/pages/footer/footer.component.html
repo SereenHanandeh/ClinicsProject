@@ -1,14 +1,17 @@
-<footer>
-  <!-- أزرار التبديل -->
-  <button 
-    [disabled]="i18nService.getLanguage() === 'en'" 
-    (click)="switchLanguage('en')">
-    English
-  </button>
+<footer class="footer">
+  <a
+    (click)="changeLanguage('en')"
+    [class]="lang == 'en' ? 'active-lang' : 'inactive-lang'"
+    style="cursor: pointer; margin: 0 15px"
+    >English</a
+  >
 
-  <button 
-    [disabled]="i18nService.getLanguage() === 'ar'" 
-    (click)="switchLanguage('ar')">
-    العربية
-  </button>
+  <i class="fa-solid fa-star fa-xl"></i>
+
+  <a
+    (click)="changeLanguage('ar')"
+    [class]="lang == 'ar' ? 'active-lang' : 'inactive-lang'"
+    style="cursor: pointer; margin: 0 15px"
+    >Arabic</a
+  >
 </footer>

@@ -10,19 +10,29 @@ import {
 import { AuthService } from '../../../core/services/Auth/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { I18nService } from '../../../core/services/i18n/i18n.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslatePipe],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    TranslatePipe,
+    ToastModule,
+  ],
+  providers: [MessageService],
+
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
   logoPath = 'assets/logo.png';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
@@ -30,7 +40,9 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService,
+    private i18nService: I18nService
   ) {
     this.registerForm = this.fb.group(
       {
@@ -90,17 +102,29 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm.invalid) {
-      this.errorMessage = 'Please fill all fields correctly.';
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Please fill all fields correctly.',
+      });
       return;
     }
 
     this.authService.register(this.registerForm.value).subscribe({
       next: () => {
-        this.successMessage = 'Registration successful!';
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Registration successful!',
+        });
         this.router.navigate(['/login']);
       },
       error: (error) => {
-        this.errorMessage = error.message || 'Registration failed.';
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Registration Failed',
+          detail: error.message || 'Failed to register. Please try again.',
+        });
       },
     });
   }
