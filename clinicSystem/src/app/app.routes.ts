@@ -18,10 +18,10 @@ import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.co
 import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
 import { AddDoctorComponent } from './pages/admin/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './pages/admin/edit-doctor/edit-doctor.component';
-import { roleGuard } from './core/guards/Auth/auth.guard';
 import { PatientDashboardComponent } from './pages/patient/patient-dashboard/patient-dashboard.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { DocProfileComponent } from './pages/doctor/doc-profile/doc-profile.component';
+import { unifiedRoleGuard } from './core/guards/Auth/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,7 +38,8 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
-    canActivateChild: [roleGuard('admin')],
+    canActivateChild: [unifiedRoleGuard],
+    data: { role: 'admin' },
     children: [
       { path: 'home', component: AdminHomeComponent },
       { path: 'manageDoctor', component: ManageDoctorsComponent },
@@ -55,7 +56,8 @@ export const routes: Routes = [
   {
     path: 'doctor',
     component: DoctorLayoutComponent,
-    canActivateChild: [roleGuard('doctor')],
+    canActivateChild: [unifiedRoleGuard],
+    data: { role: 'doctor' },
     children: [
       { path: 'dashboard', component: DoctorDashboardComponent },
       { path: 'appointments', component: AppointmentsComponent },
@@ -68,7 +70,8 @@ export const routes: Routes = [
   {
     path: 'patient',
     component: PatientLayoutComponent,
-    canActivateChild: [roleGuard('patient')],
+    canActivateChild: [unifiedRoleGuard],
+    data: { role: 'patient' },
     children: [
       { path: 'dashboard', component: PatientDashboardComponent },
       { path: 'doctors', component: DoctorListComponent },
