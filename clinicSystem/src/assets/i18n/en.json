@@ -16,6 +16,22 @@
     "LOGOUT": "Logout",
     "WELCOME": "Welcome Doctor"
   },
+  "Departments": {
+    "TITLE": "Departments",
+    "SUBTITLE": "Explore Our Medical Specialties"
+  },
+  "Nav": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "SERVICES": "Services",
+    "DEPARTMENTS": "Departments",
+    "TEAM": "Our Team",
+    "CONTACT": "Contact",
+    "LOGIN": "Login"
+  },
+  "Footer": {
+    "COPYRIGHT": "All rights reserved."
+  },
   "PATIENT_DASHBOARD": {
     "TITLE": "Patient Dashboard",
     "HOME": "Home",

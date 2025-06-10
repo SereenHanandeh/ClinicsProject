@@ -134,7 +134,7 @@ getCurrentUserId(): number | null {
                 email: createdUser.email,
                 gender: user.gender ?? 'male',
                 dateOfBirth: user.dateOfBirth ?? '',
-                password: '', // لا نحتاج لكلمة المرور هنا
+                password: '', 
                 userType: 'patient',
                 phone: user.phone,
               };

@@ -21,7 +21,6 @@ export class AppComponent {
 
   async ngOnInit() {
     await this.getLang();
-    this.titleService.setTitle(this.i18nService.t('app.title'));
   }
 
   test: any = false;
