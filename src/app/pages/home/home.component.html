@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NABDA</title>
+</head>
+<body>
+  <header id="header" class="header sticky-top">
+  <div class="topbar d-flex align-items-center">
+    <div
+      class="container d-flex justify-content-center justify-content-md-between"
+    >
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"
+          ><a href="mailto:contact@example.com"
+            >NABDA.ofiicial&#64; gmail.com</a
+          ></i
+        >
+        <i class="bi bi-phone d-flex align-items-center ms-4"
+          ><span>+962 7 9036 4468</span></i
+        >
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a
+          href="https://www.linkedin.com/company/NABDA-medical-ai/"
+          class="linkedin"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <!-- End Top Bar -->
+
+  <div class="branding d-flex align-items-center">
+    <div
+      class="container position-relative d-flex align-items-center justify-content-between"
+    >
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      
+        <h1 class="sitename">NABDA</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+            <ul>
+              <li>
+                <a href="#hero" class="active">Home<br /></a>
+              </li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#departments">Departments</a></li>
+              <li><a href="#doctors">Our Team</a></li>
+
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+
+      <a class="cta-btn d-none d-sm-block" [routerLink]="['/login']">Login</a>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <!-- Hero Section -->
+  <section id="hero" class="hero section light-background">
+    <div class="container position-relative">
+      <div
+        class="welcome position-relative"
+        data-aos="fade-down"
+        data-aos-delay="100"
+      >
+        <h2>WELCOME TO NABDA</h2>
+        <p>Accurate and Trusted Healthcare — Trusted by 95% of Patients</p>
+      </div>
+      <!-- End Welcome -->
+
+      <div class="content row gy-4">
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
+            <h3>Why Choose NABDA?</h3>
+            <p>
+              At NABDA, your health is in expert hands. Our clinic hosts a team
+              of certified doctors, experienced specialists, and dedicated
+              nurses who work together to provide top-tier medical care tailored
+              to your needs.
+            </p>
+            <div class="text-center">
+              <a href="#about" class="more-btn"
+                ><span>Learn More</span> <i class="bi bi-chevron-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <!-- End Why Box -->
+
+        <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="d-flex flex-column justify-content-center">
+            <div class="row gy-4">
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                  <i class="bi bi-clipboard-data"></i>
+                  <h4>Expert Doctors</h4>
+                  <p>
+                    A trusted team of certified specialists across various
+                    medical fields.
+                  </p>
+                </div>
+              </div>
+              <!-- End Icon Box -->
+
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+                  <i class="bi bi-heart-pulse"></i>
+                  <h4>Fast & Easy Booking</h4>
+                  <p>
+                    Book your appointment online in seconds with flexible timing
+                    options.
+                  </p>
+                </div>
+              </div>
+              <!-- End Icon Box -->
+
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
+                  <i class="bi bi-leaf"></i>
+
+                  <h4>Smart Clinic Management</h4>
+                  <p>
+                    All records, prescriptions, and appointments managed
+                    securely in one place.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End  Content-->
+    </div>
+  </section>
+  <!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="row gy-4 gx-5">
+        <div
+          class="col-lg-6 position-relative align-self-start"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <img src="assets/img/logoo.PNG" width="550px" />
+          <img src="assets/img/NABDA (2).PNG" width="550px" />
+        </div>
+
+        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+          <h3>About Us</h3>
+          <p>
+            Nabda is a modern clinic management system designed to streamline
+            healthcare services by connecting patients and doctors in one smart
+            platform.
+          </p>
+
+          <ul>
+            <li>
+              <i class="fa-solid fa-user-doctor"></i>
+              <div>
+                <h5>Doctor–Patient Connection:</h5>
+                <p>
+                  Patients can register, track their health status, and receive
+                  direct medical care from specialized doctors.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+              <div>
+                <h5>Medical Records & Prescriptions:</h5>
+                <p>
+                  Doctors can securely access patient histories, write
+                  prescriptions, and add diagnoses in one organized system.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <i class="fa-solid fa-calendar-check"></i>
+              <div>
+                <h5>Appointments Made Easy:</h5>
+                <p>
+                  Book, manage, and follow up on medical appointments
+                  effortlessly through an intuitive interface.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /About Section -->
+
+  <!-- Services Section -->
+  <section id="services" class="services section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Our Services</h2>
+      <p>
+        All-in-one clinic system to connect patients with doctors efficiently
+      </p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container">
+      <div class="row gy-4">
+        <!-- خدمة تسجيل ومتابعة المرضى -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <a href="#" class="stretched-link">
+              <h3>Patient Registration & Profile</h3>
+            </a>
+            <p>
+              Create and manage your personal medical profile with full history,
+              visits, and treatments.
+            </p>
+          </div>
+        </div>
+
+        <!-- خدمة إدارة المواعيد -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <a href="#" class="stretched-link">
+              <h3>Appointment Scheduling</h3>
+            </a>
+            <p>
+              Book, track, and manage your doctor appointments directly from the
+              platform.
+            </p>
+          </div>
+        </div>
+
+        <!-- خدمة التشخيص والوصف -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="fas fa-notes-medical"></i>
+            </div>
+            <a href="#" class="stretched-link">
+              <h3>Diagnosis & Prescriptions</h3>
+            </a>
+            <p>
+              Doctors can provide accurate diagnoses and write prescriptions
+              viewable by patients anytime.
+            </p>
+          </div>
+        </div>
+
+        <!-- خدمة السجل الطبي الرقمي -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="fas fa-file-medical"></i>
+            </div>
+            <a href="#" class="stretched-link">
+              <h3>Digital Medical Records</h3>
+            </a>
+            <p>
+              Access and manage your complete health records securely, all in
+              one place.
+            </p>
+          </div>
+        </div>
+
+        <!-- خدمة المتابعة والرعاية -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <a href="#" class="stretched-link">
+              <h3>Follow-ups & Care</h3>
+            </a>
+            <p>
+              Receive timely follow-up care and stay updated on your health
+              journey with your doctor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- /Services Section -->
+
+  <!-- Departments Section -->
+  <section id="departments" class="departments section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Departments</h2>
+      <p>Explore Our Medical Specialties</p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-3">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a
+                class="nav-link active show"
+                data-bs-toggle="tab"
+                href="#departments-tab-1"
+                >Cardiology</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2"
+                >Neurology</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3"
+                >Hepatology</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4"
+                >Pediatrics</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-5"
+                >Eye Care</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-9 mt-4 mt-lg-0">
+          <div class="tab-content">
+            <div class="tab-pane active show" id="departments-tab-1">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Cardiology</h3>
+                  <p class="fst-italic">
+                    Our AI supports early detection of cardiovascular conditions
+                    by analyzing symptoms and medical imaging. NABDA helps users
+                    identify signs of heart-related issues and connect with
+                    cardiologists for expert evaluation and treatment plans.
+                  </p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img
+                    src="assets/img/Cardiology .jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="departments-tab-2">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Neurology</h3>
+                  <p class="fst-italic">
+                    NABDA uses AI models to assist in detecting neurological
+                    disorders such as migraines, strokes, or seizures. By
+                    evaluating CT/MRI scans and reported symptoms, we provide
+                    fast insights and connect users with neurology specialists.
+                  </p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img
+                    src="assets/img/Neurology.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="departments-tab-3">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Hepatology</h3>
+                  <p class="fst-italic">
+                    Monitor and manage liver health with NABDA intelligent
+                    tools. The platform detects signs of liver dysfunction,
+                    supports early-stage diagnosis, and helps patients
+                    understand when to consult a hepatologist.
+                  </p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img
+                    src="assets/img/Hepatology.jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="departments-tab-4">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Pediatrics</h3>
+                  <p class="fst-italic">
+                    Parents can use NABDA to analyze children’s symptoms and
+                    receive safe, AI-generated health assessments. The platform
+                    supports common pediatric concerns and offers direct
+                    consultation options with pediatric doctors.
+                  </p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img
+                    src="assets/img/Pediatrics (Children’s Health).jpg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="departments-tab-5">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Eye Care</h3>
+                  <p class="fst-italic">
+                    NABDA supports early detection of eye-related conditions
+                    such as glaucoma or retinal issues through symptom analysis
+                    and imaging support. Easily consult with eye
+                    specialists for next steps.
+                  </p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/Eye Care.jpg" alt="" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Departments Section -->
+
+  <!-- Doctors Section -->
+  <section id="doctors" class="doctors section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Our Team</h2>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-member d-flex align-items-start">
+            <div class="pic">
+              <img src="assets/img/sereen.jpeg" class="img-fluid" alt="" />
+            </div>
+            <div class="member-info">
+              <h4>Sereen Hanandeh</h4>
+              <span>Computer Information System</span>
+              <img src="assets/img/sereen.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="member-info">
+              <h4>sereen yacoub</h4>
+              <span> computer science </span>
+
+              <div class="social">
+                <a
+                  href="https://www.instagram.com/wasanismael1?igsh=OXBmMnRsbjZoa3B2&utm_source=qr"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/wasan-yacoup-6186482a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Team Member -->
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-member d-flex align-items-start">
+            <div class="pic">
+             <img src="assets/img/raneem.jpg" width="400" height="300" alt="Raneem">
+
+            </div>
+            <div class="member-info">
+              <h4>Raneem ALbader</h4>
+              <span>computer engineering </span>
+
+              <div class="social">
+                <a
+                  href="https://www.instagram.com/albader_002?igsh=Y2tkaGEwN2VpNGl6"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a href="https://www.linkedin.com/in/raneem-albader-0a7162261/">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Team Member -->
+      </div>
+    </div>
+  </section>
+  <!-- /Doctors Section -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+    </div>
+    <!-- End Section Title -->
+
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <div
+            class="info-item d-flex"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          ></div>
+          <!-- End Info Item -->
+
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Call Us</h3>
+              <p>+962 7 9036 4468</p>
+            </div>
+          </div>
+          <!-- End Info Item -->
+
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Email Us</h3>
+              <p>NABDA.ofiicial&#64; gmail.com</p>
+            </div>
+          </div>
+          <!-- End Info Item -->
+        </div>
+
+        <div class="col-lg-8">
+          <form
+            action="forms/contact.php"
+            method="post"
+            class="php-email-form"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required=""
+                />
+              </div>
+
+              <div class="col-md-6">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Your Email"
+                  required=""
+                />
+              </div>
+
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  placeholder="Subject"
+                  required=""
+                />
+              </div>
+
+              <div class="col-md-12">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  rows="6"
+                  placeholder="Message"
+                  required=""
+                ></textarea>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">
+                  Your message has been sent. Thank you!
+                </div>
+
+                <button type="submit">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- End Contact Form -->
+      </div>
+    </div>
+  </section>
+  <!-- /Contact Section -->
+</main>
+
+<footer id="footer" class="footer light-background">
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <!-- About Section -->
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <span class="sitename">NABDA</span>
+        </a>
+        <div class="footer-contact pt-3">
+          <p class="mt-3">
+            <strong>Phone:</strong> <span>+962 7 9036 4468</span>
+          </p>
+          <p><strong>Email:</strong> <span>nabda.officialgmail.com</span></p>
+        </div>
+        <div class="social-links d-flex mt-4">
+          <a
+            href="https://www.linkedin.com/company/NABDA-medical-ai/"
+            target="_blank"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Company Info -->
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>About NABDA</h4>
+        <p>
+          NABDA is a digital clinic platform where licensed doctors manage
+          patient records, prescriptions, and appointments — all in one place.
+          Secure, simple, and patient-focused.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Clinic Services</h4>
+        <ul>
+          <li><a href="#">Medical Records</a></li>
+          <li><a href="#">Doctor Appointments</a></li>
+          <li><a href="#">Digital Prescriptions</a></li>
+          <li><a href="#">Patient Follow-ups</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="container copyright text-center mt-4">
+    <p>
+      © <span id="year"></span> <strong class="px-1 sitename">NABDA</strong> |
+      All rights reserved.
+    </p>
+  </div>
+
+  <!-- Dynamic Year Script -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+
+</body>
+</html> 

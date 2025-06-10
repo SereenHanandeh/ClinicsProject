@@ -1,0 +1,44 @@
+<p-toast></p-toast>
+<h1>{{ 'PROFILE_FORM.TITLE' | translate }}</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" *ngIf="profileForm">
+  <label>{{ 'PROFILE_FORM.NAME_LABEL' | translate }}</label>
+  <input formControlName="name" type="text" />
+  <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched" class="error">
+    {{ 'PROFILE_FORM.NAME_ERROR' | translate }}
+  </div>
+
+  <label>{{ 'PROFILE_FORM.EMAIL_LABEL' | translate }}</label>
+  <input formControlName="email" type="email" />
+  <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" class="error">
+    {{ 'PROFILE_FORM.EMAIL_ERROR' | translate }}
+  </div>
+
+  <label>{{ 'PROFILE_FORM.PHONE_LABEL' | translate }}</label>
+  <input formControlName="phone" type="tel" />
+  <div *ngIf="profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched" class="error">
+    {{ 'PROFILE_FORM.PHONE_ERROR' | translate }}
+  </div>
+
+  <label>{{ 'PROFILE_FORM.GENDER_LABEL' | translate }}</label>
+  <select formControlName="gender">
+    <option value="">{{ 'PROFILE_FORM.GENDER_SELECT' | translate }}</option>
+    <option value="male">{{ 'PROFILE_FORM.GENDER_MALE' | translate }}</option>
+    <option value="female">{{ 'PROFILE_FORM.GENDER_FEMALE' | translate }}</option>
+  </select>
+  <div *ngIf="profileForm.get('gender')?.invalid && profileForm.get('gender')?.touched" class="error">
+    {{ 'PROFILE_FORM.GENDER_ERROR' | translate }}
+  </div>
+
+  <label>{{ 'PROFILE_FORM.DOB_LABEL' | translate }}</label>
+  <input type="date" formControlName="dateOfBirth" />
+  <div *ngIf="profileForm.get('dateOfBirth')?.invalid && profileForm.get('dateOfBirth')?.touched" class="error">
+    {{ 'PROFILE_FORM.DOB_ERROR' | translate }}
+  </div>
+
+  <button type="submit" [disabled]="profileForm.invalid">
+    {{ 'PROFILE_FORM.UPDATE_BUTTON' | translate }}
+  </button>
+</form>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,53 @@
+.background-shapes li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.445);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+  border-radius: 50%;
+}
+
+.background-shapes li:nth-child(1) {
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 20s;
+}
+.background-shapes li:nth-child(2) {
+  left: 20%;
+  width: 20px;
+  height: 20px;
+  animation-duration: 15s;
+}
+.background-shapes li:nth-child(3) {
+  left: 70%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 22s;
+}
+.background-shapes li:nth-child(4) {
+  left: 40%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 18s;
+}
+.background-shapes li:nth-child(5) {
+  left: 80%;
+  width: 25px;
+  height: 25px;
+  animation-duration: 17s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+  }
+}

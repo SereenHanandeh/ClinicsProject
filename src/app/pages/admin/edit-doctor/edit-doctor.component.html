@@ -1,0 +1,42 @@
+<p-toast></p-toast>
+
+<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+  <label>{{ 'CHANGE_DOCTOR_FORM.name' | translate }}:</label>
+  <input formControlName="name" type="text" />
+  <div *ngIf="f['name'].touched && f['name'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['name'].errors?.['required']">{{ 'CHANGE_DOCTOR_FORM.nameRequired' | translate }}</div>
+    <div *ngIf="f['name'].errors?.['minlength']">{{ 'CHANGE_DOCTOR_FORM.nameMinLength' | translate }}</div>
+  </div>
+
+  <label>{{ 'CHANGE_DOCTOR_FORM.email' | translate }}:</label>
+  <input formControlName="email" type="email" />
+  <div *ngIf="f['email'].touched && f['email'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['email'].errors?.['required']">{{ 'CHANGE_DOCTOR_FORM.emailRequired' | translate }}</div>
+    <div *ngIf="f['email'].errors?.['email']">{{ 'CHANGE_DOCTOR_FORM.emailInvalid' | translate }}</div>
+  </div>
+
+  <label>{{ 'CHANGE_DOCTOR_FORM.phone' | translate }}:</label>
+  <input formControlName="phone" type="text" />
+  <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['phone'].errors?.['required']">{{ 'CHANGE_DOCTOR_FORM.phoneRequired' | translate }}</div>
+    <div *ngIf="f['phone'].errors?.['pattern']">{{ 'CHANGE_DOCTOR_FORM.phonePattern' | translate }}</div>
+  </div>
+
+  <label>{{ 'CHANGE_DOCTOR_FORM.specialization' | translate }}:</label>
+  <input formControlName="specification" type="text" />
+  <div *ngIf="f['specification'].touched && f['specification'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['specification'].errors?.['required']">{{ 'CHANGE_DOCTOR_FORM.specializationRequired' | translate }}</div>
+    <div *ngIf="f['specification'].errors?.['minlength']">{{ 'CHANGE_DOCTOR_FORM.specializationMinLength' | translate }}</div>
+  </div>
+
+  <label>{{ 'CHANGE_DOCTOR_FORM.clinic' | translate }}:</label>
+  <select formControlName="clinicId">
+    <option value="">{{ 'CHANGE_DOCTOR_FORM.selectClinic' | translate }}</option>
+    <option *ngFor="let clinic of clinics" [value]="clinic.id">{{ clinic.name }}</option>
+  </select>
+  <div *ngIf="f['clinicId'].touched && f['clinicId'].invalid" class="text-red-600 text-sm">
+    <div *ngIf="f['clinicId'].errors?.['required']">{{ 'CHANGE_DOCTOR_FORM.clinicRequired' | translate }}</div>
+  </div>
+
+  <button type="submit" [disabled]="loading">{{ 'CHANGE_DOCTOR_FORM.update' | translate }}</button>
+</form>

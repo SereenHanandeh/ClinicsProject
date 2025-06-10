@@ -1,0 +1,113 @@
+<p-toast></p-toast>
+<h1>{{ "MANAGE_DIAGNOSES.title" | translate }}</h1>
+
+<!-- Search and Add Diagnosis Form -->
+<form
+  (ngSubmit)="addDiagnosis()"
+  class="d-flex justify-content-center align-items-end mb-4"
+  style="gap: 10px"
+>
+  <!-- حقل البحث -->
+  <input
+    [(ngModel)]="searchTerm"
+    name="search"
+    class="form-control"
+    [placeholder]="'MANAGE_DIAGNOSES.searchPlaceholder' | translate"
+    style="max-width: 300px"
+  />
+
+  <!-- حقل إضافة التشخيص -->
+  <input
+    [(ngModel)]="newDiagnosis.name"
+    name="name"
+    class="form-control"
+    [placeholder]="'MANAGE_DIAGNOSES.newDiagnosisPlaceholder' | translate"
+    style="max-width: 300px"
+  />
+
+  <!-- زر الإضافة -->
+  <button
+    class="btn btn-primary btn-sm px-3 py-1"
+    style="width: auto"
+    type="submit"
+  >
+    {{ "MANAGE_DIAGNOSES.addButton" | translate }}
+  </button>
+</form>
+
+<!-- Diagnosis List -->
+<div class="container p-4 rounded bg-white">
+  <ul class="list-group">
+    <li
+      *ngFor="let diagnosis of pagedDiagnoses"
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <!-- Diagnosis Name or Edit Input -->
+      <div class="flex-grow-1 me-3">
+        <div *ngIf="editDiagnosisId !== diagnosis.id" class="fw-semibold">
+          {{ diagnosis.name }}
+        </div>
+        <div *ngIf="editDiagnosisId === diagnosis.id">
+          <input [(ngModel)]="editName" name="editName" class="form-control" />
+        </div>
+      </div>
+      <!-- Action Buttons -->
+      <div class="btn-group btn-group-sm">
+        <button
+          *ngIf="editDiagnosisId !== diagnosis.id"
+          class="btn btn-outline-success"
+          (click)="startEdit(diagnosis)"
+        >
+          {{ "MANAGE_DIAGNOSES.editButton" | translate }}
+        </button>
+        <button
+          *ngIf="editDiagnosisId === diagnosis.id"
+          class="btn btn-outline-success"
+          (click)="saveEdit()"
+        >
+          {{ "MANAGE_DIAGNOSES.saveButton" | translate }}
+        </button>
+        <button
+          *ngIf="editDiagnosisId === diagnosis.id"
+          class="btn btn-outline-secondary"
+          (click)="cancelEdit()"
+        >
+          {{ "MANAGE_DIAGNOSES.cancelButton" | translate }}
+        </button>
+        <button
+          class="btn btn-outline-danger"
+          (click)="deleteDiagnosis(diagnosis.id)"
+        >
+          {{ "MANAGE_DIAGNOSES.deleteButton" | translate }}
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Pagination Controls -->
+  <nav
+    *ngIf="totalPages > 1"
+    [attr.aria-label]="'MANAGE_DIAGNOSES.pageNavigationLabel' | translate"
+    class="mt-3"
+  >
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(currentPage - 1)">
+          {{ "MANAGE_DIAGNOSES.previousPage" | translate }}
+        </button>
+      </li>
+      <li
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        class="page-item"
+        [class.active]="currentPage === i + 1"
+      >
+        <button class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(currentPage + 1)">
+          {{ "MANAGE_DIAGNOSES.nextPage" | translate }}
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
