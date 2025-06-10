@@ -1,0 +1,34 @@
+<h2 class="form-title">{{ 'APPOINTMENT_FORM.TITLE' | translate }}</h2>
+
+<div class="form-group">
+  <label for="appointment-date">{{ 'APPOINTMENT_FORM.DATE_LABEL' | translate }}</label>
+  <input
+    id="app-modal-root"
+    type="date"
+    [(ngModel)]="selectedDate"
+    [min]="minDate"
+    (change)="onDateChange()"
+  />
+</div>
+
+<div class="form-group">
+  <label>{{ 'APPOINTMENT_FORM.AVAILABLE_TIMES_LABEL' | translate }}</label>
+  <div class="time-slots">
+    <div
+      *ngFor="let time of timeSlots"
+      [ngClass]="{
+        'time-slot': true,
+        'booked': isTimeBooked(time),
+        'available': !isTimeBooked(time),
+        'selected': selectedTime === time
+      }"
+      (click)="selectTime(time)"
+    >
+      {{ time }}
+    </div>
+  </div>
+</div>
+
+<button (click)="bookAppointment()" class="btn">
+  {{ 'APPOINTMENT_FORM.BOOK_NOW_BUTTON' | translate }}
+</button>
