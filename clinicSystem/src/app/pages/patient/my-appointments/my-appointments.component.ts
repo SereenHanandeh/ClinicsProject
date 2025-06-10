@@ -6,11 +6,14 @@ import { forkJoin } from 'rxjs';
 import { Doctor } from '../../../core/models/doctor.model';
 import { Clinic } from '../../../core/models/clinic.model';
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-my-appointments',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe,ToastModule],
+  providers: [MessageService],
   templateUrl: './my-appointments.component.html',
   styleUrls: ['./my-appointments.component.scss'],
 })
@@ -25,12 +28,11 @@ export class MyAppointmentsComponent implements OnInit {
 
   constructor(
     private patientService: PatientService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
     this.userId = this.authService.getCurrentUserId();
-    // console.log('Current userId:', this.userId);
 
     if (this.userId != null) {
       forkJoin({

@@ -12,15 +12,11 @@ import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 @Component({
   selector: 'app-patient-dashboard',
   imports: [RouterModule, CommonModule, FormsModule, TranslatePipe],
-  standalone: true,
   templateUrl: './patient-dashboard.component.html',
   styleUrl: './patient-dashboard.component.scss',
 })
 export class PatientDashboardComponent {
   patient: Patient | null = null;
-  appointments: Appointment[] = [];
-  doctors: Doctor[] = [];
-  isLoading = true;
   errorMessage = '';
 
   constructor(
@@ -32,7 +28,6 @@ export class PatientDashboardComponent {
     const patientId = this.authService.getCurrentUserId();
     if (!patientId) {
       this.errorMessage = 'User not logged in.';
-      this.isLoading = false;
       return;
     }
 
@@ -42,57 +37,6 @@ export class PatientDashboardComponent {
       },
       error: () => {
         this.errorMessage = 'Failed to load patient data.';
-        this.isLoading = false;
-      },
-    });
-
-    // جلب الأطباء أولاً
-    this.patientService.getDoctors().subscribe({
-      next: (doctors) => {
-        this.doctors = doctors;
-
-        this.patientService.getMyAppointments(patientId).subscribe({
-          next: (appointments) => {
-            this.appointments = appointments;
-            this.isLoading = false;
-          },
-          error: () => {
-            this.errorMessage = 'Failed to load appointments.';
-            this.isLoading = false;
-          },
-        });
-      },
-      error: () => {
-        this.errorMessage = 'Failed to load doctors.';
-        this.isLoading = false;
-      },
-    });
-  }
-  getDoctorName(doctorId: number): string {
-    // console.log('Looking for doctorId:', doctorId);
-    const doctor = this.doctors.find((d) => d.id === doctorId);
-    if (!doctor) {
-      console.warn('Doctor not found for ID:', doctorId, this.doctors);
-    }
-    return doctor ? doctor.name : 'Unknown Doctor';
-  }
-
-  cancelAppointment(appointmentId: number | string): void {
-    const confirmed = confirm(
-      'Are you sure you want to cancel this appointment?'
-    );
-    if (!confirmed) {
-      return;
-    }
-
-    this.patientService.deleteAppointment(Number(appointmentId)).subscribe({
-      next: () => {
-        this.appointments = this.appointments.filter(
-          (a) => a.id !== appointmentId
-        );
-      },
-      error: (err) => {
-        console.error('Error deleting appointment:', err);
       },
     });
   }
