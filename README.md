@@ -1,185 +1,59 @@
+# ClinicSystem
 
-# 🏥 Medical Appointment System - Full Stack Web Application
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
----
+## Development server
 
-## 📖 Table of Contents
-- [✨ About](#-about)  
-- [👥 Team Members](#-team-members)  
-- [🚀 Features](#-features)  
-- [🖼️ Screenshots](#-screenshots)  
-- [🛠️ Technologies Used](#-technologies-used)  
-- [⚙️ Installation](#-installation)  
-- [📂 Project Structure](#-project-structure)  
-- [🔐 Authentication & Guards](#-authentication--guards)  
-- [🧑‍⚕️ User Roles](#-user-roles)  
-- [💾 API (db.json)](#-api-dbjson)  
-- [🚧 TODO & Improvements](#-todo--improvements)  
+To start a local development server, run:
 
----
-
-## 👥 Team Members
-- **Sereen Hanandeh** – Admin & Doctor  
-- **Raneem Albader** – Patient  
-
----
-
-## ✨ About
-Medical Appointment System is a simple full-stack web application designed to manage medical appointment booking and administration, including management of doctors, clinics, drugs, and diagnoses. It features a multi-role access system with Admin, Doctor, and Patient roles.
-
-The project is built with:
-- Angular (frontend)
-- json-server (Mock Backend API)
-
----
-
-## 🚀 Features
-
-### 👩‍⚕️ Admin Dashboard
-- Add new clinics  
-- Add new doctors and assign them to clinics  
-- Add new drugs and diagnoses  
-- View all clinics, doctors, drugs, and diagnoses  
-- Edit and delete doctors  
-
-### 👨‍⚕️ Doctor Dashboard
-- View personal appointments  
-- Manage patient medical records  
-- View and update doctor profile  
-
-### 🧑‍💻 Patient Dashboard
-- Browse doctors by clinics  
-- Book appointments  
-- View booked appointments  
-- Update personal profile  
-
-### General Features
-- User authentication and registration  
-- Route guards with role-based access control  
-- Token storage in localStorage  
-- Beautiful animated 404 page  
-- Modern, responsive UI design  
-
----
-
-## 🖼️ Screenshots
-
-### 🏠 Home Page
-![image](https://github.com/user-attachments/assets/aba32f71-02a7-417d-bf30-7eb4ed9794f9)
-
-###Login Page
-![image](https://github.com/user-attachments/assets/fd55b45a-64e9-4dd4-a732-5aec5ef31777)
-
-###Register Page
-![image](https://github.com/user-attachments/assets/07d1330c-4e96-43ac-951c-66fcdaa7ed32)
-
-
----
-
-## 🛠️ Technologies Used
-- Angular 17  
-- TypeScript  
-- RxJS  
-- SCSS  
-- json-server  
-
----
-
-## ⚙️ Installation
-
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/your-username/medical-appointment-system.git
-   cd medical-appointment-system
-   ```
-
-2. Install dependencies  
-   ```bash
-   npm install
-   ```
-
-3. Start json-server  
-   ```bash
-   json-server --watch db.json --port 3000
-   ```
-
-4. Run Angular application  
-   ```bash
-   npm start
-   ```
-
----
-
-## 📂 Project Structure
-
-```
-src/
-├── core/
-│   ├── services/
-│   ├── guards/
-├── layouts/
-│   ├── admin-layout/
-│   ├── doctor-layout/
-│   ├── patient-layout/
-├── pages/
-│   ├── admin/
-│   ├── doctor/
-│   ├── patient/
-│   ├── auth/
-│   ├── home/
-│   ├── not-found/
-├── assets/
-│   ├── images/
-│   ├── styles/
-└── environments/
-db.json (Mock API)
+```bash
+ng serve
 ```
 
----
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## 🔐 Authentication & Guards
+## Code scaffolding
 
-- User authentication handled via `AuthService`
-- Token and `userType` stored in `localStorage`
-- Route guards (`authGuard`) verify token presence and enforce role-based access:
-  - If `userType === 'admin'` → redirect to `/admin/dashboard`
-  - If `userType === 'doctor'` → redirect to `/doctor/dashboard`
-  - If `userType === 'patient'` → redirect to `/patient/dashboard`
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
----
-
-## 🧑‍⚕️ User Roles
-
-| Role    | Permissions                        |
-|---------|----------------------------------|
-| Admin   | Full system management            |
-| Doctor  | Manage own profile & appointments |
-| Patient | Book appointments & manage profile |
-
----
-
-## 💾 API (db.json)
-
-```json
-{
-  "users": [],
-  "appointments": [],
-  "clinics": [],
-  "doctors": [],
-  "drugs": [],
-  "diagnoses": []
-}
+```bash
+ng generate component component-name
 ```
 
----
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-## 🚧 TODO & Improvements
-- ✅ Add pagination for data lists  
-- ✅ Improve mobile responsiveness  
-- ✅ Enhance appointment booking user experience  
-- ✅ Use Lottie animation for 404 page  
-- ✅ Optimize performance with Lazy Loading  
+```bash
+ng generate --help
+```
 
----
+## Building
 
-✨ Developed with ❤️ by Sereen Hanandeh  
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
