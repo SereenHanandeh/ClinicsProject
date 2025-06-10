@@ -1,1 +1,75 @@
-/*edit*/
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* لوحة الترحيب */
+.welcome-box {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 80%;
+  max-width: 600px;
+  transition: all 0.4s ease;
+}
+
+/* تأثير عند المرور */
+.welcome-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* نص الترحيب بالإنجليزية */
+.welcome-text {
+  color: #00796b;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* نص الترحيب بالعربية */
+.arabic-text {
+  font-family: "Tajawal", sans-serif;
+  font-size: 1.8rem;
+  color: #00695c;
+  margin-top: 25px;
+  font-weight: 500;
+}
+
+/* الخط الفاصل */
+.divider {
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00796b, transparent);
+  margin: 25px auto;
+}
+
+/* أيقونة الطبيب */
+.doctor-icon {
+  font-size: 3.5rem;
+  color: #00796b;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+/* تأثير النبض للأيقونة */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

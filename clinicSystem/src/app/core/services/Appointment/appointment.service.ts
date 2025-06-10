@@ -11,16 +11,17 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
- getDoctorAppointments(): Observable<Appointment[]> {
-  const user = localStorage.getItem('currentUser');
-  if (!user) {
-    throw new Error('Doctor ID not found in localStorage.');
+  getDoctorAppointments(): Observable<Appointment[]> {
+    const user = localStorage.getItem('currentUser');
+    if (!user) {
+      throw new Error('Doctor ID not found in localStorage.');
+    }
+
+    const doctorId = JSON.parse(user).id;
+    return this.http.get<Appointment[]>(
+      `${this.baseUrl}/appointments?doctorId=${doctorId}`
+    );
   }
-
-  const doctorId = JSON.parse(user).id;
-  return this.http.get<Appointment[]>(`${this.baseUrl}/appointments?doctorId=${doctorId}`);
-}
-
 
   getAppointmentsByDoctor(doctorId: number): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(
@@ -37,10 +38,15 @@ export class AppointmentService {
     });
   }
 
-  updateAppointmentStatus(id: number, data: Partial<Appointment>): Observable<Appointment> {
-  return this.http.patch<Appointment>(`${this.baseUrl}/appointments/${id}`, data);
-}
-
+  updateAppointmentStatus(
+    id: number,
+    data: Partial<Appointment>
+  ): Observable<Appointment> {
+    return this.http.patch<Appointment>(
+      `${this.baseUrl}/appointments/${id}`,
+      data
+    );
+  }
 
   getPatients(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/patients`);

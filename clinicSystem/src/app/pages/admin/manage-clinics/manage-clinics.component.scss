@@ -1,172 +1,138 @@
-.container {
-  max-width: 1000px;
+.manage-clinics-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: sans-serif;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-
-  color: #2cb48f;
-}
-
-.form {
+.clinic-form {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
-  justify-content: center;
-}
-//iji
-.form input {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  flex: 1 1 250px;
-}
-
-.form button {
-  background-color: #2cb48f;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form button:hover {
-  background-color: #2cb48f;
+  
+  .form-group {
+    flex: 1 1 300px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end;
+    
+    &:hover {
+      background-color: #45a049;
+    }
+  }
 }
 
 .clinic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
 .clinic-card {
-  background-color: #f9fafb;
-  padding: 1rem;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.clinic-card:hover {
-  transform: scale(1.02);
-}
-
-.clinic-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 0.75rem;
-}
-
-.clinic-card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.clinic-card button {
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.clinic-card button:hover {
-  background-color: #dc2626;
-}
-
-@media (max-width: 600px) {
-  .form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .form input,
-  .form button {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .clinic-image-container {
     width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    
+    .clinic-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+  
+  .clinic-name {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #d32f2f;
+    }
   }
 }
 
-
-.container {
+.no-clinics-message {
+  text-align: center;
   padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+/* تصميم toast */
+.p-toast {
+  font-family: 'Cairo', sans-serif; /* خط أنيق */
+}
 
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 24px;
-    color: #333;
+.p-toast .p-toast-message {
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  font-size: 1rem;
+  animation: fadeInUp 0.5s ease;
+}
+
+.p-toast .p-toast-message-success {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #fff;
+  border-left: 5px solid #2196f3;
+}
+
+.p-toast .p-toast-message-error {
+  background: linear-gradient(to right, #ff6a6a, #ff0000);
+  color: #fff;
+  border-left: 5px solid #f44336;
+}
+
+.p-toast .p-toast-summary {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.p-toast .p-toast-detail {
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-
-  .form {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-
-    input {
-      padding: 0.5rem;
-      width: 200px;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      background-color: #2cb48f;
-      color: white;
-      border: none;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #2cb4909c;
-      }
-    }
-  }
-
-  .clinic-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    .clinic-card {
-      width: 250px;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      text-align: center;
-
-      img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 4px;
-      }
-
-      h3 {
-        margin: 0.5rem 0;
-      }
-
-      button {
-        background-color: #e53935;
-        color: white;
-        border: none;
-        padding: 0.3rem 0.6rem;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #b71c1c;
-        }
-      }
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

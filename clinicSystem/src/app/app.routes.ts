@@ -12,17 +12,16 @@ import { BookAppointmentComponent } from './pages/patient/book-appointment/book-
 import { MyAppointmentsComponent } from './pages/patient/my-appointments/my-appointments.component';
 import { DoctorDashboardComponent } from './pages/doctor/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/patient/profile/profile.component';
-import { DocProfileComponent } from './pages/doctor/doc-profile/doc-profile.component';
 import { ManageDoctorsComponent } from './pages/admin/manage-doctors/manage-doctors.component';
 import { ManageClinicsComponent } from './pages/admin/manage-clinics/manage-clinics.component';
 import { ManageDrugsComponent } from './pages/admin/manage-drugs/manage-drugs.component';
 import { ManageDiagnosesComponent } from './pages/admin/manage-diagnoses/manage-diagnoses.component';
 import { AddDoctorComponent } from './pages/admin/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './pages/admin/edit-doctor/edit-doctor.component';
-import { WelcomComponent } from './welcom/welcom.component';
 import { roleGuard } from './core/guards/Auth/auth.guard';
 import { PatientDashboardComponent } from './pages/patient/patient-dashboard/patient-dashboard.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { DocProfileComponent } from './pages/doctor/doc-profile/doc-profile.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

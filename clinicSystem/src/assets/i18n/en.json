@@ -1,4 +1,17 @@
 {
+  "LOGIN_FORM": {
+    "login": "Login",
+    "email": "Email",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Please enter a valid email.",
+    "password": "Password",
+    "passwordRequired": "Password is required.",
+    "passwordMinLength": "At least 6 characters.",
+    "loginButton": "Login",
+    "noAccount": "You don't have an account?",
+    "register": "Register",
+    "togglePasswordVisibility": "Toggle password visibility"
+  },
   "ADMIN_DASHBOARD": {
     "TITLE": "Admin Dashboard",
     "HOME": "Home",
@@ -102,5 +115,33 @@
   },
   "Footer": {
     "COPYRIGHT": "All rights reserved."
+  },
+  "REGISTER": {
+    "TITLE": "Register New Account",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone Number",
+    "GENDER": "Gender",
+    "GENDER_PLACEHOLDER": "Select gender",
+    "GENDER_MALE": "Male",
+    "GENDER_FEMALE": "Female",
+    "DATE_OF_BIRTH": "Date of Birth",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "BUTTON": "Register",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "LOGIN": "Login",
+    "ERRORS": {
+      "NAME_REQUIRED": "Name is required.",
+      "NAME_MINLENGTH": "Minimum 3 characters.",
+      "EMAIL_REQUIRED": "Email is required.",
+      "EMAIL_INVALID": "Invalid email format.",
+      "PHONE_REQUIRED": "Phone is required.",
+      "PHONE_PATTERN": "Must be 10 digits (e.g. 079 123 4567).",
+      "DATE_OF_BIRTH_REQUIRED": "Date of Birth is required.",
+      "PASSWORD_REQUIRED": "Password is required.",
+      " PASSWORD_PATTERN": "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.",
+      "PASSWORD_MISMATCH": "Passwords do not match."
+    }
   }
 }

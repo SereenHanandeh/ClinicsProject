@@ -5,7 +5,7 @@ import { AuthService } from '../../../core/services/Auth/auth.service';
 import { forkJoin } from 'rxjs';
 import { Doctor } from '../../../core/models/doctor.model';
 import { Clinic } from '../../../core/models/clinic.model';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 
 @Component({
   selector: 'app-my-appointments',

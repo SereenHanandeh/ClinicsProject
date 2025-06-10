@@ -7,11 +7,12 @@ import { PatientService } from '../../../core/services/Patient/patient.service';
 import { AuthService } from '../../../core/services/Auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 
 @Component({
   selector: 'app-patient-dashboard',
   imports: [RouterModule, CommonModule, FormsModule, TranslatePipe],
+  standalone: true,
   templateUrl: './patient-dashboard.component.html',
   styleUrl: './patient-dashboard.component.scss',
 })
@@ -50,7 +51,6 @@ export class PatientDashboardComponent {
       next: (doctors) => {
         this.doctors = doctors;
 
-        // ثم جلب المواعيد بعد تحميل الأطباء
         this.patientService.getMyAppointments(patientId).subscribe({
           next: (appointments) => {
             this.appointments = appointments;
@@ -77,17 +77,16 @@ export class PatientDashboardComponent {
     return doctor ? doctor.name : 'Unknown Doctor';
   }
 
-  cancelAppointment(appointmentId: number): void {
+  cancelAppointment(appointmentId: number | string): void {
     const confirmed = confirm(
       'Are you sure you want to cancel this appointment?'
     );
     if (!confirmed) {
-      return; 
+      return;
     }
 
     this.patientService.deleteAppointment(Number(appointmentId)).subscribe({
       next: () => {
-        // console.log('Appointment deleted successfully');
         this.appointments = this.appointments.filter(
           (a) => a.id !== appointmentId
         );

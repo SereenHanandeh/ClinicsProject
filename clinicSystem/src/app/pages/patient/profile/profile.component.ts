@@ -13,6 +13,7 @@ import { TranslatePipe } from "../../../shared/pips/translate.pipe";
 
 @Component({
   selector: 'app-profile',
+  standalone:true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule, TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],

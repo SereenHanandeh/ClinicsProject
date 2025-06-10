@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TranslateModule],
+  imports: [RouterOutlet, TranslateModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
