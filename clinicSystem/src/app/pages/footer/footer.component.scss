@@ -1,4 +1,47 @@
+
+/* تصميم الفوتر */
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+  z-index: 100;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* الروابط النشطة */
+.footer a.active-lang {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: #212529;
+  transition: all 0.3s ease;
+}
+
+/* الروابط غير النشطة */
+.footer a.inactive-lang {
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a.inactive-lang:hover {
+  color: #343a40;
+  text-decoration: underline;
+}
+
+/* الأيقونة */
+.footer i {
+  color: #ffc107;
+  margin: 0 15px;
+=======
   background-color: #222;        /* خلفية داكنة */
   padding: 15px 30px;
   display: flex;

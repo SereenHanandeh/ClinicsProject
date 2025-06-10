@@ -6,19 +6,21 @@ import {
   ApprovalStatus,
 } from '../../../core/models/appointment.model';
 import { AppointmentService } from '../../../core/services/Appointment/appointment.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { I18nService } from '../../../core/services/i18n/i18n.service';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ToastModule],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
+  providers: [MessageService],
 })
 export class AppointmentsComponent implements OnInit {
   appointments: Appointment[] = [];
   selectedAppointment?: Appointment;
-  errorMessage: string = '';
-  successMessage: string = '';
   detailsVisible: boolean = false;
 
   filterForm = new FormGroup({
@@ -31,25 +33,31 @@ export class AppointmentsComponent implements OnInit {
     payment: new FormControl(''),
   });
 
-  constructor(private appointmentService: AppointmentService) {}
+  constructor(
+    private appointmentService: AppointmentService,
+    private messageService: MessageService,
+    private i18nService: I18nService
+  ) {}
 
   ngOnInit(): void {
     this.loadAppointments();
   }
 
   loadAppointments(): void {
-  this.appointmentService.getDoctorAppointments().subscribe({
-    next: (appointments) => {
-      // console.log('Loaded appointments:', appointments);
-      this.appointments = appointments;
-    },
-    error: (err) => {
-      console.error(err);
-      this.errorMessage = 'Failed to load appointments.';
-    },
-  });
-}
-
+    this.appointmentService.getDoctorAppointments().subscribe({
+      next: (appointments) => {
+        this.appointments = appointments;
+      },
+      error: (err) => {
+        console.error(err);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load appointments.',
+        });
+      },
+    });
+  }
 
   get filteredAppointments(): Appointment[] {
     const filterValue = this.filterForm.value.name?.toLowerCase() || '';
@@ -60,8 +68,6 @@ export class AppointmentsComponent implements OnInit {
 
   selectAppointment(appointment: Appointment): void {
     this.selectedAppointment = appointment;
-    this.successMessage = '';
-    this.errorMessage = '';
 
     this.detailsForm.patchValue({
       diagnosis: appointment.details?.diagnosis || '',
@@ -83,7 +89,11 @@ export class AppointmentsComponent implements OnInit {
 
   updateDetails(): void {
     if (!this.selectedAppointment) {
-      this.errorMessage = 'No appointment selected.';
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'No appointment selected.',
+      });
       return;
     }
 
@@ -99,24 +109,36 @@ export class AppointmentsComponent implements OnInit {
       details: updatedDetails,
     };
 
-   const appointmentId = this.selectedAppointment.id;
+    const appointmentId = this.selectedAppointment.id;
 
     this.appointmentService
       .updateAppointmentStatus(appointmentId, updatedData)
       .subscribe({
         next: () => {
-          this.successMessage = 'Details updated successfully.';
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Details updated successfully.',
+          });
           this.selectedAppointment!.details = updatedDetails;
         },
         error: () => {
-          this.errorMessage = 'Failed to update details.';
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to update details.',
+          });
         },
       });
   }
 
   respond(status: ApprovalStatus): void {
     if (!this.selectedAppointment) {
-      this.errorMessage = 'No appointment selected.';
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'No appointment selected.',
+      });
       return;
     }
 
@@ -124,17 +146,25 @@ export class AppointmentsComponent implements OnInit {
       status,
     };
 
-const appointmentId = this.selectedAppointment.id;
+    const appointmentId = this.selectedAppointment.id;
 
     this.appointmentService
       .updateAppointmentStatus(appointmentId, updatedData)
       .subscribe({
         next: () => {
-          this.successMessage = `Appointment ${status}`;
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: `Appointment ${status}.`,
+          });
           this.selectedAppointment!.status = status;
         },
         error: () => {
-          this.errorMessage = 'Failed to update appointment status.';
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to update appointment status.',
+          });
         },
       });
   }

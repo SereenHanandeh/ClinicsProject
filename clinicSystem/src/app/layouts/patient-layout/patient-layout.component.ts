@@ -7,19 +7,20 @@ import {
   TranslateModule,
   TranslateService,
 } from '@ngx-translate/core';
+import { MessageService } from 'primeng/api';
+import { I18nService } from '../../core/services/i18n/i18n.service';
 
 @Component({
   selector: 'app-patient-layout',
-  imports: [RouterModule, TranslatePipe, FooterComponent, TranslateModule],
+  imports: [RouterModule, TranslatePipe, RouterModule, TranslatePipe],
+  providers: [MessageService],
+
   templateUrl: './patient-layout.component.html',
   styleUrl: './patient-layout.component.scss',
 })
 export class PatientLayoutComponent {
-  private translate = inject(TranslateService);
-
-  switchLanguage(lang: string) {
-    this.translate.use(lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  }
+  constructor(
+    private messageService: MessageService,
+    private i18nService: I18nService
+  ) {}
 }

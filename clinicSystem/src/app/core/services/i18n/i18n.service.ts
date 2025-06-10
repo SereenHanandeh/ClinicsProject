@@ -1,69 +1,52 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class I18nService {
+  translations: Record<string, string> | null = null;
   currentLanguage: 'en' | 'ar' = 'en';
-  translations: Record<string, any> | null = null;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  async loadTranslations(lang: 'en' | 'ar') {
-    if (this.translations && this.currentLanguage === lang) {
-      return this.translations;
-    }
-
+  async loadTranslations(lang: 'en' | 'ar'): Promise<boolean> {
     try {
-      const translationsFile = `assets/i18n/${lang}.json`;
-
-      // console.log(`Loading translations from: ${translationsFile}`);
-
-
-      this.translations = await firstValueFrom(
-        this.httpClient.get<Record<string, any>>(translationsFile)
+      const res = await firstValueFrom(
+        this.http.get<Record<string, string>>(`assets/i18n/${lang}.json`)
       );
-
-      // console.log('Loaded translations:', this.translations);
-
+      console.log('Loaded translations:', res);
+      this.translations = res;
       this.currentLanguage = lang;
-      localStorage.setItem('language', lang);
+      localStorage.setItem('lang', 'en');
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-      return this.translations;
-    } catch (error) {
-      console.error(`Failed to load translations for ${lang}:`, error);
-      return null;
+      return true;
+    } catch {
+      return false;
     }
   }
 
-  setLanguage(language: 'en' | 'ar') {
-    this.currentLanguage = language;
-    localStorage.setItem('language', language);
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+t(key: string, params?: Record<string, any>): string {
+  if (!this.translations) return key;
+  const keys = key.split('.');
+  let value: unknown = this.translations;
+  for (const k of keys) {
+    if (typeof value === 'object' && value !== null && k in value) {
+      value = (value as Record<string, unknown>)[k];
+    } else {
+      return key;
+    }
   }
 
-  getLanguage() {
+  if (typeof value === 'string' && params) {
+    return value.replace(/\{\{(.*?)\}\}/g, (_, p) => params[p.trim()] ?? '');
+  }
+
+  return typeof value === 'string' ? value : key;
+}
+
+  getLanguage(): 'en' | 'ar' {
     return this.currentLanguage;
-  }
-
-  t(key: string): string {
-    if (!this.translations) {
-      return key; // لو الترجمة غير محملة ارجع المفتاح نفسه
-    }
-
-    const keys = key.split('.');
-    let value: any = this.translations;
-
-    for (const k of keys) {
-      value = value?.[k];
-      if (value === undefined || value === null) {
-        return key; // لو المفتاح غير موجود ارجع المفتاح نفسه
-      }
-    }
-
-    return value;
   }
 }

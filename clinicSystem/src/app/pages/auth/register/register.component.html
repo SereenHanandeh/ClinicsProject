@@ -1,3 +1,5 @@
+<p-toast></p-toast>
+
 <div class="login-container-split">
   <div class="login-logo-section">
     <img src="assets/logo.png" alt="Logo" />
@@ -174,11 +176,6 @@
       <div class="have-account">
         {{ "REGISTER.ALREADY_HAVE_ACCOUNT" | translate }}
         <a routerLink="/login">{{ "REGISTER.LOGIN" | translate }}</a>
-      </div>
-
-      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-      <div class="success-message" *ngIf="successMessage">
-        {{ successMessage }}
       </div>
     </form>
   </div>

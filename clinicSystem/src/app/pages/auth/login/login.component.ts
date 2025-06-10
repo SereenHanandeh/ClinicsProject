@@ -6,12 +6,15 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/Auth/auth.service';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
-import { FooterComponent } from '../../footer/footer.component';
+
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 import { I18nService } from '../../../core/services/i18n/i18n.service';
+import { filter, take } from 'rxjs';
+
 
 @Component({
   standalone: true,
@@ -21,7 +24,11 @@ import { I18nService } from '../../../core/services/i18n/i18n.service';
     ReactiveFormsModule,
     RouterModule,
     TranslatePipe,
-    FooterComponent,
+
+    ToastModule,
+  ],
+  providers: [MessageService],
+
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -31,14 +38,15 @@ export class LoginComponent {
 
   logoPath = 'assets/logo.png';
   loginForm: FormGroup;
-  errorMessage: string = '';
   hidePassword: boolean = true;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private i18n: I18nService
+    private messageService: MessageService,
+    private i18nService: I18nService
+
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -53,12 +61,12 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password');
   }
+
   onSubmit(): void {
     const { email, password } = this.loginForm.value;
 
     this.authService.login(email, password).subscribe({
       next: (user) => {
-        // console.log('Login successful:', user);
         const loginKey = `hasLoggedInBefore_${email}`;
         const isFirstLogin = !localStorage.getItem(loginKey);
 
@@ -67,14 +75,34 @@ export class LoginComponent {
         if (isFirstLogin) {
           localStorage.setItem(loginKey, 'true');
           this.router.navigate(['/welcome-page']).then(() => {
-            // console.log('Navigated to welcome-page');
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Welcome',
+              detail: 'First time login successful!',
+            });
           });
         } else {
           this.redirectUser(user.userType);
+          this.router.events
+            .pipe(
+              filter((event) => event instanceof NavigationEnd),
+              take(1)
+            )
+            .subscribe(() => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Login Successful',
+                detail: `Welcome back, ${user.name || 'User'}!`,
+              });
+            });
         }
       },
       error: () => {
-        this.errorMessage = 'Invalid email or password';
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Login Failed',
+          detail: 'Invalid email or password',
+        });
       },
     });
   }
@@ -92,6 +120,7 @@ export class LoginComponent {
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
   }
+د
 
   switchLang(lang: 'en' | 'ar') {
     console.log(lang);
@@ -99,4 +128,5 @@ export class LoginComponent {
     this.i18n.setLanguage(lang);
     this.currentLang = lang;
   }
+
 }

@@ -24,7 +24,7 @@ export class HomeComponent {
   switchLang(lang: 'en' | 'ar') {
     console.log(lang);
     this.i18n.loadTranslations(lang);
-    this.i18n.setLanguage(lang);
+    this.i18n.getLanguage();
     this.currentLang = lang;
   }
 }
