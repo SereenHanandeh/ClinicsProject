@@ -37,7 +37,6 @@ export class AppointmentService {
       details,
     });
   }
-
   updateAppointmentStatus(
     id: number,
     data: Partial<Appointment>
