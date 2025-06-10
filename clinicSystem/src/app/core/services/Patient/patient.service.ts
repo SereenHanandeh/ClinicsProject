@@ -15,7 +15,6 @@ export class PatientService {
   constructor(private http: HttpClient) {}
 
   getDoctors(): Observable<Doctor[]> {
-    // نحدد أن هذه الدالة ترجع مصفوفة أطباء
     return this.http.get<Doctor[]>(`${this.baseUrl}/doctors`);
   }
 
@@ -32,16 +31,23 @@ export class PatientService {
   }
 
   createAppointment(data: Partial<Appointment>): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.baseUrl}/appointments`, data);
+    const { id, ...appointmentData } = data;
+    return this.http.post<Appointment>(
+      `${this.baseUrl}/appointments`,
+      appointmentData
+    );
   }
 
   getDoctorById(id: number): Observable<Doctor> {
     return this.http.get<Doctor>(`${this.baseUrl}/doctors/${id}`);
   }
 
-  bookAppointment(data: Partial<Appointment>): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.baseUrl}/appointments`, data);
-  }
+ bookAppointment(data: Partial<Appointment>): Observable<Appointment> {
+  const shortId = new Date().getTime() % 10000; 
+  const appointmentData = { ...data, id: shortId };
+  
+  return this.http.post<Appointment>(`${this.baseUrl}/appointments`, appointmentData);
+}
 
   getMyAppointments(patientId: number): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(

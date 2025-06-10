@@ -1,20 +1,6 @@
-<div *ngIf="isLoading">{{ 'PATIENT_DASHBOARD_CUSTOM.LOADING' | translate }}</div>
-<div *ngIf="errorMessage" class="error">{{ 'PATIENT_DASHBOARD_CUSTOM.ERROR' | translate }}: {{ errorMessage }}</div>
-
-<div *ngIf="patient && !isLoading">
-  <h2>{{ 'PATIENT_DASHBOARD_CUSTOM.WELCOME' | translate }} {{ patient.name }}</h2>
-
-  <h3>{{ 'PATIENT_DASHBOARD_CUSTOM.MY_APPOINTMENTS' | translate }}</h3>
-  <div *ngIf="appointments.length === 0">{{ 'PATIENT_DASHBOARD_CUSTOM.NO_APPOINTMENTS' | translate }}</div>
-
-  <ul>
-    <li *ngFor="let appointment of appointments">
-      <strong>{{ 'PATIENT_DASHBOARD_CUSTOM.DOCTOR_LABEL' | translate }}</strong> {{ getDoctorName(appointment.doctorId) }} |
-      <strong>{{ 'PATIENT_DASHBOARD_CUSTOM.DATE_LABEL' | translate }}</strong> {{ appointment.date }} |
-
-      <button (click)="cancelAppointment(appointment.id)">
-        {{ 'PATIENT_DASHBOARD_CUSTOM.CANCEL_BUTTON' | translate }}
-      </button>
-    </li>
-  </ul>
+<div class="welcome-container">
+  <h2 class="welcome-message">
+    {{ "PATIENT_DASHBOARD_CUSTOM.WELCOME" | translate }}
+  </h2>
+  <h1 class="patient-name">{{ patient?.name }}</h1>
 </div>

@@ -1,4 +1,17 @@
 {
+  "LOGIN_FORM": {
+    "login": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "emailRequired": "البريد الإلكتروني مطلوب.",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح.",
+    "password": "كلمة المرور",
+    "passwordRequired": "كلمة المرور مطلوبة.",
+    "passwordMinLength": "على الأقل 6 أحرف.",
+    "loginButton": "تسجيل الدخول",
+    "noAccount": "ليس لديك حساب؟",
+    "register": "سجل الآن",
+    "togglePasswordVisibility": "تبديل إظهار كلمة المرور"
+  },
   "ADMIN_DASHBOARD": {
     "TITLE": "لوحة تحكم المشرف",
     "HOME": "الرئيسية",
@@ -239,7 +252,7 @@
     "DOB_LABEL": "تاريخ الميلاد:",
     "DOB_ERROR": "يرجى إدخال تاريخ الميلاد",
     "UPDATE_BUTTON": "تحديث"
-
+  },
   "Nav": {
     "HOME": "الرئيسية",
     "ABOUT": "من نحن",

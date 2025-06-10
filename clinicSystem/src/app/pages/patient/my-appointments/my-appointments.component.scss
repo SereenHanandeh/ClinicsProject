@@ -1,84 +1,101 @@
-.appointments-container {
-  max-width: 900px;
-  margin: 6px auto;
-  padding: 10px;
-}
-
-h1 {
-
-  text-align: center;
-}
 .section-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
   text-align: center;
+color: #27ae60;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  user-select: none;
+}
 
-  color: #2cb48f;
-
+.appointments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 2rem auto;
 }
 
 .appointments-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 }
-/*edit*/
 
 .appointment-item {
-  background-color: #f9fdfc;
-  border: 1px solid #dfeeea;
-
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: 0.3s ease;
+  background-color: #ffffff;
+  border-left: 8px solid #4e73df;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
 .appointment-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12),
-    0 6px 10px rgba(69, 212, 174, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-left-color: #2d9cdb;
+  background-color: #f4faff;
 }
 
 .appointment-info {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: #34495e;
-  margin-bottom: 10px;
+  margin-bottom: 0.4rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .doctor-name {
-  color: #2cb48f;
+  color: #2d9cdb;
+  font-weight: 700;
 }
 
 .clinic-name {
-  color: #7f8c8d;
+  color: #8e44ad;
+  font-style: italic;
 }
 
 .appointment-datetime {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #555;
   line-height: 1.6;
+  font-family: "Roboto", sans-serif;
 }
 
 .no-appointments-msg {
-  text-align: center;
   font-size: 1.2rem;
-  color: #999;
-  margin-top: 40px;
+  color: #888;
+  text-align: center;
+  margin-top: 3rem;
+  font-style: italic;
 }
 
-.cancel-btn {
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #f8d7da;
-  color: #a94442;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: 0.2s ease;
-}
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .appointments-container {
+    padding: 1.5rem 1rem;
+  }
 
-.cancel-btn:hover {
-  background-color: #f5c6cb;
+  .appointment-item {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .appointment-info {
+    font-size: 1rem;
+  }
+
+  .appointment-datetime {
+    font-size: 0.9rem;
+  }
 }

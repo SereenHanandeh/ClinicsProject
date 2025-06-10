@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ClinicService } from '../../../core/services/Clinic/clinic.service';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 
 @Component({
   selector: 'app-doctor-list',

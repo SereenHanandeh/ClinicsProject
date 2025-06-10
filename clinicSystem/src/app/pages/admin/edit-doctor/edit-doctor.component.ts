@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { ClinicService } from '../../../core/services/Clinic/clinic.service';
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-doctor',
@@ -23,15 +24,14 @@ import { ToastModule } from 'primeng/toast';
     TranslatePipe,
     ToastModule,
   ],
+  providers: [MessageService],
   templateUrl: './edit-doctor.component.html',
   styleUrl: './edit-doctor.component.scss',
 })
 export class EditDoctorComponent {
   doctorForm: FormGroup;
   loading = false;
-  errorMessage = '';
   doctorId!: number;
-
   clinics: any[] = [];
 
   constructor(
@@ -39,7 +39,8 @@ export class EditDoctorComponent {
     private router: Router,
     private doctorService: DoctorService,
     private clinicService: ClinicService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private messageService: MessageService
   ) {
     this.doctorForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -59,7 +60,13 @@ export class EditDoctorComponent {
   loadClinics() {
     this.clinicService.getClinics().subscribe({
       next: (data) => (this.clinics = data),
-      error: () => (this.errorMessage = 'فشل في جلب قائمة العيادات'),
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load clinics.',
+        });
+      },
     });
   }
 
@@ -77,7 +84,11 @@ export class EditDoctorComponent {
         this.loading = false;
       },
       error: () => {
-        this.errorMessage = 'حدث خطأ في تحميل بيانات الطبيب';
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load doctor data.',
+        });
         this.loading = false;
       },
     });
@@ -97,12 +108,21 @@ export class EditDoctorComponent {
       .updateDoctor(this.doctorId, this.doctorForm.value)
       .subscribe({
         next: () => {
-          alert('تم تحديث بيانات الطبيب بنجاح');
+          this.loading = false;
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Doctor updated successfully.',
+          });
           this.router.navigate(['/admin/manageDoctor']);
         },
         error: () => {
-          this.errorMessage = 'حدث خطأ أثناء تحديث بيانات الطبيب';
           this.loading = false;
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to update doctor data.',
+          });
         },
       });
   }

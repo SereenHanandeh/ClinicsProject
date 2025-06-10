@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Doctor } from '../../../core/models/doctor.model';
 import { DoctorService } from '../../../core/services/Doctor/doctor.service';
-import {  Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -10,23 +10,30 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-manage-doctors',
-  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule, TranslatePipe],
+  imports: [
+    RouterModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    TranslatePipe,
+    ToastModule,
+  ],
+  providers: [MessageService],
   templateUrl: './manage-doctors.component.html',
   styleUrl: './manage-doctors.component.scss',
 })
 export class ManageDoctorsComponent {
-   doctors: Doctor[] = [];
+  doctors: Doctor[] = [];
   loading = false;
   errorMessage = '';
 
-  constructor(
-    private doctorService: DoctorService,
-    private router: Router
-  ) {}
+  constructor(private doctorService: DoctorService, private router: Router, private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.loadAllDoctors();
@@ -65,7 +72,6 @@ export class ManageDoctorsComponent {
   }
 
   goToAddDoctor() {
-  this.router.navigate(['/admin/addDoctor']);
-}
-
+    this.router.navigate(['/admin/addDoctor']);
+  }
 }

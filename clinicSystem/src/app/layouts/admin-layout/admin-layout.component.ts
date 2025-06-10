@@ -1,21 +1,33 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from '../../shared/pips/translate.pipe';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { FooterComponent } from "../../pages/footer/footer.component";
+import { FooterComponent } from '../../pages/footer/footer.component';
+import { AuthService } from '../../core/services/Auth/auth.service';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-admin-layout',
-  imports: [RouterModule, TranslatePipe, FooterComponent,TranslateModule],
+  imports: [RouterModule, TranslatePipe, FooterComponent, ToastModule],
+  providers: [MessageService],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.scss',
 })
 export class AdminLayoutComponent {
-  private translate = inject(TranslateService);
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
-  switchLanguage(lang: string) {
-    this.translate.use(lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  logout() {
+    this.authService.logout();
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'You have been logged out successfully',
+    });
+    this.router.navigate(['/']);
   }
 }

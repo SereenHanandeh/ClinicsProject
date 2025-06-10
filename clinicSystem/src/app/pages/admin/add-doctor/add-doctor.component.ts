@@ -63,7 +63,6 @@ export class AddDoctorComponent {
       return;
     }
 
-    // تحقق من تكرار الايميل
     const email = this.doctorForm.value.email;
     const emailExists = this.doctors.some((doc) => doc.email === email);
 

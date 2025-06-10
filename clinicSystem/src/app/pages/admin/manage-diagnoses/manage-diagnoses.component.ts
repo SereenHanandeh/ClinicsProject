@@ -5,11 +5,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-manage-diagnoses',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
+  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe, ToastModule],
+  providers: [MessageService],
   templateUrl: './manage-diagnoses.component.html',
   styleUrls: ['./manage-diagnoses.component.scss']
 })
@@ -19,29 +22,53 @@ export class ManageDiagnosesComponent {
   editDiagnosisId: number | null = null;
   editName: string = '';
 
-  // بحث
+  // Search
   showSearch: boolean = true;
   searchTerm: string = '';
 
-  // صفحات
+  // Pagination
   currentPage: number = 1;
   itemsPerPage: number = 10;
 
-  constructor(private diagnosisService: DiagnosisService) {}
+  constructor(
+    private diagnosisService: DiagnosisService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.loadDiagnoses();
   }
 
   loadDiagnoses(): void {
-    this.diagnosisService.getAll().subscribe(data => {
-      this.diagnoses = data;
-      this.currentPage = 1; // رجع للصفحة الأولى عند تحميل البيانات
+    this.diagnosisService.getAll().subscribe({
+      next: (data) => {
+        this.diagnoses = data;
+        this.currentPage = 1;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Diagnoses loaded successfully'
+        });
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load diagnoses'
+        });
+      }
     });
   }
 
   addDiagnosis(): void {
-    if (!this.newDiagnosis.name.trim()) return;
+    if (!this.newDiagnosis.name.trim()) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Warning',
+        detail: 'Please enter a diagnosis name'
+      });
+      return;
+    }
 
     const maxId = this.diagnoses.length > 0 ? Math.max(...this.diagnoses.map(d => d.id)) : 0;
     const diagnosisToAdd: Diagnosis = {
@@ -49,20 +76,65 @@ export class ManageDiagnosesComponent {
       name: this.newDiagnosis.name.trim()
     };
 
-    this.diagnosisService.add(diagnosisToAdd).subscribe(d => {
-      this.diagnoses.push(d);
-      this.newDiagnosis = { id: 0, name: '' };
-      this.currentPage = this.totalPages; // إذا أضفنا عنصر جديد، نروح آخر صفحة تلقائياً
+    this.diagnosisService.add(diagnosisToAdd).subscribe({
+      next: (d) => {
+        this.diagnoses.push(d);
+        this.newDiagnosis = { id: 0, name: '' };
+        this.currentPage = this.totalPages;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Diagnosis added successfully'
+        });
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to add diagnosis'
+        });
+      }
     });
   }
 
   deleteDiagnosis(id: number): void {
-    this.diagnosisService.delete(id).subscribe(() => {
-      this.diagnoses = this.diagnoses.filter(d => d.id !== id);
-      if (this.currentPage > this.totalPages) {
-        this.currentPage = this.totalPages; // ضبط الصفحة لو حذفنا آخر عنصر في الصفحة
+    this.messageService.add({
+      key: 'confirm',
+      severity: 'warn',
+      summary: 'Confirm Delete',
+      detail: 'Are you sure you want to delete this diagnosis?',
+      sticky: true,
+      life: 3000,
+      data: { id }
+    });
+  }
+
+  onConfirmDelete(id: number): void {
+    this.diagnosisService.delete(id).subscribe({
+      next: () => {
+        this.diagnoses = this.diagnoses.filter(d => d.id !== id);
+        if (this.currentPage > this.totalPages) {
+          this.currentPage = this.totalPages;
+        }
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Diagnosis deleted successfully'
+        });
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to delete diagnosis'
+        });
       }
     });
+    this.messageService.clear('confirm');
+  }
+
+  onRejectDelete(): void {
+    this.messageService.clear('confirm');
   }
 
   startEdit(diagnosis: Diagnosis): void {
@@ -72,11 +144,35 @@ export class ManageDiagnosesComponent {
 
   saveEdit(): void {
     if (this.editDiagnosisId === null) return;
+    
+    if (!this.editName.trim()) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Warning',
+        detail: 'Please enter a diagnosis name'
+      });
+      return;
+    }
+
     const updated: Diagnosis = { id: this.editDiagnosisId, name: this.editName.trim() };
-    this.diagnosisService.update(updated.id, updated).subscribe(() => {
-      const index = this.diagnoses.findIndex(d => d.id === updated.id);
-      if (index !== -1) this.diagnoses[index] = updated;
-      this.cancelEdit();
+    this.diagnosisService.update(updated.id, updated).subscribe({
+      next: () => {
+        const index = this.diagnoses.findIndex(d => d.id === updated.id);
+        if (index !== -1) this.diagnoses[index] = updated;
+        this.cancelEdit();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Diagnosis updated successfully'
+        });
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to update diagnosis'
+        });
+      }
     });
   }
 
@@ -93,7 +189,6 @@ export class ManageDiagnosesComponent {
     }
   }
 
-  // فلترة التشخيصات حسب البحث
   get filteredDiagnoses(): Diagnosis[] {
     if (!this.searchTerm.trim()) {
       return this.diagnoses;
@@ -116,5 +211,4 @@ export class ManageDiagnosesComponent {
       this.currentPage = page;
     }
   }
-
 }
