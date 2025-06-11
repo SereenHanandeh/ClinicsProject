@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-home',
 
   standalone: true,
-  imports: [ RouterModule],
+  imports: [RouterModule, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
