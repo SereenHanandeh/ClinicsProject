@@ -29,20 +29,21 @@ export class BookAppointmentComponent {
   minDate: string = '';
 
   ngOnInit(): void {
-    this.doctorId = this.route.snapshot.paramMap.get('doctorId') || '';
-    const user = localStorage.getItem('currentUser');
-    this.currentUser = user ? JSON.parse(user) : null;
+  this.doctorId = this.route.snapshot.paramMap.get('doctorId') || '';
+  const user = localStorage.getItem('currentUser');
+  this.currentUser = user ? JSON.parse(user) : null;
 
-    const today = new Date();
-    this.minDate = today.toISOString().split('T')[0]; // مثال: "2025-05-26"
+  const today = new Date();
+  today.setDate(today.getDate() + 1);  // هنا أضفنا يوم واحد
+  this.minDate = today.toISOString().split('T')[0];
 
-    // استعادة التاريخ المحجوز مسبقًا في حال كان محفوظاً
-    const savedDate = localStorage.getItem('selectedDate');
-    if (savedDate) {
-      this.selectedDate = savedDate;
-      this.loadBookedTimes();
-    }
+  const savedDate = localStorage.getItem('selectedDate');
+  if (savedDate) {
+    this.selectedDate = savedDate;
+    this.loadBookedTimes();
   }
+}
+
 
   constructor(private route: ActivatedRoute,private httpClient:HttpClient) {}
 

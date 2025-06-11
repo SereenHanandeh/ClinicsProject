@@ -1,28 +1,41 @@
 <p-toast></p-toast>
-<h1 class="section-title">{{ 'MY_APPOINTMENTS.TITLE' | translate }}</h1>
+<h1 class="section-title">{{ "MY_APPOINTMENTS.TITLE" | translate }}</h1>
 
 <div class="appointments-container">
   <ul
     *ngIf="appointments.length > 0; else noAppointments"
     class="appointments-list"
   >
-    <li
-      *ngFor="let appointment of appointments"
-      class="appointment-item"
-    >
+    <li *ngFor="let appointment of appointments" class="appointment-item">
       <div class="appointment-info">
-        <span class="doctor-name">{{ getDoctorName(appointment.doctorId) }}</span>
-        <span class="clinic-name"> - {{ getClinicName(appointment.doctorId) }}</span>
+        <span class="doctor-name">
+          {{ getDoctorName(appointment.doctorId) }}
+        </span>
+        <span class="clinic-name">
+          - {{ getClinicName(appointment.doctorId) }}
+        </span>
+        <span class="appointment-status"> - {{ appointment.status }}</span>
       </div>
 
       <div class="appointment-datetime">
         📅 {{ appointment.date | date : "fullDate" }}<br />
         🕒 {{ appointment.date | date : "shortTime" }}
       </div>
+      <br />
+      <div class="appointment-actions">
+        <button
+          class="cancel-button"
+          (click)="cancelAppointment(appointment.id)"
+        >
+          ❌ Cancel Appointment
+        </button>
+      </div>
     </li>
   </ul>
 
   <ng-template #noAppointments>
-    <p class="no-appointments-msg">{{ 'MY_APPOINTMENTS.NO_APPOINTMENTS_MSG' | translate }}</p>
+    <p class="no-appointments-msg">
+      {{ "MY_APPOINTMENTS.NO_APPOINTMENTS_MSG" | translate }}
+    </p>
   </ng-template>
 </div>
