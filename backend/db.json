@@ -340,19 +340,6 @@
   ],
   "appointments": [
     {
-      "id": "1749589195890",
-      "doctorId": 1,
-      "patientId": "f543",
-      "patientName": "sereen hanandeh",
-      "date": "2025-06-27T09:00",
-      "status": "pending",
-      "details": {
-        "drugs": [],
-        "diagnosis": "",
-        "payment": 0
-      }
-    },
-    {
       "id": "1749589529639",
       "doctorId": 9,
       "patientId": "f543",

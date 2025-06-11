@@ -8,11 +8,12 @@ import { Clinic } from '../../../core/models/clinic.model';
 import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-my-appointments',
   standalone: true,
-  imports: [CommonModule, TranslatePipe,ToastModule],
+  imports: [CommonModule, TranslatePipe, ToastModule, ButtonModule],
   providers: [MessageService],
   templateUrl: './my-appointments.component.html',
   styleUrls: ['./my-appointments.component.scss'],
@@ -29,6 +30,7 @@ export class MyAppointmentsComponent implements OnInit {
   constructor(
     private patientService: PatientService,
     private authService: AuthService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
