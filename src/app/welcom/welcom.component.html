@@ -1,9 +1,11 @@
-<div class="card card-link" (click)="goToUserPage()" style="cursor: pointer">
+<div class="fireworks-container">
+  <canvas id="fireworks"></canvas>
+</div>
+
+<div class="welcome-card" (click)="goToUserPage()">
   <h1>{{ 'WELCOME_PAGE.welcomeMessage' | translate }}</h1>
   <p class="lead">
     {{ 'WELCOME_PAGE.registrationSuccess' | translate }}<br />
     <small>{{ 'WELCOME_PAGE.platformName' | translate }}</small>
   </p>
 </div>
-
-<script src="assets/js/welcom.js"></script>

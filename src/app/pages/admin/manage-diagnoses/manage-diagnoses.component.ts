@@ -97,17 +97,29 @@ export class ManageDiagnosesComponent {
     });
   }
 
-  deleteDiagnosis(id: number): void {
-    this.messageService.add({
-      key: 'confirm',
-      severity: 'warn',
-      summary: 'Confirm Delete',
-      detail: 'Are you sure you want to delete this diagnosis?',
-      sticky: true,
-      life: 3000,
-      data: { id }
-    });
-  }
+deleteDiagnosis(id: number): void {
+  this.diagnosisService.delete(id).subscribe({
+    next: () => {
+      this.diagnoses = this.diagnoses.filter(d => d.id !== id);
+      if (this.currentPage > this.totalPages) {
+        this.currentPage = this.totalPages;
+      }
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Diagnosis deleted successfully'
+      });
+    },
+    error: () => {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Failed to delete diagnosis'
+      });
+    }
+  });
+}
+
 
   onConfirmDelete(id: number): void {
     this.diagnosisService.delete(id).subscribe({

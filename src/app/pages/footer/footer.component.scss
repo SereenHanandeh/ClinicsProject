@@ -39,15 +39,14 @@
 
 /* الأيقونة */
 .footer i {
-  color: #ffc107;
+  color: #2cb48f;
   margin: 0 15px;
-  background-color: #222;        /* خلفية داكنة */
+  // background-color: #222;        /* خلفية داكنة */
   padding: 15px 30px;
   display: flex;
   justify-content: flex-end;     /* زر التبديل على اليمين */
   align-items: center;
   direction: ltr;                /* ليكون ترتيب المحتوى من اليسار لليمين */
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .lang-select {

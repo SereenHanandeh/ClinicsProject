@@ -191,7 +191,9 @@
     "IMAGE_URL": "Image URL",
     "IMAGE_PREVIEW_ALT": "Doctor Image",
     "SAVE_CHANGES": "Save Changes",
-    "LOADING": "Loading doctor data..."
+    "LOADING": "Loading doctor data...",
+    "DOCTOR_PROFILE.IMAGE_UPLOAD": "Upload Image"
+
   },
   "PATIENT_HISTORY": {
     "TITLE": "Patient History",
@@ -259,6 +261,17 @@
     "DEPARTMENTS": "Departments",
     "TEAM": "Our Team",
     "CONTACT": "Contact",
-    "LOGIN": "Login"
+    "LOGIN": "Login",
+    "welcomeTitle": "WELCOME TO NABDA",
+    "welcomeSubtitle": "Accurate and Trusted Healthcare — Trusted by 95% of Patients",
+    "whyChooseTitle": "Why Choose NABDA?",
+    "whyChooseDescription": "At NABDA, your health is in expert hands. Our clinic hosts a team of certified doctors, experienced specialists, and dedicated nurses who work together to provide top-tier medical care tailored to your needs.",
+    "expertDoctorsTitle": "Expert Doctors",
+    "expertDoctorsDescription": "A trusted team of certified specialists across various medical fields.",
+    "fastBookingTitle": "Fast & Easy Booking",
+    "fastBookingDescription": "Book your appointment online in seconds with flexible timing options.",
+    "smartClinicTitle": "Smart Clinic Management",
+    "smartClinicDescription": "All records, prescriptions, and appointments managed securely in one place.",
+    "l": "Learn More"
   }
 }

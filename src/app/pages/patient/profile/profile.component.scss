@@ -20,7 +20,7 @@ form:hover {
 
 h1 {
   text-align: center;
-  color: #27ae60; /* أخضر أنعم وأهدى */
+  color: #2cb48f; /* أخضر أنعم وأهدى */
   margin-bottom: 2rem;
   font-weight: 800;
   font-family: "Poppins", sans-serif;
@@ -50,13 +50,13 @@ select {
 
 input:focus,
 select:focus {
-  border-color: #27ae60;
+  border-color: #2cb48f;
   outline: none;
-  box-shadow: 0 0 8px #27ae6099;
+  box-shadow: 0 0 8px #2cb48f;
 }
 
 button {
-  background-color: #27ae60;
+  background-color: #2cb48f;
   color: #fff;
   padding: 1rem 1.2rem;
   font-size: 1.1rem;
@@ -78,7 +78,7 @@ button:disabled {
 }
 
 button:hover:not(:disabled) {
-  background-color: #219150;
+  background-color: #2cb48f;
   box-shadow: 0 10px 25px rgba(33, 145, 80, 0.65);
 }
 

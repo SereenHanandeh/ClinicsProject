@@ -72,16 +72,22 @@ export class ManageClinicsComponent {
     });
   }
 
-  deleteClinic(id: number) {
-    this.messageService.add({
-      key: 'confirm',
-      severity: 'warn',
-      summary: 'Are you sure?',
-      detail: 'Confirm to delete this clinic',
-      sticky: true,
-      data: { id },
+deleteClinic(id: number) {
+  const confirmed = window.confirm('Are you sure you want to delete this clinic?');
+  if (confirmed) {
+    this.clinicService.deleteClinic(id).subscribe({
+      next: () => {
+        alert('Clinic deleted successfully');
+        this.loadClinics();
+      },
+      error: (err) => {
+        console.error('Error deleting clinic', err);
+        alert('Failed to delete clinic. Please try again later.');
+      }
     });
   }
+}
+
 
   onConfirmDelete(id: number) {
     this.clinicService.deleteClinic(id).subscribe({

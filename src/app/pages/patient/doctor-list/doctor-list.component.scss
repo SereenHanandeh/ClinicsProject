@@ -1,6 +1,6 @@
 .section-title {
   text-align: center;
-  color: #27ae60; /* أخضر حيوي */
+  color: #2cb48f; /* أخضر حيوي */
   font-size: 3rem; /* تكبير الخط قليلاً */
   margin-bottom: 3.5rem;
   font-weight: 900; /* وزن ثقيل */
@@ -16,7 +16,7 @@
   width: 230px;
   padding: 1.4rem 1.2rem;
   background-color: #eaf6f4; /* أخف وأكثر نعومة */
-  color: #22543d; /* لون أخضر أعمق */
+  color: #2cb48f; /* لون أخضر أعمق */
   font-weight: 700;
   font-size: 1.4rem;
   border-radius: 14px;
@@ -32,7 +32,7 @@
 }
 
 .clinic-button:hover {
-  background-color: #27ae60;
+  background-color: #2cb48f;
   color: #fff;
   transform: translateY(-10px);
   box-shadow: 0 14px 36px rgba(99, 221, 150, 0.35);
@@ -40,10 +40,10 @@
 
 /* عند الضغط */
 #clinic-buttons-container:active {
-  border: 2.5px solid #1e8449;
+  border: 2.5px solid #2cb48f;
   color: #e0f2f1;
-  background-color: #196f3d;
-  box-shadow: 0 0 8px #1e8449;
+  background-color: #2cb48f;
+  box-shadow: 0 0 8px #2cb48f;
 }
 
 /* صور العيادات */
@@ -107,7 +107,7 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1.8rem;
-  border: 5px solid #27ae6033;
+  border: 5px solid #2cb48f;
   transition: transform 0.4s ease;
   filter: drop-shadow(0 2px 4px rgba(39, 174, 96, 0.2));
 }
@@ -122,7 +122,7 @@
   margin-bottom: 0.8rem;
   letter-spacing: 1px;
   text-transform: capitalize;
-  color: #234d20;
+  color: #2cb48f;
   text-shadow: 0 1px 3px rgba(39, 174, 96, 0.4);
 }
 
@@ -139,7 +139,7 @@
 .book-appointment {
   margin-top: 2rem;
   padding: 14px 28px;
-  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  background: linear-gradient(90deg, #2cb48f, #2cb48f);
   border-radius: 12px;
   font-size: 1.3rem;
   font-weight: 700;
@@ -152,8 +152,11 @@
 }
 
 .book-appointment:hover {
-  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  background: linear-gradient(90deg, #2cb48f, #2cb48f);
   box-shadow: 0 10px 26px rgba(39, 174, 96, 0.75);
+}
+h1{
+  color: #2cb48f;
 }
 
 /* الفواصل الصغيرة */

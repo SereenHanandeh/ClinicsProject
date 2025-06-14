@@ -1,22 +1,34 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Drug } from '../../../core/models/durg.model';
 import { DrugService } from '../../../core/services/Drug/drug.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslatePipe } from "../../../shared/pips/translate.pipe";
+import { TranslatePipe } from '../../../shared/pips/translate.pipe';
 
 @Component({
   selector: 'app-manage-drugs',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule, TranslatePipe],
+  imports: [
+    RouterModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    TranslatePipe,
+  ],
   templateUrl: './manage-drugs.component.html',
-  styleUrl: './manage-drugs.component.scss'
+  styleUrl: './manage-drugs.component.scss',
 })
 export class ManageDrugsComponent {
-  allDrugs: Drug[] = [];        // جميع الأدوية
-  filteredDrugs: Drug[] = [];   // الأدوية بعد التصفية
-  paginatedDrugs: Drug[] = [];  // الأدوية في الصفحة الحالية
+  allDrugs: Drug[] = []; // جميع الأدوية
+  filteredDrugs: Drug[] = []; // الأدوية بعد التصفية
+  paginatedDrugs: Drug[] = []; // الأدوية في الصفحة الحالية
 
   drugForm: FormGroup;
   isEditing = false;
@@ -32,7 +44,7 @@ export class ManageDrugsComponent {
 
   constructor(private drugService: DrugService, private fb: FormBuilder) {
     this.drugForm = this.fb.group({
-      name: ['', Validators.required]
+      name: ['', Validators.required],
     });
   }
 
@@ -47,8 +59,9 @@ export class ManageDrugsComponent {
         this.filterDrugs(); // تصفية مبدئية (بدون بحث)
       },
       error: () => {
-        this.errorMessage = 'حدث خطأ أثناء جلب قائمة الأدوية';
-      }
+        this.errorMessage =
+          'An error occurred while fetching the medication list.';
+      },
     });
   }
 
@@ -56,7 +69,7 @@ export class ManageDrugsComponent {
     const term = this.searchTerm.trim().toLowerCase();
 
     if (term) {
-      this.filteredDrugs = this.allDrugs.filter(d =>
+      this.filteredDrugs = this.allDrugs.filter((d) =>
         d.name.toLowerCase().includes(term)
       );
     } else {
@@ -87,7 +100,7 @@ export class ManageDrugsComponent {
     if (this.isEditing && this.editDrugId !== null) {
       const updatedDrug: Drug = {
         id: this.editDrugId,
-        name: this.drugForm.value.name
+        name: this.drugForm.value.name,
       };
 
       this.drugService.update(this.editDrugId, updatedDrug).subscribe({
@@ -98,15 +111,17 @@ export class ManageDrugsComponent {
         },
         error: () => {
           this.loading = false;
-          this.errorMessage = 'فشل تحديث الدواء';
-        }
+          this.errorMessage = 'Failed to update medication';
+        },
       });
-
     } else {
-      const maxId = this.allDrugs.length > 0 ? Math.max(...this.allDrugs.map(d => d.id)) : 0;
+      const maxId =
+        this.allDrugs.length > 0
+          ? Math.max(...this.allDrugs.map((d) => d.id))
+          : 0;
       const newDrug: Drug = {
         id: maxId + 1,
-        name: this.drugForm.value.name
+        name: this.drugForm.value.name,
       };
 
       this.drugService.add(newDrug).subscribe({
@@ -117,8 +132,8 @@ export class ManageDrugsComponent {
         },
         error: () => {
           this.loading = false;
-          this.errorMessage = 'فشل إضافة الدواء';
-        }
+          this.errorMessage = 'Failed to add drug';
+        },
       });
     }
   }
@@ -127,7 +142,7 @@ export class ManageDrugsComponent {
     this.isEditing = true;
     this.editDrugId = drug.id;
     this.drugForm.patchValue({
-      name: drug.name
+      name: drug.name,
     });
   }
 
@@ -143,19 +158,18 @@ export class ManageDrugsComponent {
   }
 
   deleteDrug(id: number) {
-    if (!confirm('هل أنت متأكد من حذف هذا الدواء؟')) return;
+    if (!confirm('Are you sure you want to delete this medication?')) return;
 
     this.drugService.delete(id).subscribe({
       next: () => {
         this.loadDrugs();
       },
       error: () => {
-        this.errorMessage = 'فشل حذف الدواء';
-      }
+        this.errorMessage = 'Failed to delete drug';
+      },
     });
   }
   onSearchChange() {
-  this.filterDrugs();
-}
-
+    this.filterDrugs();
+  }
 }

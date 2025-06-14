@@ -34,7 +34,7 @@ export class BookAppointmentComponent {
   this.currentUser = user ? JSON.parse(user) : null;
 
   const today = new Date();
-  today.setDate(today.getDate() + 1);  // هنا أضفنا يوم واحد
+  today.setDate(today.getDate() + 1);
   this.minDate = today.toISOString().split('T')[0];
 
   const savedDate = localStorage.getItem('selectedDate');
